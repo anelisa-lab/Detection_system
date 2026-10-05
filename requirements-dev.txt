@@ -1,0 +1,3 @@
+-r requirements.txt
+pytest
+playwright            # only for scripts/screenshots.py (also needs Google Chrome)

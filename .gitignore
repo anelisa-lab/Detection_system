@@ -1,0 +1,7 @@
+data/
+artifacts_*/
+artifacts/reports/
+__pycache__/
+*.log
+.pytest_cache/
+pytest-cache-files-*/

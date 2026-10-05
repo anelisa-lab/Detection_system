@@ -1,0 +1,146 @@
+{
+  "class_names": [
+    "early",
+    "mid",
+    "late"
+  ],
+  "hc_thresholds_mm": [
+    220.0,
+    290.0
+  ],
+  "img_size": 224,
+  "denoise": true,
+  "task": "Gestational age regression (head circumference mapped with Hadlock 1984) plus a 3-class stage classifier (proxy task, guide Section 3.4)",
+  "metrics": {
+    "recall_sensitivity": 0.8899082568807339,
+    "accuracy": 0.8899082568807339,
+    "precision": 0.8707886004294358,
+    "f1": 0.8780033392838849,
+    "specificity": 0.7887069391976974,
+    "false_positive_rate": 0.2112930608023026
+  },
+  "validity": {
+    "k": 5,
+    "warn": 0.19401226341724395,
+    "p90": 0.1822282075881958,
+    "reject": 0.22489052683115004,
+    "heldout_n": 218,
+    "heldout_median": 0.1391465663909912,
+    "heldout_max": 0.28588801622390747,
+    "expected_false_reject_rate": 0.005
+  },
+  "locator": {
+    "test_mean_iou": 0.8026871800211469,
+    "test_iou_ge_0.5": 0.9587155963302753
+  },
+  "heatmap_check": {
+    "test_median_overlap": 0.5400045216083527,
+    "test_share_overlap_ge_50": 0.5412844036697247,
+    "test_share_peak_on_skull": 0.6422018348623854,
+    "ga_p5_weeks": 13.0069485056,
+    "min_overlap": 0.5
+  },
+  "regression": {
+    "hc_mean_mm": 176.08548543689318,
+    "hc_std_mm": 64.72833383815298,
+    "formula": "Hadlock et al., Radiology 1984;152:497-501 (head-circumference formula)",
+    "interval_days": 17.857658808923354,
+    "test": {
+      "n": 218,
+      "mae_days": 10.280996647651659,
+      "median_abs_error_days": 6.825717328790942,
+      "rmse_days": 15.508664078675483,
+      "mae_hc_mm": 17.049386308302573,
+      "r2_ga": 0.8642714899524155,
+      "within_7_days": 0.5275229357798165,
+      "within_14_days": 0.7889908256880734,
+      "epochs_trained": 42,
+      "interval_days_80pct_validation": 17.857658808923354
+    }
+  },
+  "per_class": {
+    "early": {
+      "precision": 0.9468085106382979,
+      "recall_sensitivity": 1.0,
+      "f1": 0.9726775956284153,
+      "specificity": 0.75,
+      "support": 178
+    },
+    "mid": {
+      "precision": 0.55,
+      "recall_sensitivity": 0.4230769230769231,
+      "f1": 0.4782608695652174,
+      "specificity": 0.953125,
+      "support": 26
+    },
+    "late": {
+      "precision": 0.5,
+      "recall_sensitivity": 0.35714285714285715,
+      "f1": 0.4166666666666667,
+      "specificity": 0.9754901960784313,
+      "support": 14
+    }
+  },
+  "screening_20w": {
+    "threshold_weeks": 20.0,
+    "n": 218,
+    "n_positive": 108,
+    "n_negative": 110,
+    "counts": {
+      "tp": 85,
+      "fp": 23,
+      "fn": 23,
+      "tn": 87
+    },
+    "recall_sensitivity": {
+      "value": 0.7870370370370371,
+      "ci95": [
+        0.6910532150776053,
+        0.8723456403838131
+      ]
+    },
+    "precision": {
+      "value": 0.7870370370370371,
+      "ci95": [
+        0.6868686868686869,
+        0.8695907928388745
+      ]
+    },
+    "specificity": {
+      "value": 0.7909090909090909,
+      "ci95": [
+        0.6907216494845361,
+        0.8692307692307693
+      ]
+    },
+    "accuracy": {
+      "value": 0.7889908256880734,
+      "ci95": [
+        0.717166952544311,
+        0.8527956106300388
+      ]
+    },
+    "prevalence_at_or_above_threshold": 0.4954128440366973,
+    "majority_baseline_accuracy": 0.5045871559633027,
+    "bootstrap": {
+      "resamples": 2000,
+      "unit": "patient"
+    }
+  },
+  "split": {
+    "grouped_by": "groups of linked scans (repeat-scan suffix, neighbouring image numbers, same pixel size); heuristic",
+    "n_images": 999,
+    "n_patients": 585,
+    "images_per_split": {
+      "train": 618,
+      "val": 163,
+      "test": 218
+    },
+    "patients_per_split": {
+      "train": 375,
+      "val": 94,
+      "test": 116
+    },
+    "patients_in_more_than_one_split": 0
+  }
+}

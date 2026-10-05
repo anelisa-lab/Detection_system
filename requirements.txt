@@ -1,0 +1,9 @@
+tensorflow-cpu>=2.16    # CPU build: smaller and faster to install
+streamlit>=1.40
+opencv-python-headless
+pydicom
+scikit-learn
+pandas
+numpy
+matplotlib
+fpdf2
