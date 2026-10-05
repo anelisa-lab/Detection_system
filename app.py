@@ -79,14 +79,18 @@ with st.sidebar:
                    f"Within 14 days: {t['within_14_days']:.0%}.")
         m = meta.get("metrics", {})
         st.table(pd.DataFrame({
-            "Stage classifier": ["Recall", "Accuracy", "Precision", "F1", "Specificity"],
-            "Score": [m.get(k) for k in ("recall_sensitivity", "accuracy", "precision", "f1", "specificity")],
+            "Stage classifier": ["Accuracy (= weighted recall)", "Precision", "F1", "Specificity"],
+            "Score": [m.get(k) for k in ("accuracy", "precision", "f1", "specificity")],
         }).round(3))
+        pc = meta.get("per_class", {})
+        if pc:
+            base = max(v["support"] for v in pc.values()) / sum(v["support"] for v in pc.values())
+            st.caption(f"Stage accuracy should be read against the always-\"early\" baseline of {base:.1%}.")
         st.caption(f"Age formula: {reg['formula']}.")
 
 # --- top bar, question and upload ---------------------------------------------------------------------
 
-st.markdown('<div class="topbar"><h1>Early detection of cryptic pregnancy</h1>'
+st.markdown('<div class="topbar"><h1>Late-discovery screening aid for cryptic pregnancy</h1>'
             '<span class="sub">Ultrasound prototype · gestational age from the fetal head</span></div>',
             unsafe_allow_html=True)
 

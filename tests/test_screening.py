@@ -97,9 +97,19 @@ def test_found_out_late_is_softened_when_image_is_limited():
     assert s.badge == CRYPTIC and s.label.startswith("May be cryptic by the usual definition")
 
 
-def test_found_out_late_but_scan_under_20_weeks_is_not_cryptic_with_a_note():
+def test_found_out_late_is_cryptic_even_when_scan_is_under_20_weeks():
     s = screen(15.0, HALF, "Good", YES, weeks_found=24)
-    assert s.badge == NOT_CRYPTIC and any("scan suggests a shorter" in n for n in s.notes)
+    assert s.badge == CRYPTIC and s.label.startswith("Cryptic by the usual definition")
+    assert not s.borderline and any("do not agree" in n for n in s.notes)
+
+
+def test_found_out_late_settles_a_borderline_estimate():
+    s = screen(20.0, HALF, "Good", YES, weeks_found=22)
+    assert s.badge == CRYPTIC and not s.borderline
+
+
+def test_cannot_assess_tells_the_user_to_see_a_clinician():
+    assert "see a clinician regardless" in screen(None, HALF, "Good", NO).sentence
 
 
 def test_weeks_found_later_than_scan_note():

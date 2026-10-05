@@ -1,9 +1,11 @@
-tensorflow-cpu>=2.16    # CPU build: smaller and faster to install
-streamlit>=1.40
-opencv-python-headless
-pydicom
-scikit-learn
-pandas
-numpy
-matplotlib
-fpdf2
+# Exact versions the committed artifacts/model.keras was saved and tested with (Python 3.11).
+tensorflow-cpu==2.21.0     # CPU build: smaller and faster to install
+keras==3.15.1
+streamlit==1.65.0
+opencv-python-headless==5.0.0.93
+pydicom==3.0.2
+scikit-learn==1.9.1
+pandas==3.0.6
+numpy==2.4.6
+matplotlib==3.11.2
+fpdf2==2.8.9
