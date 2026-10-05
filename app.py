@@ -73,10 +73,29 @@ with st.sidebar:
         st.toggle("Light theme", key="light", help="Brighter cards for bright rooms.")
     with st.expander("Model performance"):
         t = reg["test"]
+        n = t.get("n")
+        st.caption(f"Held-out HC18 test scans (n = {n}).")
+        st.markdown("**1. Age estimate**")
         st.metric("Age error (MAE)", f"{t['mae_days']:.1f} days",
                   help="Mean absolute error of the gestational-age estimate on held-out HC18 scans.")
-        st.caption(f"Typical range shown: ±{half_days:.0f} days (80% of validation errors were within it). "
-                   f"Within 14 days: {t['within_14_days']:.0%}.")
+        st.caption(f"Median {t['median_abs_error_days']:.1f} days, RMSE {t['rmse_days']:.1f} days, "
+                   f"R\u00b2 {t['r2_ga']:.3f}. Within 7 days: {t['within_7_days']:.1%}; "
+                   f"within 14 days: {t['within_14_days']:.1%}. "
+                   f"Range shown in the app: \u00b1{half_days:.1f} days (80% of validation errors).")
+        sc = meta.get("screening_20w")
+        if sc:
+            st.markdown("**2. 20-week screening** (is the pregnancy 20 weeks or more?)")
+            rows = []
+            for label, key in (("Recall (sensitivity)", "recall_sensitivity"), ("Precision", "precision"),
+                               ("Specificity", "specificity"), ("Accuracy", "accuracy")):
+                v, (lo, hi) = sc[key]["value"], sc[key]["ci95"]
+                rows.append({"Metric": label, "Value": f"{v:.1%}", "95% CI": f"{lo:.1%} to {hi:.1%}"})
+            st.table(pd.DataFrame(rows))
+            c = sc["counts"]
+            st.caption(f"{c['tp']} TP, {c['fp']} FP, {c['fn']} FN, {c['tn']} TN. Majority baseline accuracy "
+                       f"{sc['majority_baseline_accuracy']:.1%}. Reference is Hadlock age from head circumference, "
+                       "not clinical dating.")
+        st.markdown("**3. Stage classifier** (early / mid / late, secondary)")
         m = meta.get("metrics", {})
         st.table(pd.DataFrame({
             "Stage classifier": ["Accuracy (= weighted recall)", "Precision", "F1", "Specificity"],
@@ -85,7 +104,9 @@ with st.sidebar:
         pc = meta.get("per_class", {})
         if pc:
             base = max(v["support"] for v in pc.values()) / sum(v["support"] for v in pc.values())
-            st.caption(f"Stage accuracy should be read against the always-\"early\" baseline of {base:.1%}.")
+            st.caption(f"Read stage accuracy against the always-\"early\" baseline of {base:.1%}. "
+                       + " ".join(f"{k} recall {v['recall_sensitivity']:.1%} ({v['support']} scans)."
+                                  for k, v in pc.items() if k != "early"))
         st.caption(f"Age formula: {reg['formula']}.")
 
 # --- top bar, question and upload ---------------------------------------------------------------------
