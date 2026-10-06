@@ -1,10 +1,13 @@
-# Late-discovery screening aid for cryptic pregnancy: HC18 model and web app
+# Early detection of cryptic pregnancy: HC18 model and web app
 
-A research prototype that estimates gestational age from a fetal-head ultrasound (HC18 dataset, TensorFlow/Keras
-ResNet50) and, from that estimate plus one question, flags pregnancies discovered late (about 20 weeks or later),
-the usual definition of cryptic. It is a **screening aid for a clinician to confirm**, not a diagnostic tool: it
-does not detect cryptic pregnancy, and HC18 contains no confirmed cryptic pregnancies. Built on the GROUP11 research guide
-(`GROUP11_PRJT302_updated_v2`), with Grad-CAM for explanation.
+Implements the pipeline in the GROUP11 research guide (`GROUP11_PRJT302_updated_v2`):
+a ResNet50 transfer-learning CNN with Grad-CAM, trained on the HC18 fetal head
+ultrasound dataset, plus a Streamlit app that serves it.
+
+The model estimates gestational age from a fetal-head ultrasound and, from that estimate plus one question,
+suggests whether a pregnancy was recognised late (about 20 weeks or later, the usual definition of cryptic).
+It is a research prototype for a clinician to confirm, not a diagnostic tool, and HC18 contains no confirmed
+cryptic pregnancies.
 
 All numbers below are from the held-out test split (218 scans) of `artifacts/reports/metrics.json`
 (also stored in `artifacts/metadata.json`).
