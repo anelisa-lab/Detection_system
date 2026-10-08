@@ -11,7 +11,7 @@ This folder collects everything from the "is this a fetal head?" work (two studi
 | `02_testing_set/` | The 3,031 test images (Barcelona 2,478, HC18 held-out 218, HC18 test_set 335), one CSV per dataset with labels and each check's decision at 95% and 98%, SHA-256 manifest and the no-training-image check result. | 473.4 MB | files yes; `images/` no (git-ignored) | Reviewers and group members who want to re-test |
 | `02_testing_set.zip` | The folder above as one zip (+ .sha256). | 474.0 MB | no (git-ignored; SHA-256 yes) | Group members, markers |
 | `03_results/` | Final evaluation tables (CSV), one-page RESULTS_SUMMARY.md, example images, safety-failure lists, app screenshots (abdomen, femur, thorax, trans-thalamic, 1_2HC.png). | 12.5 MB | yes | Whoever writes the report or paper |
-| `04_code_and_models/` | Scripts to reproduce training and evaluation, the saved head classifier and thresholds, requirements.txt, exact commands in README.txt. | 381 KB | yes | Developers |
+| `04_code_and_models/` | Scripts to reproduce training and evaluation, the saved head classifier and thresholds, requirements.txt, exact commands in README.txt. | 389 KB | yes | Developers |
 | `05_share_with_group/` | Summary, citations and licences, NOTICE.md, results summary and a copy of the testing zip. | 474.1 MB | files yes; the zip copy no (git-ignored) | All group members |
 
 **Total size on disk: 1,435.3 MB.** Size that goes into git (everything except the test images and the zips): **14.7 MB**.

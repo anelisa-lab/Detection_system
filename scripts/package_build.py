@@ -7,6 +7,7 @@ never touches the app, the model or the thresholds. Every table and number is ge
 import argparse
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -22,7 +23,7 @@ import pandas as pd
 from hcml.headcheck import HeadCheck
 from hcml.validity import Reference
 
-CACHE = Path("/home/user/head_check_cache")
+CACHE = Path(os.environ.get("HEAD_CHECK_CACHE", "/home/user/head_check_cache"))
 S1, S2 = ROOT / "eval_head_check", ROOT / "eval_head_check_hc18"
 LABELLED = ("Cryptic", "Possibly cryptic")
 FETAL_CITE = ("Burgos-Artizzu, X.P., Coronado-Gutierrez, D., Valenzuela-Alcaraz, B., Bonet-Carne, E., Eixarch, E., Crispi, F., "
@@ -355,7 +356,7 @@ def stage03(pkg):
         m.insert(0, "group", tag)
         parts.append(m.drop(columns=[c for c in m.columns if c.startswith("head_view_tile")]))
     pd.concat(parts).to_csv(tdir / "app_before_after_cases.csv", index=False)
-    u = Path("/tmp/claude-0/-home-user/98072213-0bba-5ac3-ad33-0076f98b99eb/scratchpad/user_case")
+    u = w / "user_1_2HC"
     if (u / "cases_user_before.csv").exists():
         B, A = pd.read_csv(u / "cases_user_before.csv"), pd.read_csv(u / "cases_user_after.csv")
         m = B.merge(A, on=["case", "answer"], suffixes=("_before", "_after"))
@@ -494,7 +495,7 @@ SCRIPTS = ["head_check_make_lists.py", "head_check_extract.py", "head_check_comm
            "head_check_pipeline.py", "head_check_final.py", "head_check_hc18_fit.py", "head_check_hc18_final.py",
            "head_check_hc18_examples.py", "head_check_hc18_age_bands.py", "export_head_check.py", "eval_fetal_planes.py",
            "eval_fetal_planes_app_check.py", "eval_fetal_planes_screens.py", "wiring_cases.py", "rebuild_training_set.py",
-           "package_check_no_leak.py", "package_build.py"]
+           "package_check_no_leak.py", "package_build.py", "update_readme_numbers.py"]
 
 
 def stage04(pkg):
@@ -537,7 +538,7 @@ EXACT COMMANDS TO RE-RUN EVERYTHING (about 1.5 hours on 4 CPU cores; no GPU need
 1. Data (details and checksums in 01_training_set/README.txt). The study scripts use these locations; symlink if yours differ:
      /home/user/data_fetal_planes_unzipped   (unzipped FETAL_PLANES_ZENODO.zip: Images/ and FETAL_PLANES_DB_data.csv)
      /home/user/data_hc18_unzipped           (training_set/training_set/*.png, test_set/test_set/*.png, training_set_pixel_size_and_HC.csv)
-     mkdir -p /home/user/head_check_cache
+     mkdir -p /home/user/head_check_cache      # or set HEAD_CHECK_CACHE to another folder; scripts say so if it is empty
 2. Image lists and embeddings from the app's own frozen encoder:
      python scripts/head_check_make_lists.py --fetal /home/user/data_fetal_planes_unzipped --hc18 /home/user/data_hc18_unzipped --cache /home/user/head_check_cache
      python scripts/head_check_extract.py --list /home/user/head_check_cache/fetal_list.csv --out /home/user/head_check_cache/fetal
@@ -557,7 +558,7 @@ EXACT COMMANDS TO RE-RUN EVERYTHING (about 1.5 hours on 4 CPU cores; no GPU need
 6. Run the app (95% default; 98% with the environment variable) and the tests:
      streamlit run app.py
      HEAD_CHECK_TARGET=98 streamlit run app.py
-     python -m pytest tests -q          # 99 passed (needs the HC18 test_set at ../data/test_set for the last test)
+     python -m pytest tests -q          # 96 passed, 3 skipped; 99 passed when the HC18 test_set is at ../data/test_set (or set HC18_TEST_SET)
 7. Before/after cases and the package itself:
      python scripts/wiring_cases.py --root . --label after --cases eval_wiring/cases.json --out eval_wiring
      python scripts/package_build.py --pkg project_package --fetal /home/user/data_fetal_planes_unzipped --hc18 /home/user/data_hc18_unzipped

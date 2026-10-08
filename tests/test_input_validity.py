@@ -105,9 +105,10 @@ def test_unreadable_and_empty_files_raise_clear_errors(predictor):
 
 @needs_model
 def test_false_rejection_rate_on_valid_scans_is_low(predictor):
-    files = sorted((ROOT.parent / "data" / "test_set").glob("*.png"))[:60]
+    ts = Path(os.environ.get("HC18_TEST_SET", ROOT.parent / "data" / "test_set"))
+    files = sorted(ts.glob("*.png"))[:60]
     if not files:
-        pytest.skip("HC18 test_set not available")
+        pytest.skip(f"HC18 test_set not found at {ts}: download test_set.zip from https://zenodo.org/records/1327317 and unzip it there, or set HC18_TEST_SET (see README, Running the tests)")
     rejected = sum(predictor.predict(p.read_bytes(), p.name).level == "rejected" for p in files)
     assert rejected / len(files) <= 0.05
 

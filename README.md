@@ -6,8 +6,8 @@ ultrasound dataset, plus a Streamlit app that serves it.
 
 The model estimates gestational age from a fetal-head ultrasound and, from that estimate plus one question,
 suggests whether a pregnancy was recognised late (about 20 weeks or later, the usual definition of cryptic).
-It is a research prototype for a clinician to confirm, not a diagnostic tool, and HC18 contains no confirmed
-cryptic pregnancies.
+**This is a research prototype. It has not been validated on cryptic pregnancies (neither dataset used contains a
+confirmed case) and it is not for medical use.** It is not a diagnostic tool; a clinician must confirm everything.
 
 All numbers below are from the held-out test split (218 scans) of `artifacts/reports/metrics.json`
 (also stored in `artifacts/metadata.json`).
@@ -168,7 +168,7 @@ photo, DICOM input, unreadable files, the false-rejection rate, the image-check 
 the `HEAD_CHECK_TARGET` setting), the rule that both checks must accept, non-head planes (abdomen, femur, thorax) refused with
 No estimate and no Cryptic label, HC18-style heads and a trans-thalamic head still accepted, the `crl_week12` and
 `week12_user_crop` fixtures, and that a Cannot assess verdict never shows an age headline. The HC18 `test_set` test needs the
-folder next to the repository (`../data/test_set`) and is skipped without it.
+folder next to the repository (`../data/test_set`, or `HC18_TEST_SET`) and is skipped without it.
 
 ### Image-check badge (Good / Limited / Poor)
 
@@ -212,15 +212,15 @@ measurement plane; always saying "not head" would be right 75.1% of the time):
 
 | Share accepted | Existing image check | Study 1: Barcelona-only, 95% / 98% | **Shipped (study 2): with HC18 heads, 95%** | **Shipped: 98%** |
 |---|---|---|---|---|
-| Heads, all brain planes | 75.4% (70.2-80.0) | 95.8% (93.8-97.5) / 99.2% (98.3-99.8) | **94.5%** (92.5-96.3) | **98.7%** (97.7-99.7) |
-| Trans-thalamic heads | 80.7% (75.1-85.5) | 98.2% (96.4-99.7) / 100.0% | **97.6%** (95.7-99.1) | **100.0%** |
-| Non-head, all (incl. Other) | 24.6% (21.0-28.4) | 0.3% (0.1-0.7) / 3.1% (2.2-4.1) | **0.2%** (0.1-0.4) | **1.4%** (0.8-2.0) |
-| Non-head, without Other | 24.6% (21.0-28.2) | 0.4% (0.1-0.8) / 3.6% (2.4-4.9) | **0.4%** (0.1-0.8) | **1.7%** (0.9-2.6) |
-| Abdomen | 42.5% (33.6-51.2) | 0.0% / 6.7% (2.9-11.5) | **0.0%** | **3.0%** (0.7-6.2) |
-| Femur | 32.3% (25.3-39.4) | 0.4% (0.0-1.5) / 3.6% (1.4-6.2) | **0.4%** (0.0-1.5) | **3.2%** (0.9-5.7) |
-| Thorax | 29.2% (22.1-36.6) | 0.9% (0.0-2.0) / 4.9% (2.6-7.5) | **0.9%** (0.0-2.0) | **1.5%** (0.3-2.9) |
-| Maternal cervix | 4.8% (1.5-9.1) | 0.0% / 0.7% (0.0-1.8) | **0.0%** | **0.4%** (0.0-1.1) |
-| Other | 24.6% (18.7-31.4) | 0.2% (0.0-0.6) / 2.5% (1.4-3.9) | **0.0%** | **1.0%** (0.4-1.8) |
+| Heads, all brain planes | 75.4% (70.2-80.0) | 95.8% (93.8-97.5) / 99.2% (98.3-99.8) | 94.5% (92.5-96.3) | 98.7% (97.7-99.7) |
+| Trans-thalamic heads | 80.7% (75.1-85.5) | 98.2% (96.4-99.7) / 100.0% (100.0-100.0) | 97.6% (95.7-99.1) | 100.0% (100.0-100.0) |
+| Non-head, all (incl. Other) | 24.6% (21.0-28.4) | 0.3% (0.1-0.7) / 3.1% (2.2-4.1) | 0.2% (0.1-0.4) | 1.4% (0.8-2.0) |
+| Non-head, without Other | 24.6% (21.0-28.2) | 0.4% (0.1-0.8) / 3.6% (2.4-4.9) | 0.4% (0.1-0.8) | 1.7% (0.9-2.6) |
+| Abdomen | 42.5% (33.6-51.2) | 0.0% (0.0-0.0) / 6.7% (2.9-11.5) | 0.0% (0.0-0.0) | 3.0% (0.7-6.2) |
+| Femur | 32.3% (25.3-39.4) | 0.4% (0.0-1.5) / 3.6% (1.4-6.2) | 0.4% (0.0-1.5) | 3.2% (0.9-5.7) |
+| Thorax | 29.2% (22.1-36.6) | 0.9% (0.0-2.0) / 4.9% (2.6-7.5) | 0.9% (0.0-2.0) | 1.5% (0.3-2.9) |
+| Maternal cervix | 4.8% (1.5-9.1) | 0.0% (0.0-0.0) / 0.7% (0.0-1.8) | 0.0% (0.0-0.0) | 0.4% (0.0-1.1) |
+| Other | 24.6% (18.7-31.4) | 0.2% (0.0-0.6) / 2.5% (1.4-3.9) | 0.0% (0.0-0.0) | 1.0% (0.4-1.8) |
 
 Correct head / not-head decisions: 98.5% (95%) and 98.6% (98%), against 75.4% for the existing check. Brain images labelled
 "Other" (angled, non-axial heads, n=29) are accepted only 48.3% (28.1-69.2) of the time at 95%.
@@ -230,11 +230,11 @@ them, mostly early scans, which is why HC18 heads were added as positives:
 
 | Share accepted | Existing image check | Study 1 at 95% / 98% | **Shipped, 95%** | **Shipped, 98%** |
 |---|---|---|---|---|
-| Held-out 218, all | 99.1% (97.7-100.0) | 76.1% (67.8-84.1) / 85.8% (78.7-92.1) | **97.2%** (94.7-99.5) | **99.1%** (97.6-100.0) |
-| ... under 17 weeks (n=61) | 96.7% (91.8-100.0) | 26.2% (16.9-37.5) | **90.2%** (82.7-96.8) | **96.7%** (91.2-100.0) |
-| ... 17 to 20 weeks (n=49) | 100.0% | 95.9% (88.7-100.0) | **100.0%** | **100.0%** |
-| ... 20 weeks or more (n=108) | 100.0% | 95.4% (91.5-99.0) | **100.0%** | **100.0%** |
-| Unlabeled test_set 335, all | 99.4% (98.5-100.0) | 85.1% (81.2-89.0) / 93.1% (90.1-95.8) | **99.4%** (98.5-100.0) | **100.0%** |
+| Held-out 218, all | 99.1% (97.7-100.0) | 76.1% (67.8-84.1) / 85.8% (78.7-92.1) | 97.2% (94.7-99.5) | 99.1% (97.6-100.0) |
+| ... under 17 weeks (n=61) | 96.7% (91.8-100.0) | 26.2% (16.9-37.5) / 49.2% (36.1-62.5) | 90.2% (82.7-96.8) | 96.7% (91.2-100.0) |
+| ... 17 to 20 weeks (n=49) | 100.0% (100.0-100.0) | 95.9% (88.7-100.0) / 100.0% (100.0-100.0) | 100.0% (100.0-100.0) | 100.0% (100.0-100.0) |
+| ... 20 weeks or more (n=108) | 100.0% (100.0-100.0) | 95.4% (91.5-99.0) / 100.0% (100.0-100.0) | 100.0% (100.0-100.0) | 100.0% (100.0-100.0) |
+| Unlabeled test_set 335, all | 99.4% (98.5-100.0) | 85.1% (81.2-89.0) / 93.1% (90.1-95.8) | 99.4% (98.5-100.0) | 100.0% (100.0-100.0) |
 
 Held-out age bands use Hadlock age from head circumference. The test_set has no published head circumference, so its bands
 (in `eval_head_check_hc18/test_report.json`) use the app model's own estimated age.
@@ -243,11 +243,13 @@ Held-out age bands use Hadlock age from head circumference. The test_set has no 
 
 | | Existing check alone | Combined, 95% | Combined, 98% |
 |---|---|---|---|
-| Non-head images that still get an age (n=1,860) | 24.6% (21.0-28.4) | **0.1%** (2 images) | **0.8%** (14 images) |
-| ... and a Cryptic or Possibly cryptic label | 5.9% (4.4-7.5) | **0.1%** (2 images) | **0.4%** (7 images) |
+| Non-head images that still get an age (n=1,860) | 24.6% (21.0-28.4) | 0.1% (0.0-0.3) | 0.8% (0.4-1.2) |
+| ... and a Cryptic or Possibly cryptic label | 5.9% (4.4-7.5) | 0.1% (0.0-0.3) | 0.4% (0.1-0.7) |
 | Barcelona heads that get an age (n=618) | 75.4% (70.2-80.0) | 72.8% (67.9-77.3) | 75.2% (70.0-79.7) |
-| HC18 held-out heads that get an age (n=218) | 99.1% | 97.2% | 98.6% |
-| HC18 test_set heads that get an age (n=335) | 99.4% | 98.8% | 99.4% |
+| HC18 held-out heads that get an age (n=218) | 99.1% (97.7-100.0) | 97.2% (94.7-99.5) | 98.6% (96.9-100.0) |
+| HC18 test_set heads that get an age (n=335) | 99.4% (98.5-100.0) | 98.8% (97.6-99.7) | 99.4% (98.5-100.0) |
+
+Counts: of 1,860 non-head images, 2 get an age and 2 get a label at 95% (14 and 7 at 98%), against 457 and 109 with the existing check alone.
 
 ## Limitations
 
@@ -282,6 +284,14 @@ Held-out age bands use Hadlock age from head circumference. The test_set has no 
   not perfect (the most confidently accepted "femur" image shows a skull), a trans-thalamic scan that the existing image check
   refuses stays refused (a scan is accepted only if both checks accept it), and about 5% of real heads are refused by design at
   the 95% point (about 1% at 98%).
+- **The reference scan sits close to a threshold.** `1_2HC.png` (identical to HC18 `test_set/000_HC.png`; 29 weeks 1 day) is rated Good
+  because 51% of its heatmap is on the skull, against the 50% minimum. A small change to the image or the model could make it Limited,
+  which keeps the age but softens the labels to "May be ...".
+- **The manual CRL box still appears on refused images**, including images the head check refused as not a head (abdomen, femur, thorax).
+  It is the user's own measurement, but it can look odd there. It was left as it was.
+- **FETAL_PLANES_DB labels are not perfect.** "Other" is a catch-all plane that may contain heads, and some images are mislabeled (the
+  most confidently accepted "femur" image shows a skull), so some counted mistakes are label errors. Results are therefore
+  reported with and without "Other", and the example images show the cases.
 - **Not validated on cryptic pregnancies.** Neither dataset contains confirmed cryptic pregnancies; the screening result is a
   rule applied to an age estimate and one answer.
 - **Single-centre data and few first-trimester scans.** HC18 has 1 scan below 12 weeks and 55 between 12 and 13
@@ -290,6 +300,34 @@ Held-out age bands use Hadlock age from head circumference. The test_set has no 
   (Robinson & Fleming 1975) but cannot measure it from the image.
 - Not validated on non-pregnant cases. The two-class "pregnancy finding present / absent" model (guide Section 8.1)
   needs source-matched non-pregnant scans.
+
+## Running the tests
+
+```bash
+python3.11 -m venv .venv && source .venv/bin/activate        # Windows: .venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt                          # requirements.txt plus pytest, playwright and scipy
+python -m pytest tests -q
+```
+
+From a fresh clone this gives **96 passed, 3 skipped**. The three skipped tests need the HC18 `test_set` (335 images), which is
+not in the repository: download `test_set.zip` from https://zenodo.org/records/1327317, unzip it so the PNGs are in
+`../data/test_set` (next to the repository) or set `HC18_TEST_SET` to that folder, and the same run gives **99 passed**.
+Every other test uses only the committed model and the fixtures in `tests/fixtures/`. The skip messages say where the folder is looked for.
+
+Settings (environment variables, no code change): `HEAD_CHECK_TARGET` (95 default, 98 or 90, see "Head-view check"), `MODEL_DIR`
+(another model folder), `HC18_TEST_SET` (tests), `HEAD_CHECK_CACHE` (study scripts: where the image lists and embeddings are).
+
+## Files that are not in git, and how to get them
+
+* `artifacts/model.keras` (99.2 MB, under GitHub's 100 MB limit) **is** in git, so a normal `git clone` has it.
+* `project_package/02_testing_set.zip` (474,040,492 bytes) and the 3,031 extracted test images are **not** in git (GitHub rejects
+  files over 100 MB). Get the zip from whoever built the package or from a GitHub release, and check it: SHA-256
+  `17f2f7bcd9d75cccb625d12336963d207dd9cc3d7d7ace39abff9fa0577dd747` (also in `project_package/02_testing_set.zip.sha256`;
+  per-image hashes in `project_package/02_testing_set/MANIFEST_SHA256.txt`, both in git). `project_package/README.md` explains
+  how to split and rejoin it.
+* FETAL_PLANES_DB (2.09 GB) and HC18 are public and not copied here; download steps with checksums are in
+  `project_package/01_training_set/README.txt`. The embedding cache used by the study scripts (about 100 MB without the optional
+  conv5 maps) is rebuilt by the commands in `project_package/04_code_and_models/README.txt`.
 
 ## Workstation UI
 

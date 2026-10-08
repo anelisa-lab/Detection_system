@@ -1,3 +1,4 @@
 -r requirements.txt
 pytest==9.1.1
+scipy==1.17.1            # used by scripts/head_check_common.py (also installed by scikit-learn)
 playwright==1.63.0         # only for scripts/screenshots.py (also needs Google Chrome)

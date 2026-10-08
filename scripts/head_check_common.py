@@ -1,12 +1,14 @@
 """Shared helpers for the 'is this a fetal head?' check study (FETAL_PLANES_DB). Study code only: nothing here is used by
 the app, and nothing in artifacts/ is changed."""
+import os
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import StratifiedGroupKFold
 
-CACHE = Path("/home/user/head_check_cache")
+# Where the image lists and embeddings live (written by head_check_make_lists.py / head_check_extract.py).
+CACHE = Path(os.environ.get("HEAD_CHECK_CACHE", "/home/user/head_check_cache"))
 HEAD_PLANE = "Fetal brain"
 THALAMIC = "Trans-thalamic"
 RECALL_TARGETS = (0.90, 0.95, 0.98)       # head-acceptance targets used to set the threshold on validation
@@ -14,6 +16,10 @@ PRIMARY_TARGET = 0.95                      # fixed before any test image was sco
 
 
 def load_fetal(cache: Path = CACHE):
+    if not (Path(cache) / "fetal_emb.npy").exists():
+        raise FileNotFoundError(
+            f"No embeddings in {cache}. Run scripts/head_check_make_lists.py and scripts/head_check_extract.py first "
+            "(commands: project_package/04_code_and_models/README.txt), or set HEAD_CHECK_CACHE to the folder that holds them.")
     df = pd.read_csv(cache / "fetal_index.csv")
     emb = np.load(cache / "fetal_emb.npy")
     df["cls"] = df["Plane"].str.strip()

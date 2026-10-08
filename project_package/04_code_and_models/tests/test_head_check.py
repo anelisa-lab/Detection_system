@@ -271,8 +271,9 @@ def test_hc18_test_set_heads_are_not_falsely_refused(predictor):
 
     Needs the HC18 test_set next to the repo (../data/test_set). Measured on all 335 scans at the 95% point: 2 refused
     (0.6%); the image check alone also refuses 2."""
-    files = sorted((ROOT.parent / "data" / "test_set").glob("*.png"))
+    ts = Path(os.environ.get("HC18_TEST_SET", ROOT.parent / "data" / "test_set"))
+    files = sorted(ts.glob("*.png"))
     if not files:
-        pytest.skip("HC18 test_set not available")
+        pytest.skip(f"HC18 test_set not found at {ts}: download test_set.zip from https://zenodo.org/records/1327317 and unzip it there, or set HC18_TEST_SET (see README, Running the tests)")
     refused = [p.name for p in files if predictor.predict(p.read_bytes(), p.name).ga_weeks is None]
     assert len(refused) / len(files) <= 0.02, refused
