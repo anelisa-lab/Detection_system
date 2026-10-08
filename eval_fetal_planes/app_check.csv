@@ -1,0 +1,22 @@
+image,class,why_chosen,image_check_in_app,answer,page_badge,page_headline,expected,match,page_shows_age
+Patient01340_Plane3_3_of_3,Fetal brain,clearly under 20 (Good),Good,Yes,Not cryptic,Not cryptic by the usual definition,Not cryptic,True,True
+Patient01340_Plane3_3_of_3,Fetal brain,clearly under 20 (Good),Good,No,Not cryptic,Not cryptic by the usual definition,Not cryptic,True,True
+Patient01340_Plane3_3_of_3,Fetal brain,clearly under 20 (Good),Good,Not sure,Not cryptic,Not cryptic by the usual definition,Not cryptic,True,True
+Patient00802_Plane6_2_of_2,Fetal thorax,clearly under 20 (Limited),Limited,Yes,Not cryptic,May be not cryptic by the usual definition,Not cryptic,True,True
+Patient00802_Plane6_2_of_2,Fetal thorax,clearly under 20 (Limited),Limited,No,Not cryptic,May be not cryptic by the usual definition,Not cryptic,True,True
+Patient00802_Plane6_2_of_2,Fetal thorax,clearly under 20 (Limited),Limited,Not sure,Not cryptic,May be not cryptic by the usual definition,Not cryptic,True,True
+Patient01530_Plane3_2_of_2,Fetal brain,clearly 20 or more (Good),Good,Yes,Not cryptic,Not cryptic: the pregnancy was known,Not cryptic,True,True
+Patient01530_Plane3_2_of_2,Fetal brain,clearly 20 or more (Good),Good,No,Cryptic,Consistent with a cryptic pregnancy,Cryptic,True,True
+Patient01530_Plane3_2_of_2,Fetal brain,clearly 20 or more (Good),Good,Not sure,Possibly cryptic,Possibly cryptic: answer the question above to confirm,Possibly cryptic,True,True
+Patient00705_Plane3_1_of_3,Fetal brain,clearly 20 or more (Limited),Limited,Yes,Not cryptic,May be not cryptic: the pregnancy was known,Not cryptic,True,True
+Patient00705_Plane3_1_of_3,Fetal brain,clearly 20 or more (Limited),Limited,No,Cryptic,May be consistent with a cryptic pregnancy,Cryptic,True,True
+Patient00705_Plane3_1_of_3,Fetal brain,clearly 20 or more (Limited),Limited,Not sure,Possibly cryptic,May be cryptic: answer the question above to confirm,Possibly cryptic,True,True
+Patient01064_Plane3_2_of_2,Fetal brain,range straddles 20,Limited,Yes,Not cryptic,Borderline around 20 weeks: it could fall on either side,Not cryptic,True,True
+Patient01064_Plane3_2_of_2,Fetal brain,range straddles 20,Limited,No,Possibly cryptic,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,True,True
+Patient01064_Plane3_2_of_2,Fetal brain,range straddles 20,Limited,Not sure,Possibly cryptic,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,True,True
+Patient00789_Plane3_2_of_3,Fetal brain,Poor,Poor,Yes,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00789_Plane3_2_of_3,Fetal brain,Poor,Poor,No,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00789_Plane3_2_of_3,Fetal brain,Poor,Poor,Not sure,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00007_Plane1_22_of_34,Other,Rejected,,Yes,Cannot assess,Cannot assess,Cannot assess,True,False
+Patient00007_Plane1_22_of_34,Other,Rejected,,No,Cannot assess,Cannot assess,Cannot assess,True,False
+Patient00007_Plane1_22_of_34,Other,Rejected,,Not sure,Cannot assess,Cannot assess,Cannot assess,True,False

@@ -1,0 +1,61 @@
+image,class,ga_weeks,range_days,image_check,answer,label,verdict,expected_verdict,rule_ok,softened_ok
+Patient01340_Plane3_3_of_3,Fetal brain,17.2,17.9,Good,Yes,Not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01340_Plane3_3_of_3,Fetal brain,17.2,17.9,Good,No,Not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01340_Plane3_3_of_3,Fetal brain,17.2,17.9,Good,Not sure,Not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01048_Plane1_1_of_1,Other,16.1,17.9,Limited,Yes,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01048_Plane1_1_of_1,Other,16.1,17.9,Limited,No,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01048_Plane1_1_of_1,Other,16.1,17.9,Limited,Not sure,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient00906_Plane3_1_of_3,Fetal brain,16.1,23.9,Limited,Yes,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient00906_Plane3_1_of_3,Fetal brain,16.1,23.9,Limited,No,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient00906_Plane3_1_of_3,Fetal brain,16.1,23.9,Limited,Not sure,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient00802_Plane6_2_of_2,Fetal thorax,16.2,17.9,Limited,Yes,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient00802_Plane6_2_of_2,Fetal thorax,16.2,17.9,Limited,No,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient00802_Plane6_2_of_2,Fetal thorax,16.2,17.9,Limited,Not sure,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01558_Plane3_4_of_5,Fetal brain,16.4,17.9,Limited,Yes,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01558_Plane3_4_of_5,Fetal brain,16.4,17.9,Limited,No,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01558_Plane3_4_of_5,Fetal brain,16.4,17.9,Limited,Not sure,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01750_Plane3_1_of_3,Fetal brain,14.2,25.1,Limited,Yes,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01750_Plane3_1_of_3,Fetal brain,14.2,25.1,Limited,No,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01750_Plane3_1_of_3,Fetal brain,14.2,25.1,Limited,Not sure,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01295_Plane3_1_of_1,Fetal brain,15.7,23.6,Limited,Yes,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01295_Plane3_1_of_1,Fetal brain,15.7,23.6,Limited,No,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient01295_Plane3_1_of_1,Fetal brain,15.7,23.6,Limited,Not sure,May be not cryptic by the usual definition,Not cryptic,Not cryptic,True,True
+Patient00724_Plane3_1_of_3,Fetal brain,29.5,17.9,Good,Yes,Not cryptic: the pregnancy was known,Not cryptic,Not cryptic,True,True
+Patient00724_Plane3_1_of_3,Fetal brain,29.5,17.9,Good,No,Consistent with a cryptic pregnancy,Cryptic,Cryptic,True,True
+Patient00724_Plane3_1_of_3,Fetal brain,29.5,17.9,Good,Not sure,Possibly cryptic: answer the question above to confirm,Possibly cryptic,Possibly cryptic,True,True
+Patient00705_Plane3_1_of_3,Fetal brain,29.8,25.5,Limited,Yes,May be not cryptic: the pregnancy was known,Not cryptic,Not cryptic,True,True
+Patient00705_Plane3_1_of_3,Fetal brain,29.8,25.5,Limited,No,May be consistent with a cryptic pregnancy,Cryptic,Cryptic,True,True
+Patient00705_Plane3_1_of_3,Fetal brain,29.8,25.5,Limited,Not sure,May be cryptic: answer the question above to confirm,Possibly cryptic,Possibly cryptic,True,True
+Patient00961_Plane3_1_of_4,Fetal brain,29.2,23.5,Limited,Yes,May be not cryptic: the pregnancy was known,Not cryptic,Not cryptic,True,True
+Patient00961_Plane3_1_of_4,Fetal brain,29.2,23.5,Limited,No,May be consistent with a cryptic pregnancy,Cryptic,Cryptic,True,True
+Patient00961_Plane3_1_of_4,Fetal brain,29.2,23.5,Limited,Not sure,May be cryptic: answer the question above to confirm,Possibly cryptic,Possibly cryptic,True,True
+Patient01007_Plane3_3_of_7,Fetal brain,25.4,30.6,Limited,Yes,May be not cryptic: the pregnancy was known,Not cryptic,Not cryptic,True,True
+Patient01007_Plane3_3_of_7,Fetal brain,25.4,30.6,Limited,No,May be consistent with a cryptic pregnancy,Cryptic,Cryptic,True,True
+Patient01007_Plane3_3_of_7,Fetal brain,25.4,30.6,Limited,Not sure,May be cryptic: answer the question above to confirm,Possibly cryptic,Possibly cryptic,True,True
+Patient00780_Plane3_1_of_1,Fetal brain,28.4,17.9,Good,Yes,Not cryptic: the pregnancy was known,Not cryptic,Not cryptic,True,True
+Patient00780_Plane3_1_of_1,Fetal brain,28.4,17.9,Good,No,Consistent with a cryptic pregnancy,Cryptic,Cryptic,True,True
+Patient00780_Plane3_1_of_1,Fetal brain,28.4,17.9,Good,Not sure,Possibly cryptic: answer the question above to confirm,Possibly cryptic,Possibly cryptic,True,True
+Patient01776_Plane3_4_of_5,Fetal brain,29.6,17.9,Good,Yes,Not cryptic: the pregnancy was known,Not cryptic,Not cryptic,True,True
+Patient01776_Plane3_4_of_5,Fetal brain,29.6,17.9,Good,No,Consistent with a cryptic pregnancy,Cryptic,Cryptic,True,True
+Patient01776_Plane3_4_of_5,Fetal brain,29.6,17.9,Good,Not sure,Possibly cryptic: answer the question above to confirm,Possibly cryptic,Possibly cryptic,True,True
+Patient00736_Plane3_2_of_5,Fetal brain,28.8,24.5,Limited,Yes,May be not cryptic: the pregnancy was known,Not cryptic,Not cryptic,True,True
+Patient00736_Plane3_2_of_5,Fetal brain,28.8,24.5,Limited,No,May be consistent with a cryptic pregnancy,Cryptic,Cryptic,True,True
+Patient00736_Plane3_2_of_5,Fetal brain,28.8,24.5,Limited,Not sure,May be cryptic: answer the question above to confirm,Possibly cryptic,Possibly cryptic,True,True
+Patient01655_Plane1_5_of_12,Other,18.2,17.9,Limited,Yes,Borderline around 20 weeks: it could fall on either side,Not cryptic,Not cryptic,True,True
+Patient01655_Plane1_5_of_12,Other,18.2,17.9,Limited,No,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,Possibly cryptic,True,True
+Patient01655_Plane1_5_of_12,Other,18.2,17.9,Limited,Not sure,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,Possibly cryptic,True,True
+Patient00882_Plane3_3_of_3,Fetal brain,20.6,17.9,Limited,Yes,Borderline around 20 weeks: it could fall on either side,Not cryptic,Not cryptic,True,True
+Patient00882_Plane3_3_of_3,Fetal brain,20.6,17.9,Limited,No,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,Possibly cryptic,True,True
+Patient00882_Plane3_3_of_3,Fetal brain,20.6,17.9,Limited,Not sure,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,Possibly cryptic,True,True
+Patient01094_Plane3_2_of_2,Fetal brain,20.5,17.9,Good,Yes,Borderline around 20 weeks: it could fall on either side,Not cryptic,Not cryptic,True,True
+Patient01094_Plane3_2_of_2,Fetal brain,20.5,17.9,Good,No,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,Possibly cryptic,True,True
+Patient01094_Plane3_2_of_2,Fetal brain,20.5,17.9,Good,Not sure,Borderline around 20 weeks: it could fall on either side,Possibly cryptic,Possibly cryptic,True,True
+Patient01442_Plane5_1_of_1,Fetal femur,,17.9,Rejected,Yes,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient01442_Plane5_1_of_1,Fetal femur,,17.9,Rejected,No,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient01442_Plane5_1_of_1,Fetal femur,,17.9,Rejected,Not sure,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00765_Plane3_1_of_6,Fetal brain,14.3,26.4,Poor,Yes,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00765_Plane3_1_of_6,Fetal brain,14.3,26.4,Poor,No,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00765_Plane3_1_of_6,Fetal brain,14.3,26.4,Poor,Not sure,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00279_Plane4_1_of_1,Maternal cervix,,17.9,Rejected,Yes,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00279_Plane4_1_of_1,Maternal cervix,,17.9,Rejected,No,Cannot assess,Cannot assess,Cannot assess,True,True
+Patient00279_Plane4_1_of_1,Maternal cervix,,17.9,Rejected,Not sure,Cannot assess,Cannot assess,Cannot assess,True,True
