@@ -1,0 +1,3566 @@
+{
+  "test_images": 2478,
+  "test_patients": 336,
+  "heads": 618,
+  "thalamic": 332,
+  "distance_parity_max_abs_diff_vs_Predictor": 8.326672684688674e-17,
+  "majority_baseline": {
+    "always_say_not_head_accuracy": 0.7506053268765134,
+    "head_share": 0.24939467312348668
+  },
+  "variants": {
+    "A_with_other": {
+      "head_accept_target_90": {
+        "threshold": 3.082185745239258,
+        "groups": [
+          {
+            "group": "Head: all brain",
+            "n_images": 618,
+            "n_patients": 208,
+            "new": 0.9078,
+            "new_lo": 0.8815,
+            "new_hi": 0.9333,
+            "new_k": 561,
+            "current_not_refused": 0.754,
+            "current_not_refused_lo": 0.7022,
+            "current_not_refused_hi": 0.7996,
+            "current_not_refused_k": 466,
+            "current_good_only": 0.5,
+            "current_good_only_lo": 0.4428,
+            "current_good_only_hi": 0.5531,
+            "current_good_only_k": 309
+          },
+          {
+            "group": "Head: trans-thalamic (HC plane)",
+            "n_images": 332,
+            "n_patients": 186,
+            "new": 0.9398,
+            "new_lo": 0.9117,
+            "new_hi": 0.9668,
+            "new_k": 312,
+            "current_not_refused": 0.8072,
+            "current_not_refused_lo": 0.7515,
+            "current_not_refused_hi": 0.8551,
+            "current_not_refused_k": 268,
+            "current_good_only": 0.5633,
+            "current_good_only_lo": 0.5015,
+            "current_good_only_hi": 0.6218,
+            "current_good_only_k": 187
+          },
+          {
+            "group": "Head: brain, Trans-cerebellum",
+            "n_images": 154,
+            "n_patients": 121,
+            "new": 0.9286,
+            "new_lo": 0.8817,
+            "new_hi": 0.9682,
+            "new_k": 143,
+            "current_not_refused": 0.7273,
+            "current_not_refused_lo": 0.6452,
+            "current_not_refused_hi": 0.8013,
+            "current_not_refused_k": 112,
+            "current_good_only": 0.4481,
+            "current_good_only_lo": 0.3586,
+            "current_good_only_hi": 0.5419,
+            "current_good_only_k": 69
+          },
+          {
+            "group": "Head: brain, Trans-ventricular",
+            "n_images": 103,
+            "n_patients": 77,
+            "new": 0.9417,
+            "new_lo": 0.8899,
+            "new_hi": 0.9813,
+            "new_k": 97,
+            "current_not_refused": 0.6602,
+            "current_not_refused_lo": 0.5534,
+            "current_not_refused_hi": 0.7629,
+            "current_not_refused_k": 68,
+            "current_good_only": 0.3981,
+            "current_good_only_lo": 0.2982,
+            "current_good_only_hi": 0.5,
+            "current_good_only_k": 41
+          },
+          {
+            "group": "Head: brain, Other",
+            "n_images": 29,
+            "n_patients": 20,
+            "new": 0.3103,
+            "new_lo": 0.1333,
+            "new_hi": 0.5,
+            "new_k": 9,
+            "current_not_refused": 0.6207,
+            "current_not_refused_lo": 0.4194,
+            "current_not_refused_hi": 0.8333,
+            "current_not_refused_k": 18,
+            "current_good_only": 0.4138,
+            "current_good_only_lo": 0.2142,
+            "current_good_only_hi": 0.6365,
+            "current_good_only_k": 12
+          },
+          {
+            "group": "NON-HEAD: all (incl. Other)",
+            "n_images": 1860,
+            "n_patients": 326,
+            "new": 0.0011,
+            "new_lo": 0.0,
+            "new_hi": 0.0028,
+            "new_k": 2,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2098,
+            "current_not_refused_hi": 0.2838,
+            "current_not_refused_k": 457,
+            "current_good_only": 0.0903,
+            "current_good_only_lo": 0.0721,
+            "current_good_only_hi": 0.1106,
+            "current_good_only_k": 168
+          },
+          {
+            "group": "NON-HEAD: without Other",
+            "n_images": 989,
+            "n_patients": 313,
+            "new": 0.002,
+            "new_lo": 0.0,
+            "new_hi": 0.0052,
+            "new_k": 2,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2103,
+            "current_not_refused_hi": 0.2825,
+            "current_not_refused_k": 243,
+            "current_good_only": 0.0799,
+            "current_good_only_lo": 0.061,
+            "current_good_only_hi": 0.1,
+            "current_good_only_k": 79
+          },
+          {
+            "group": "Non-head: Fetal abdomen",
+            "n_images": 134,
+            "n_patients": 117,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.4254,
+            "current_not_refused_lo": 0.3356,
+            "current_not_refused_hi": 0.5116,
+            "current_not_refused_k": 57,
+            "current_good_only": 0.194,
+            "current_good_only_lo": 0.1231,
+            "current_good_only_hi": 0.2701,
+            "current_good_only_k": 26
+          },
+          {
+            "group": "Non-head: Fetal femur",
+            "n_images": 220,
+            "n_patients": 150,
+            "new": 0.0045,
+            "new_lo": 0.0,
+            "new_hi": 0.0145,
+            "new_k": 1,
+            "current_not_refused": 0.3227,
+            "current_not_refused_lo": 0.2534,
+            "current_not_refused_hi": 0.3935,
+            "current_not_refused_k": 71,
+            "current_good_only": 0.1273,
+            "current_good_only_lo": 0.083,
+            "current_good_only_hi": 0.1754,
+            "current_good_only_k": 28
+          },
+          {
+            "group": "Non-head: Fetal thorax",
+            "n_images": 346,
+            "n_patients": 154,
+            "new": 0.0029,
+            "new_lo": 0.0,
+            "new_hi": 0.0091,
+            "new_k": 1,
+            "current_not_refused": 0.2919,
+            "current_not_refused_lo": 0.2215,
+            "current_not_refused_hi": 0.366,
+            "current_not_refused_k": 101,
+            "current_good_only": 0.0694,
+            "current_good_only_lo": 0.0415,
+            "current_good_only_hi": 0.1003,
+            "current_good_only_k": 24
+          },
+          {
+            "group": "Non-head: Maternal cervix",
+            "n_images": 289,
+            "n_patients": 173,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.0484,
+            "current_not_refused_lo": 0.0154,
+            "current_not_refused_hi": 0.0909,
+            "current_not_refused_k": 14,
+            "current_good_only": 0.0035,
+            "current_good_only_lo": 0.0,
+            "current_good_only_hi": 0.0112,
+            "current_good_only_k": 1
+          },
+          {
+            "group": "Non-head: Other",
+            "n_images": 871,
+            "n_patients": 148,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.1873,
+            "current_not_refused_hi": 0.3145,
+            "current_not_refused_k": 214,
+            "current_good_only": 0.1022,
+            "current_good_only_lo": 0.0728,
+            "current_good_only_hi": 0.1369,
+            "current_good_only_k": 89
+          }
+        ],
+        "combined_with_current": {
+          "non-head, all": {
+            "n": 1860,
+            "current_alone_gets_age": {
+              "n": 1860,
+              "k": 457,
+              "value": 0.2456989247311828,
+              "ci95": [
+                0.2097534101308851,
+                0.28383787324822846
+              ]
+            },
+            "combined_gets_age": {
+              "n": 1860,
+              "k": 2,
+              "value": 0.001075268817204301,
+              "ci95": [
+                0.0,
+                0.0028095454718973845
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 109,
+              "value": 0.05860215053763441,
+              "ci95": [
+                0.04423866908051324,
+                0.07461549246126482
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 2,
+              "value": 0.001075268817204301,
+              "ci95": [
+                0.0,
+                0.0028095454718973845
+              ]
+            }
+          },
+          "non-head, without Other": {
+            "n": 989,
+            "current_alone_gets_age": {
+              "n": 989,
+              "k": 243,
+              "value": 0.24570273003033366,
+              "ci95": [
+                0.21030976617672203,
+                0.28249224665269274
+              ]
+            },
+            "combined_gets_age": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 54,
+              "value": 0.054600606673407485,
+              "ci95": [
+                0.03955346231211994,
+                0.07175429765958775
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            }
+          },
+          "Fetal abdomen": {
+            "n": 134,
+            "current_alone_gets_age": {
+              "n": 134,
+              "k": 57,
+              "value": 0.4253731343283582,
+              "ci95": [
+                0.3355593607305936,
+                0.5116324848928767
+              ]
+            },
+            "combined_gets_age": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 22,
+              "value": 0.16417910447761194,
+              "ci95": [
+                0.09923664122137404,
+                0.23846153846153847
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Fetal femur": {
+            "n": 220,
+            "current_alone_gets_age": {
+              "n": 220,
+              "k": 71,
+              "value": 0.32272727272727275,
+              "ci95": [
+                0.2533921568627451,
+                0.39351851851851855
+              ]
+            },
+            "combined_gets_age": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 18,
+              "value": 0.08181818181818182,
+              "ci95": [
+                0.04888888888888889,
+                0.12020089285714282
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            }
+          },
+          "Fetal thorax": {
+            "n": 346,
+            "current_alone_gets_age": {
+              "n": 346,
+              "k": 101,
+              "value": 0.29190751445086704,
+              "ci95": [
+                0.22153155923801943,
+                0.36604833743842363
+              ]
+            },
+            "combined_gets_age": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 14,
+              "value": 0.04046242774566474,
+              "ci95": [
+                0.018666666666666668,
+                0.06606671326498911
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            }
+          },
+          "Maternal cervix": {
+            "n": 289,
+            "current_alone_gets_age": {
+              "n": 289,
+              "k": 14,
+              "value": 0.04844290657439446,
+              "ci95": [
+                0.015425084175084175,
+                0.09092509603072975
+              ]
+            },
+            "combined_gets_age": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Other": {
+            "n": 871,
+            "current_alone_gets_age": {
+              "n": 871,
+              "k": 214,
+              "value": 0.24569460390355913,
+              "ci95": [
+                0.18732152468316557,
+                0.3144802914747414
+              ]
+            },
+            "combined_gets_age": {
+              "n": 871,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 55,
+              "value": 0.06314580941446613,
+              "ci95": [
+                0.0411106064380751,
+                0.09033078880407125
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "heads": {
+            "n": 618,
+            "current_alone_gets_age": {
+              "n": 618,
+              "k": 466,
+              "value": 0.7540453074433657,
+              "ci95": [
+                0.7021613199685978,
+                0.7996488759889463
+              ]
+            },
+            "combined_gets_age": {
+              "n": 618,
+              "k": 434,
+              "value": 0.7022653721682848,
+              "ci95": [
+                0.6507393734248339,
+                0.7480444231592543
+              ]
+            },
+            "current_alone_gets_a_verdict": {
+              "n": 618,
+              "k": 354,
+              "value": 0.5728155339805825,
+              "ci95": [
+                0.5148514851485149,
+                0.6266030844155844
+              ]
+            },
+            "combined_gets_a_verdict": {
+              "n": 618,
+              "k": 334,
+              "value": 0.540453074433657,
+              "ci95": [
+                0.48293342583437,
+                0.5951489402946497
+              ]
+            }
+          }
+        },
+        "decision_accuracy": {
+          "new": 0.9761904761904762,
+          "current_not_refused": 0.7542372881355932,
+          "majority_baseline": 0.7506053268765134,
+          "new_ci95": [
+            0.9679846184453292,
+            0.9829028727326857
+          ],
+          "current_ci95": [
+            0.7265528431245202,
+            0.7829806352934751
+          ]
+        }
+      },
+      "head_accept_target_95": {
+        "threshold": 0.6635956764221191,
+        "groups": [
+          {
+            "group": "Head: all brain",
+            "n_images": 618,
+            "n_patients": 208,
+            "new": 0.9579,
+            "new_lo": 0.9381,
+            "new_hi": 0.9752,
+            "new_k": 592,
+            "current_not_refused": 0.754,
+            "current_not_refused_lo": 0.7022,
+            "current_not_refused_hi": 0.7996,
+            "current_not_refused_k": 466,
+            "current_good_only": 0.5,
+            "current_good_only_lo": 0.4428,
+            "current_good_only_hi": 0.5531,
+            "current_good_only_k": 309
+          },
+          {
+            "group": "Head: trans-thalamic (HC plane)",
+            "n_images": 332,
+            "n_patients": 186,
+            "new": 0.9819,
+            "new_lo": 0.9639,
+            "new_hi": 0.9968,
+            "new_k": 326,
+            "current_not_refused": 0.8072,
+            "current_not_refused_lo": 0.7515,
+            "current_not_refused_hi": 0.8551,
+            "current_not_refused_k": 268,
+            "current_good_only": 0.5633,
+            "current_good_only_lo": 0.5015,
+            "current_good_only_hi": 0.6218,
+            "current_good_only_k": 187
+          },
+          {
+            "group": "Head: brain, Trans-cerebellum",
+            "n_images": 154,
+            "n_patients": 121,
+            "new": 0.9805,
+            "new_lo": 0.9551,
+            "new_hi": 1.0,
+            "new_k": 151,
+            "current_not_refused": 0.7273,
+            "current_not_refused_lo": 0.6452,
+            "current_not_refused_hi": 0.8013,
+            "current_not_refused_k": 112,
+            "current_good_only": 0.4481,
+            "current_good_only_lo": 0.3586,
+            "current_good_only_hi": 0.5419,
+            "current_good_only_k": 69
+          },
+          {
+            "group": "Head: brain, Trans-ventricular",
+            "n_images": 103,
+            "n_patients": 77,
+            "new": 0.9709,
+            "new_lo": 0.932,
+            "new_hi": 1.0,
+            "new_k": 100,
+            "current_not_refused": 0.6602,
+            "current_not_refused_lo": 0.5534,
+            "current_not_refused_hi": 0.7629,
+            "current_not_refused_k": 68,
+            "current_good_only": 0.3981,
+            "current_good_only_lo": 0.2982,
+            "current_good_only_hi": 0.5,
+            "current_good_only_k": 41
+          },
+          {
+            "group": "Head: brain, Other",
+            "n_images": 29,
+            "n_patients": 20,
+            "new": 0.5172,
+            "new_lo": 0.2727,
+            "new_hi": 0.7586,
+            "new_k": 15,
+            "current_not_refused": 0.6207,
+            "current_not_refused_lo": 0.4194,
+            "current_not_refused_hi": 0.8333,
+            "current_not_refused_k": 18,
+            "current_good_only": 0.4138,
+            "current_good_only_lo": 0.2142,
+            "current_good_only_hi": 0.6365,
+            "current_good_only_k": 12
+          },
+          {
+            "group": "NON-HEAD: all (incl. Other)",
+            "n_images": 1860,
+            "n_patients": 326,
+            "new": 0.0032,
+            "new_lo": 0.0006,
+            "new_hi": 0.0066,
+            "new_k": 6,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2098,
+            "current_not_refused_hi": 0.2838,
+            "current_not_refused_k": 457,
+            "current_good_only": 0.0903,
+            "current_good_only_lo": 0.0721,
+            "current_good_only_hi": 0.1106,
+            "current_good_only_k": 168
+          },
+          {
+            "group": "NON-HEAD: without Other",
+            "n_images": 989,
+            "n_patients": 313,
+            "new": 0.004,
+            "new_lo": 0.001,
+            "new_hi": 0.0084,
+            "new_k": 4,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2103,
+            "current_not_refused_hi": 0.2825,
+            "current_not_refused_k": 243,
+            "current_good_only": 0.0799,
+            "current_good_only_lo": 0.061,
+            "current_good_only_hi": 0.1,
+            "current_good_only_k": 79
+          },
+          {
+            "group": "Non-head: Fetal abdomen",
+            "n_images": 134,
+            "n_patients": 117,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.4254,
+            "current_not_refused_lo": 0.3356,
+            "current_not_refused_hi": 0.5116,
+            "current_not_refused_k": 57,
+            "current_good_only": 0.194,
+            "current_good_only_lo": 0.1231,
+            "current_good_only_hi": 0.2701,
+            "current_good_only_k": 26
+          },
+          {
+            "group": "Non-head: Fetal femur",
+            "n_images": 220,
+            "n_patients": 150,
+            "new": 0.0045,
+            "new_lo": 0.0,
+            "new_hi": 0.0145,
+            "new_k": 1,
+            "current_not_refused": 0.3227,
+            "current_not_refused_lo": 0.2534,
+            "current_not_refused_hi": 0.3935,
+            "current_not_refused_k": 71,
+            "current_good_only": 0.1273,
+            "current_good_only_lo": 0.083,
+            "current_good_only_hi": 0.1754,
+            "current_good_only_k": 28
+          },
+          {
+            "group": "Non-head: Fetal thorax",
+            "n_images": 346,
+            "n_patients": 154,
+            "new": 0.0087,
+            "new_lo": 0.0,
+            "new_hi": 0.0199,
+            "new_k": 3,
+            "current_not_refused": 0.2919,
+            "current_not_refused_lo": 0.2215,
+            "current_not_refused_hi": 0.366,
+            "current_not_refused_k": 101,
+            "current_good_only": 0.0694,
+            "current_good_only_lo": 0.0415,
+            "current_good_only_hi": 0.1003,
+            "current_good_only_k": 24
+          },
+          {
+            "group": "Non-head: Maternal cervix",
+            "n_images": 289,
+            "n_patients": 173,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.0484,
+            "current_not_refused_lo": 0.0154,
+            "current_not_refused_hi": 0.0909,
+            "current_not_refused_k": 14,
+            "current_good_only": 0.0035,
+            "current_good_only_lo": 0.0,
+            "current_good_only_hi": 0.0112,
+            "current_good_only_k": 1
+          },
+          {
+            "group": "Non-head: Other",
+            "n_images": 871,
+            "n_patients": 148,
+            "new": 0.0023,
+            "new_lo": 0.0,
+            "new_hi": 0.006,
+            "new_k": 2,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.1873,
+            "current_not_refused_hi": 0.3145,
+            "current_not_refused_k": 214,
+            "current_good_only": 0.1022,
+            "current_good_only_lo": 0.0728,
+            "current_good_only_hi": 0.1369,
+            "current_good_only_k": 89
+          }
+        ],
+        "combined_with_current": {
+          "non-head, all": {
+            "n": 1860,
+            "current_alone_gets_age": {
+              "n": 1860,
+              "k": 457,
+              "value": 0.2456989247311828,
+              "ci95": [
+                0.2097534101308851,
+                0.28383787324822846
+              ]
+            },
+            "combined_gets_age": {
+              "n": 1860,
+              "k": 3,
+              "value": 0.0016129032258064516,
+              "ci95": [
+                0.0,
+                0.0036998293408526824
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 109,
+              "value": 0.05860215053763441,
+              "ci95": [
+                0.04423866908051324,
+                0.07461549246126482
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 2,
+              "value": 0.001075268817204301,
+              "ci95": [
+                0.0,
+                0.0028095454718973845
+              ]
+            }
+          },
+          "non-head, without Other": {
+            "n": 989,
+            "current_alone_gets_age": {
+              "n": 989,
+              "k": 243,
+              "value": 0.24570273003033366,
+              "ci95": [
+                0.21030976617672203,
+                0.28249224665269274
+              ]
+            },
+            "combined_gets_age": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 54,
+              "value": 0.054600606673407485,
+              "ci95": [
+                0.03955346231211994,
+                0.07175429765958775
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            }
+          },
+          "Fetal abdomen": {
+            "n": 134,
+            "current_alone_gets_age": {
+              "n": 134,
+              "k": 57,
+              "value": 0.4253731343283582,
+              "ci95": [
+                0.3355593607305936,
+                0.5116324848928767
+              ]
+            },
+            "combined_gets_age": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 22,
+              "value": 0.16417910447761194,
+              "ci95": [
+                0.09923664122137404,
+                0.23846153846153847
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Fetal femur": {
+            "n": 220,
+            "current_alone_gets_age": {
+              "n": 220,
+              "k": 71,
+              "value": 0.32272727272727275,
+              "ci95": [
+                0.2533921568627451,
+                0.39351851851851855
+              ]
+            },
+            "combined_gets_age": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 18,
+              "value": 0.08181818181818182,
+              "ci95": [
+                0.04888888888888889,
+                0.12020089285714282
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            }
+          },
+          "Fetal thorax": {
+            "n": 346,
+            "current_alone_gets_age": {
+              "n": 346,
+              "k": 101,
+              "value": 0.29190751445086704,
+              "ci95": [
+                0.22153155923801943,
+                0.36604833743842363
+              ]
+            },
+            "combined_gets_age": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 14,
+              "value": 0.04046242774566474,
+              "ci95": [
+                0.018666666666666668,
+                0.06606671326498911
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            }
+          },
+          "Maternal cervix": {
+            "n": 289,
+            "current_alone_gets_age": {
+              "n": 289,
+              "k": 14,
+              "value": 0.04844290657439446,
+              "ci95": [
+                0.015425084175084175,
+                0.09092509603072975
+              ]
+            },
+            "combined_gets_age": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Other": {
+            "n": 871,
+            "current_alone_gets_age": {
+              "n": 871,
+              "k": 214,
+              "value": 0.24569460390355913,
+              "ci95": [
+                0.18732152468316557,
+                0.3144802914747414
+              ]
+            },
+            "combined_gets_age": {
+              "n": 871,
+              "k": 1,
+              "value": 0.001148105625717566,
+              "ci95": [
+                0.0,
+                0.0039032426859531852
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 55,
+              "value": 0.06314580941446613,
+              "ci95": [
+                0.0411106064380751,
+                0.09033078880407125
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "heads": {
+            "n": 618,
+            "current_alone_gets_age": {
+              "n": 618,
+              "k": 466,
+              "value": 0.7540453074433657,
+              "ci95": [
+                0.7021613199685978,
+                0.7996488759889463
+              ]
+            },
+            "combined_gets_age": {
+              "n": 618,
+              "k": 452,
+              "value": 0.7313915857605178,
+              "ci95": [
+                0.6806253449977419,
+                0.7756533929297034
+              ]
+            },
+            "current_alone_gets_a_verdict": {
+              "n": 618,
+              "k": 354,
+              "value": 0.5728155339805825,
+              "ci95": [
+                0.5148514851485149,
+                0.6266030844155844
+              ]
+            },
+            "combined_gets_a_verdict": {
+              "n": 618,
+              "k": 346,
+              "value": 0.5598705501618123,
+              "ci95": [
+                0.5017063395324001,
+                0.6140496590312992
+              ]
+            }
+          }
+        },
+        "decision_accuracy": {
+          "new": 0.9870863599677159,
+          "current_not_refused": 0.7542372881355932,
+          "majority_baseline": 0.7506053268765134,
+          "new_ci95": [
+            0.9808423564756426,
+            0.9921761121200648
+          ],
+          "current_ci95": [
+            0.7265528431245202,
+            0.7829806352934751
+          ]
+        }
+      },
+      "head_accept_target_98": {
+        "threshold": -2.635291576385498,
+        "groups": [
+          {
+            "group": "Head: all brain",
+            "n_images": 618,
+            "n_patients": 208,
+            "new": 0.9919,
+            "new_lo": 0.9827,
+            "new_hi": 0.9984,
+            "new_k": 613,
+            "current_not_refused": 0.754,
+            "current_not_refused_lo": 0.7022,
+            "current_not_refused_hi": 0.7996,
+            "current_not_refused_k": 466,
+            "current_good_only": 0.5,
+            "current_good_only_lo": 0.4428,
+            "current_good_only_hi": 0.5531,
+            "current_good_only_k": 309
+          },
+          {
+            "group": "Head: trans-thalamic (HC plane)",
+            "n_images": 332,
+            "n_patients": 186,
+            "new": 1.0,
+            "new_lo": 1.0,
+            "new_hi": 1.0,
+            "new_k": 332,
+            "current_not_refused": 0.8072,
+            "current_not_refused_lo": 0.7515,
+            "current_not_refused_hi": 0.8551,
+            "current_not_refused_k": 268,
+            "current_good_only": 0.5633,
+            "current_good_only_lo": 0.5015,
+            "current_good_only_hi": 0.6218,
+            "current_good_only_k": 187
+          },
+          {
+            "group": "Head: brain, Trans-cerebellum",
+            "n_images": 154,
+            "n_patients": 121,
+            "new": 1.0,
+            "new_lo": 1.0,
+            "new_hi": 1.0,
+            "new_k": 154,
+            "current_not_refused": 0.7273,
+            "current_not_refused_lo": 0.6452,
+            "current_not_refused_hi": 0.8013,
+            "current_not_refused_k": 112,
+            "current_good_only": 0.4481,
+            "current_good_only_lo": 0.3586,
+            "current_good_only_hi": 0.5419,
+            "current_good_only_k": 69
+          },
+          {
+            "group": "Head: brain, Trans-ventricular",
+            "n_images": 103,
+            "n_patients": 77,
+            "new": 1.0,
+            "new_lo": 1.0,
+            "new_hi": 1.0,
+            "new_k": 103,
+            "current_not_refused": 0.6602,
+            "current_not_refused_lo": 0.5534,
+            "current_not_refused_hi": 0.7629,
+            "current_not_refused_k": 68,
+            "current_good_only": 0.3981,
+            "current_good_only_lo": 0.2982,
+            "current_good_only_hi": 0.5,
+            "current_good_only_k": 41
+          },
+          {
+            "group": "Head: brain, Other",
+            "n_images": 29,
+            "n_patients": 20,
+            "new": 0.8276,
+            "new_lo": 0.6956,
+            "new_hi": 0.963,
+            "new_k": 24,
+            "current_not_refused": 0.6207,
+            "current_not_refused_lo": 0.4194,
+            "current_not_refused_hi": 0.8333,
+            "current_not_refused_k": 18,
+            "current_good_only": 0.4138,
+            "current_good_only_lo": 0.2142,
+            "current_good_only_hi": 0.6365,
+            "current_good_only_k": 12
+          },
+          {
+            "group": "NON-HEAD: all (incl. Other)",
+            "n_images": 1860,
+            "n_patients": 326,
+            "new": 0.0312,
+            "new_lo": 0.0224,
+            "new_hi": 0.0408,
+            "new_k": 58,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2098,
+            "current_not_refused_hi": 0.2838,
+            "current_not_refused_k": 457,
+            "current_good_only": 0.0903,
+            "current_good_only_lo": 0.0721,
+            "current_good_only_hi": 0.1106,
+            "current_good_only_k": 168
+          },
+          {
+            "group": "NON-HEAD: without Other",
+            "n_images": 989,
+            "n_patients": 313,
+            "new": 0.0364,
+            "new_lo": 0.0243,
+            "new_hi": 0.0494,
+            "new_k": 36,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2103,
+            "current_not_refused_hi": 0.2825,
+            "current_not_refused_k": 243,
+            "current_good_only": 0.0799,
+            "current_good_only_lo": 0.061,
+            "current_good_only_hi": 0.1,
+            "current_good_only_k": 79
+          },
+          {
+            "group": "Non-head: Fetal abdomen",
+            "n_images": 134,
+            "n_patients": 117,
+            "new": 0.0672,
+            "new_lo": 0.029,
+            "new_hi": 0.1154,
+            "new_k": 9,
+            "current_not_refused": 0.4254,
+            "current_not_refused_lo": 0.3356,
+            "current_not_refused_hi": 0.5116,
+            "current_not_refused_k": 57,
+            "current_good_only": 0.194,
+            "current_good_only_lo": 0.1231,
+            "current_good_only_hi": 0.2701,
+            "current_good_only_k": 26
+          },
+          {
+            "group": "Non-head: Fetal femur",
+            "n_images": 220,
+            "n_patients": 150,
+            "new": 0.0364,
+            "new_lo": 0.0137,
+            "new_hi": 0.0616,
+            "new_k": 8,
+            "current_not_refused": 0.3227,
+            "current_not_refused_lo": 0.2534,
+            "current_not_refused_hi": 0.3935,
+            "current_not_refused_k": 71,
+            "current_good_only": 0.1273,
+            "current_good_only_lo": 0.083,
+            "current_good_only_hi": 0.1754,
+            "current_good_only_k": 28
+          },
+          {
+            "group": "Non-head: Fetal thorax",
+            "n_images": 346,
+            "n_patients": 154,
+            "new": 0.0491,
+            "new_lo": 0.0261,
+            "new_hi": 0.0748,
+            "new_k": 17,
+            "current_not_refused": 0.2919,
+            "current_not_refused_lo": 0.2215,
+            "current_not_refused_hi": 0.366,
+            "current_not_refused_k": 101,
+            "current_good_only": 0.0694,
+            "current_good_only_lo": 0.0415,
+            "current_good_only_hi": 0.1003,
+            "current_good_only_k": 24
+          },
+          {
+            "group": "Non-head: Maternal cervix",
+            "n_images": 289,
+            "n_patients": 173,
+            "new": 0.0069,
+            "new_lo": 0.0,
+            "new_hi": 0.0184,
+            "new_k": 2,
+            "current_not_refused": 0.0484,
+            "current_not_refused_lo": 0.0154,
+            "current_not_refused_hi": 0.0909,
+            "current_not_refused_k": 14,
+            "current_good_only": 0.0035,
+            "current_good_only_lo": 0.0,
+            "current_good_only_hi": 0.0112,
+            "current_good_only_k": 1
+          },
+          {
+            "group": "Non-head: Other",
+            "n_images": 871,
+            "n_patients": 148,
+            "new": 0.0253,
+            "new_lo": 0.0137,
+            "new_hi": 0.0385,
+            "new_k": 22,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.1873,
+            "current_not_refused_hi": 0.3145,
+            "current_not_refused_k": 214,
+            "current_good_only": 0.1022,
+            "current_good_only_lo": 0.0728,
+            "current_good_only_hi": 0.1369,
+            "current_good_only_k": 89
+          }
+        ],
+        "combined_with_current": {
+          "non-head, all": {
+            "n": 1860,
+            "current_alone_gets_age": {
+              "n": 1860,
+              "k": 457,
+              "value": 0.2456989247311828,
+              "ci95": [
+                0.2097534101308851,
+                0.28383787324822846
+              ]
+            },
+            "combined_gets_age": {
+              "n": 1860,
+              "k": 26,
+              "value": 0.013978494623655914,
+              "ci95": [
+                0.008165431659871351,
+                0.0211388566266615
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 109,
+              "value": 0.05860215053763441,
+              "ci95": [
+                0.04423866908051324,
+                0.07461549246126482
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 15,
+              "value": 0.008064516129032258,
+              "ci95": [
+                0.004100408785742494,
+                0.012794924284177096
+              ]
+            }
+          },
+          "non-head, without Other": {
+            "n": 989,
+            "current_alone_gets_age": {
+              "n": 989,
+              "k": 243,
+              "value": 0.24570273003033366,
+              "ci95": [
+                0.21030976617672203,
+                0.28249224665269274
+              ]
+            },
+            "combined_gets_age": {
+              "n": 989,
+              "k": 12,
+              "value": 0.012133468149646108,
+              "ci95": [
+                0.005847810861135311,
+                0.019812821506396926
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 54,
+              "value": 0.054600606673407485,
+              "ci95": [
+                0.03955346231211994,
+                0.07175429765958775
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 7,
+              "value": 0.007077856420626896,
+              "ci95": [
+                0.002007881375351255,
+                0.013672183388157894
+              ]
+            }
+          },
+          "Fetal abdomen": {
+            "n": 134,
+            "current_alone_gets_age": {
+              "n": 134,
+              "k": 57,
+              "value": 0.4253731343283582,
+              "ci95": [
+                0.3355593607305936,
+                0.5116324848928767
+              ]
+            },
+            "combined_gets_age": {
+              "n": 134,
+              "k": 3,
+              "value": 0.022388059701492536,
+              "ci95": [
+                0.0,
+                0.05223880597014925
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 22,
+              "value": 0.16417910447761194,
+              "ci95": [
+                0.09923664122137404,
+                0.23846153846153847
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 2,
+              "value": 0.014925373134328358,
+              "ci95": [
+                0.0,
+                0.03875968992248062
+              ]
+            }
+          },
+          "Fetal femur": {
+            "n": 220,
+            "current_alone_gets_age": {
+              "n": 220,
+              "k": 71,
+              "value": 0.32272727272727275,
+              "ci95": [
+                0.2533921568627451,
+                0.39351851851851855
+              ]
+            },
+            "combined_gets_age": {
+              "n": 220,
+              "k": 3,
+              "value": 0.013636363636363636,
+              "ci95": [
+                0.0,
+                0.03017241379310345
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 18,
+              "value": 0.08181818181818182,
+              "ci95": [
+                0.04888888888888889,
+                0.12020089285714282
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 2,
+              "value": 0.00909090909090909,
+              "ci95": [
+                0.0,
+                0.02336722829186958
+              ]
+            }
+          },
+          "Fetal thorax": {
+            "n": 346,
+            "current_alone_gets_age": {
+              "n": 346,
+              "k": 101,
+              "value": 0.29190751445086704,
+              "ci95": [
+                0.22153155923801943,
+                0.36604833743842363
+              ]
+            },
+            "combined_gets_age": {
+              "n": 346,
+              "k": 5,
+              "value": 0.014450867052023121,
+              "ci95": [
+                0.002695236646088746,
+                0.03010332059245101
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 14,
+              "value": 0.04046242774566474,
+              "ci95": [
+                0.018666666666666668,
+                0.06606671326498911
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 3,
+              "value": 0.008670520231213872,
+              "ci95": [
+                0.0,
+                0.022929280345500565
+              ]
+            }
+          },
+          "Maternal cervix": {
+            "n": 289,
+            "current_alone_gets_age": {
+              "n": 289,
+              "k": 14,
+              "value": 0.04844290657439446,
+              "ci95": [
+                0.015425084175084175,
+                0.09092509603072975
+              ]
+            },
+            "combined_gets_age": {
+              "n": 289,
+              "k": 1,
+              "value": 0.0034602076124567475,
+              "ci95": [
+                0.0,
+                0.011196133991695644
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Other": {
+            "n": 871,
+            "current_alone_gets_age": {
+              "n": 871,
+              "k": 214,
+              "value": 0.24569460390355913,
+              "ci95": [
+                0.18732152468316557,
+                0.3144802914747414
+              ]
+            },
+            "combined_gets_age": {
+              "n": 871,
+              "k": 14,
+              "value": 0.016073478760045924,
+              "ci95": [
+                0.006833435461597552,
+                0.027543901388682124
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 55,
+              "value": 0.06314580941446613,
+              "ci95": [
+                0.0411106064380751,
+                0.09033078880407125
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 8,
+              "value": 0.009184845005740528,
+              "ci95": [
+                0.003019950356160118,
+                0.017621631073053926
+              ]
+            }
+          },
+          "heads": {
+            "n": 618,
+            "current_alone_gets_age": {
+              "n": 618,
+              "k": 466,
+              "value": 0.7540453074433657,
+              "ci95": [
+                0.7021613199685978,
+                0.7996488759889463
+              ]
+            },
+            "combined_gets_age": {
+              "n": 618,
+              "k": 465,
+              "value": 0.7524271844660194,
+              "ci95": [
+                0.7001689774696707,
+                0.7972432646648289
+              ]
+            },
+            "current_alone_gets_a_verdict": {
+              "n": 618,
+              "k": 354,
+              "value": 0.5728155339805825,
+              "ci95": [
+                0.5148514851485149,
+                0.6266030844155844
+              ]
+            },
+            "combined_gets_a_verdict": {
+              "n": 618,
+              "k": 353,
+              "value": 0.5711974110032363,
+              "ci95": [
+                0.5131907079123585,
+                0.625
+              ]
+            }
+          }
+        },
+        "decision_accuracy": {
+          "new": 0.9745762711864406,
+          "current_not_refused": 0.7542372881355932,
+          "majority_baseline": 0.7506053268765134,
+          "new_ci95": [
+            0.9675858733006312,
+            0.9812537891477507
+          ],
+          "current_ci95": [
+            0.7265528431245202,
+            0.7829806352934751
+          ]
+        }
+      },
+      "auc_new": {
+        "value": 0.9971178271914257,
+        "ci95": [
+          0.9942904368581955,
+          0.9992085282523042
+        ]
+      },
+      "auc_current": {
+        "value": 0.8400511535650903,
+        "ci95": [
+          0.8119758140941656,
+          0.8665374920056649
+        ]
+      },
+      "by_machine_primary": {
+        "Aloka": {
+          "heads": 149,
+          "new_head_accepted": 0.9530201342281879,
+          "current_head_accepted": 0.7114093959731543,
+          "nonhead": 995,
+          "new_nonhead_accepted": 0.003015075376884422,
+          "current_nonhead_accepted": 0.25326633165829143
+        },
+        "Other": {
+          "heads": 7,
+          "new_head_accepted": 1.0,
+          "current_head_accepted": 1.0,
+          "nonhead": 23,
+          "new_nonhead_accepted": 0.0,
+          "current_nonhead_accepted": 0.21739130434782608
+        },
+        "Voluson E6": {
+          "heads": 406,
+          "new_head_accepted": 0.9630541871921182,
+          "current_head_accepted": 0.7783251231527094,
+          "nonhead": 697,
+          "new_nonhead_accepted": 0.00430416068866571,
+          "current_nonhead_accepted": 0.23529411764705882
+        },
+        "Voluson S10": {
+          "heads": 56,
+          "new_head_accepted": 0.9285714285714286,
+          "current_head_accepted": 0.6607142857142857,
+          "nonhead": 145,
+          "new_nonhead_accepted": 0.0,
+          "current_nonhead_accepted": 0.2482758620689655
+        }
+      }
+    },
+    "B_without_other": {
+      "head_accept_target_90": {
+        "threshold": 3.4910125732421875,
+        "groups": [
+          {
+            "group": "Head: all brain",
+            "n_images": 618,
+            "n_patients": 208,
+            "new": 0.9239,
+            "new_lo": 0.8973,
+            "new_hi": 0.9479,
+            "new_k": 571,
+            "current_not_refused": 0.754,
+            "current_not_refused_lo": 0.7022,
+            "current_not_refused_hi": 0.7996,
+            "current_not_refused_k": 466,
+            "current_good_only": 0.5,
+            "current_good_only_lo": 0.4428,
+            "current_good_only_hi": 0.5531,
+            "current_good_only_k": 309
+          },
+          {
+            "group": "Head: trans-thalamic (HC plane)",
+            "n_images": 332,
+            "n_patients": 186,
+            "new": 0.9608,
+            "new_lo": 0.9373,
+            "new_hi": 0.9809,
+            "new_k": 319,
+            "current_not_refused": 0.8072,
+            "current_not_refused_lo": 0.7515,
+            "current_not_refused_hi": 0.8551,
+            "current_not_refused_k": 268,
+            "current_good_only": 0.5633,
+            "current_good_only_lo": 0.5015,
+            "current_good_only_hi": 0.6218,
+            "current_good_only_k": 187
+          },
+          {
+            "group": "Head: brain, Trans-cerebellum",
+            "n_images": 154,
+            "n_patients": 121,
+            "new": 0.9351,
+            "new_lo": 0.8897,
+            "new_hi": 0.9728,
+            "new_k": 144,
+            "current_not_refused": 0.7273,
+            "current_not_refused_lo": 0.6452,
+            "current_not_refused_hi": 0.8013,
+            "current_not_refused_k": 112,
+            "current_good_only": 0.4481,
+            "current_good_only_lo": 0.3586,
+            "current_good_only_hi": 0.5419,
+            "current_good_only_k": 69
+          },
+          {
+            "group": "Head: brain, Trans-ventricular",
+            "n_images": 103,
+            "n_patients": 77,
+            "new": 0.932,
+            "new_lo": 0.8788,
+            "new_hi": 0.9732,
+            "new_k": 96,
+            "current_not_refused": 0.6602,
+            "current_not_refused_lo": 0.5534,
+            "current_not_refused_hi": 0.7629,
+            "current_not_refused_k": 68,
+            "current_good_only": 0.3981,
+            "current_good_only_lo": 0.2982,
+            "current_good_only_hi": 0.5,
+            "current_good_only_k": 41
+          },
+          {
+            "group": "Head: brain, Other",
+            "n_images": 29,
+            "n_patients": 20,
+            "new": 0.4138,
+            "new_lo": 0.2222,
+            "new_hi": 0.6207,
+            "new_k": 12,
+            "current_not_refused": 0.6207,
+            "current_not_refused_lo": 0.4194,
+            "current_not_refused_hi": 0.8333,
+            "current_not_refused_k": 18,
+            "current_good_only": 0.4138,
+            "current_good_only_lo": 0.2142,
+            "current_good_only_hi": 0.6365,
+            "current_good_only_k": 12
+          },
+          {
+            "group": "NON-HEAD: all (incl. Other)",
+            "n_images": 1860,
+            "n_patients": 326,
+            "new": 0.0038,
+            "new_lo": 0.0009,
+            "new_hi": 0.0076,
+            "new_k": 7,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2098,
+            "current_not_refused_hi": 0.2838,
+            "current_not_refused_k": 457,
+            "current_good_only": 0.0903,
+            "current_good_only_lo": 0.0721,
+            "current_good_only_hi": 0.1106,
+            "current_good_only_k": 168
+          },
+          {
+            "group": "NON-HEAD: without Other",
+            "n_images": 989,
+            "n_patients": 313,
+            "new": 0.002,
+            "new_lo": 0.0,
+            "new_hi": 0.0052,
+            "new_k": 2,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2103,
+            "current_not_refused_hi": 0.2825,
+            "current_not_refused_k": 243,
+            "current_good_only": 0.0799,
+            "current_good_only_lo": 0.061,
+            "current_good_only_hi": 0.1,
+            "current_good_only_k": 79
+          },
+          {
+            "group": "Non-head: Fetal abdomen",
+            "n_images": 134,
+            "n_patients": 117,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.4254,
+            "current_not_refused_lo": 0.3356,
+            "current_not_refused_hi": 0.5116,
+            "current_not_refused_k": 57,
+            "current_good_only": 0.194,
+            "current_good_only_lo": 0.1231,
+            "current_good_only_hi": 0.2701,
+            "current_good_only_k": 26
+          },
+          {
+            "group": "Non-head: Fetal femur",
+            "n_images": 220,
+            "n_patients": 150,
+            "new": 0.0045,
+            "new_lo": 0.0,
+            "new_hi": 0.0145,
+            "new_k": 1,
+            "current_not_refused": 0.3227,
+            "current_not_refused_lo": 0.2534,
+            "current_not_refused_hi": 0.3935,
+            "current_not_refused_k": 71,
+            "current_good_only": 0.1273,
+            "current_good_only_lo": 0.083,
+            "current_good_only_hi": 0.1754,
+            "current_good_only_k": 28
+          },
+          {
+            "group": "Non-head: Fetal thorax",
+            "n_images": 346,
+            "n_patients": 154,
+            "new": 0.0029,
+            "new_lo": 0.0,
+            "new_hi": 0.0091,
+            "new_k": 1,
+            "current_not_refused": 0.2919,
+            "current_not_refused_lo": 0.2215,
+            "current_not_refused_hi": 0.366,
+            "current_not_refused_k": 101,
+            "current_good_only": 0.0694,
+            "current_good_only_lo": 0.0415,
+            "current_good_only_hi": 0.1003,
+            "current_good_only_k": 24
+          },
+          {
+            "group": "Non-head: Maternal cervix",
+            "n_images": 289,
+            "n_patients": 173,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.0484,
+            "current_not_refused_lo": 0.0154,
+            "current_not_refused_hi": 0.0909,
+            "current_not_refused_k": 14,
+            "current_good_only": 0.0035,
+            "current_good_only_lo": 0.0,
+            "current_good_only_hi": 0.0112,
+            "current_good_only_k": 1
+          },
+          {
+            "group": "Non-head: Other",
+            "n_images": 871,
+            "n_patients": 148,
+            "new": 0.0057,
+            "new_lo": 0.0,
+            "new_hi": 0.0129,
+            "new_k": 5,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.1873,
+            "current_not_refused_hi": 0.3145,
+            "current_not_refused_k": 214,
+            "current_good_only": 0.1022,
+            "current_good_only_lo": 0.0728,
+            "current_good_only_hi": 0.1369,
+            "current_good_only_k": 89
+          }
+        ],
+        "combined_with_current": {
+          "non-head, all": {
+            "n": 1860,
+            "current_alone_gets_age": {
+              "n": 1860,
+              "k": 457,
+              "value": 0.2456989247311828,
+              "ci95": [
+                0.2097534101308851,
+                0.28383787324822846
+              ]
+            },
+            "combined_gets_age": {
+              "n": 1860,
+              "k": 5,
+              "value": 0.002688172043010753,
+              "ci95": [
+                0.0004994932783241273,
+                0.005787037037037037
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 109,
+              "value": 0.05860215053763441,
+              "ci95": [
+                0.04423866908051324,
+                0.07461549246126482
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 3,
+              "value": 0.0016129032258064516,
+              "ci95": [
+                0.0,
+                0.0036538516787650087
+              ]
+            }
+          },
+          "non-head, without Other": {
+            "n": 989,
+            "current_alone_gets_age": {
+              "n": 989,
+              "k": 243,
+              "value": 0.24570273003033366,
+              "ci95": [
+                0.21030976617672203,
+                0.28249224665269274
+              ]
+            },
+            "combined_gets_age": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 54,
+              "value": 0.054600606673407485,
+              "ci95": [
+                0.03955346231211994,
+                0.07175429765958775
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            }
+          },
+          "Fetal abdomen": {
+            "n": 134,
+            "current_alone_gets_age": {
+              "n": 134,
+              "k": 57,
+              "value": 0.4253731343283582,
+              "ci95": [
+                0.3355593607305936,
+                0.5116324848928767
+              ]
+            },
+            "combined_gets_age": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 22,
+              "value": 0.16417910447761194,
+              "ci95": [
+                0.09923664122137404,
+                0.23846153846153847
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Fetal femur": {
+            "n": 220,
+            "current_alone_gets_age": {
+              "n": 220,
+              "k": 71,
+              "value": 0.32272727272727275,
+              "ci95": [
+                0.2533921568627451,
+                0.39351851851851855
+              ]
+            },
+            "combined_gets_age": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 18,
+              "value": 0.08181818181818182,
+              "ci95": [
+                0.04888888888888889,
+                0.12020089285714282
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            }
+          },
+          "Fetal thorax": {
+            "n": 346,
+            "current_alone_gets_age": {
+              "n": 346,
+              "k": 101,
+              "value": 0.29190751445086704,
+              "ci95": [
+                0.22153155923801943,
+                0.36604833743842363
+              ]
+            },
+            "combined_gets_age": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 14,
+              "value": 0.04046242774566474,
+              "ci95": [
+                0.018666666666666668,
+                0.06606671326498911
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            }
+          },
+          "Maternal cervix": {
+            "n": 289,
+            "current_alone_gets_age": {
+              "n": 289,
+              "k": 14,
+              "value": 0.04844290657439446,
+              "ci95": [
+                0.015425084175084175,
+                0.09092509603072975
+              ]
+            },
+            "combined_gets_age": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Other": {
+            "n": 871,
+            "current_alone_gets_age": {
+              "n": 871,
+              "k": 214,
+              "value": 0.24569460390355913,
+              "ci95": [
+                0.18732152468316557,
+                0.3144802914747414
+              ]
+            },
+            "combined_gets_age": {
+              "n": 871,
+              "k": 3,
+              "value": 0.003444316877152698,
+              "ci95": [
+                0.0,
+                0.009303412301673543
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 55,
+              "value": 0.06314580941446613,
+              "ci95": [
+                0.0411106064380751,
+                0.09033078880407125
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 1,
+              "value": 0.001148105625717566,
+              "ci95": [
+                0.0,
+                0.0038723106478458914
+              ]
+            }
+          },
+          "heads": {
+            "n": 618,
+            "current_alone_gets_age": {
+              "n": 618,
+              "k": 466,
+              "value": 0.7540453074433657,
+              "ci95": [
+                0.7021613199685978,
+                0.7996488759889463
+              ]
+            },
+            "combined_gets_age": {
+              "n": 618,
+              "k": 441,
+              "value": 0.7135922330097088,
+              "ci95": [
+                0.66282602029438,
+                0.7593609516977523
+              ]
+            },
+            "current_alone_gets_a_verdict": {
+              "n": 618,
+              "k": 354,
+              "value": 0.5728155339805825,
+              "ci95": [
+                0.5148514851485149,
+                0.6266030844155844
+              ]
+            },
+            "combined_gets_a_verdict": {
+              "n": 618,
+              "k": 334,
+              "value": 0.540453074433657,
+              "ci95": [
+                0.48548151445328863,
+                0.5942310881615489
+              ]
+            }
+          }
+        },
+        "decision_accuracy": {
+          "new": 0.9782082324455206,
+          "current_not_refused": 0.7542372881355932,
+          "majority_baseline": 0.7506053268765134,
+          "new_ci95": [
+            0.9700099885251183,
+            0.9851736640960466
+          ],
+          "current_ci95": [
+            0.7265528431245202,
+            0.7829806352934751
+          ]
+        }
+      },
+      "head_accept_target_95": {
+        "threshold": 1.7130703926086426,
+        "groups": [
+          {
+            "group": "Head: all brain",
+            "n_images": 618,
+            "n_patients": 208,
+            "new": 0.9628,
+            "new_lo": 0.9463,
+            "new_hi": 0.9784,
+            "new_k": 595,
+            "current_not_refused": 0.754,
+            "current_not_refused_lo": 0.7022,
+            "current_not_refused_hi": 0.7996,
+            "current_not_refused_k": 466,
+            "current_good_only": 0.5,
+            "current_good_only_lo": 0.4428,
+            "current_good_only_hi": 0.5531,
+            "current_good_only_k": 309
+          },
+          {
+            "group": "Head: trans-thalamic (HC plane)",
+            "n_images": 332,
+            "n_patients": 186,
+            "new": 0.9849,
+            "new_lo": 0.9712,
+            "new_hi": 0.9969,
+            "new_k": 327,
+            "current_not_refused": 0.8072,
+            "current_not_refused_lo": 0.7515,
+            "current_not_refused_hi": 0.8551,
+            "current_not_refused_k": 268,
+            "current_good_only": 0.5633,
+            "current_good_only_lo": 0.5015,
+            "current_good_only_hi": 0.6218,
+            "current_good_only_k": 187
+          },
+          {
+            "group": "Head: brain, Trans-cerebellum",
+            "n_images": 154,
+            "n_patients": 121,
+            "new": 0.974,
+            "new_lo": 0.9463,
+            "new_hi": 0.9939,
+            "new_k": 150,
+            "current_not_refused": 0.7273,
+            "current_not_refused_lo": 0.6452,
+            "current_not_refused_hi": 0.8013,
+            "current_not_refused_k": 112,
+            "current_good_only": 0.4481,
+            "current_good_only_lo": 0.3586,
+            "current_good_only_hi": 0.5419,
+            "current_good_only_k": 69
+          },
+          {
+            "group": "Head: brain, Trans-ventricular",
+            "n_images": 103,
+            "n_patients": 77,
+            "new": 0.9709,
+            "new_lo": 0.932,
+            "new_hi": 1.0,
+            "new_k": 100,
+            "current_not_refused": 0.6602,
+            "current_not_refused_lo": 0.5534,
+            "current_not_refused_hi": 0.7629,
+            "current_not_refused_k": 68,
+            "current_good_only": 0.3981,
+            "current_good_only_lo": 0.2982,
+            "current_good_only_hi": 0.5,
+            "current_good_only_k": 41
+          },
+          {
+            "group": "Head: brain, Other",
+            "n_images": 29,
+            "n_patients": 20,
+            "new": 0.6207,
+            "new_lo": 0.409,
+            "new_hi": 0.8215,
+            "new_k": 18,
+            "current_not_refused": 0.6207,
+            "current_not_refused_lo": 0.4194,
+            "current_not_refused_hi": 0.8333,
+            "current_not_refused_k": 18,
+            "current_good_only": 0.4138,
+            "current_good_only_lo": 0.2142,
+            "current_good_only_hi": 0.6365,
+            "current_good_only_k": 12
+          },
+          {
+            "group": "NON-HEAD: all (incl. Other)",
+            "n_images": 1860,
+            "n_patients": 326,
+            "new": 0.0065,
+            "new_lo": 0.0028,
+            "new_hi": 0.0106,
+            "new_k": 12,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2098,
+            "current_not_refused_hi": 0.2838,
+            "current_not_refused_k": 457,
+            "current_good_only": 0.0903,
+            "current_good_only_lo": 0.0721,
+            "current_good_only_hi": 0.1106,
+            "current_good_only_k": 168
+          },
+          {
+            "group": "NON-HEAD: without Other",
+            "n_images": 989,
+            "n_patients": 313,
+            "new": 0.003,
+            "new_lo": 0.0,
+            "new_hi": 0.0068,
+            "new_k": 3,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2103,
+            "current_not_refused_hi": 0.2825,
+            "current_not_refused_k": 243,
+            "current_good_only": 0.0799,
+            "current_good_only_lo": 0.061,
+            "current_good_only_hi": 0.1,
+            "current_good_only_k": 79
+          },
+          {
+            "group": "Non-head: Fetal abdomen",
+            "n_images": 134,
+            "n_patients": 117,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.4254,
+            "current_not_refused_lo": 0.3356,
+            "current_not_refused_hi": 0.5116,
+            "current_not_refused_k": 57,
+            "current_good_only": 0.194,
+            "current_good_only_lo": 0.1231,
+            "current_good_only_hi": 0.2701,
+            "current_good_only_k": 26
+          },
+          {
+            "group": "Non-head: Fetal femur",
+            "n_images": 220,
+            "n_patients": 150,
+            "new": 0.0045,
+            "new_lo": 0.0,
+            "new_hi": 0.0145,
+            "new_k": 1,
+            "current_not_refused": 0.3227,
+            "current_not_refused_lo": 0.2534,
+            "current_not_refused_hi": 0.3935,
+            "current_not_refused_k": 71,
+            "current_good_only": 0.1273,
+            "current_good_only_lo": 0.083,
+            "current_good_only_hi": 0.1754,
+            "current_good_only_k": 28
+          },
+          {
+            "group": "Non-head: Fetal thorax",
+            "n_images": 346,
+            "n_patients": 154,
+            "new": 0.0058,
+            "new_lo": 0.0,
+            "new_hi": 0.0149,
+            "new_k": 2,
+            "current_not_refused": 0.2919,
+            "current_not_refused_lo": 0.2215,
+            "current_not_refused_hi": 0.366,
+            "current_not_refused_k": 101,
+            "current_good_only": 0.0694,
+            "current_good_only_lo": 0.0415,
+            "current_good_only_hi": 0.1003,
+            "current_good_only_k": 24
+          },
+          {
+            "group": "Non-head: Maternal cervix",
+            "n_images": 289,
+            "n_patients": 173,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.0484,
+            "current_not_refused_lo": 0.0154,
+            "current_not_refused_hi": 0.0909,
+            "current_not_refused_k": 14,
+            "current_good_only": 0.0035,
+            "current_good_only_lo": 0.0,
+            "current_good_only_hi": 0.0112,
+            "current_good_only_k": 1
+          },
+          {
+            "group": "Non-head: Other",
+            "n_images": 871,
+            "n_patients": 148,
+            "new": 0.0103,
+            "new_lo": 0.0032,
+            "new_hi": 0.0192,
+            "new_k": 9,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.1873,
+            "current_not_refused_hi": 0.3145,
+            "current_not_refused_k": 214,
+            "current_good_only": 0.1022,
+            "current_good_only_lo": 0.0728,
+            "current_good_only_hi": 0.1369,
+            "current_good_only_k": 89
+          }
+        ],
+        "combined_with_current": {
+          "non-head, all": {
+            "n": 1860,
+            "current_alone_gets_age": {
+              "n": 1860,
+              "k": 457,
+              "value": 0.2456989247311828,
+              "ci95": [
+                0.2097534101308851,
+                0.28383787324822846
+              ]
+            },
+            "combined_gets_age": {
+              "n": 1860,
+              "k": 8,
+              "value": 0.004301075268817204,
+              "ci95": [
+                0.0014703021286335545,
+                0.007824773243111085
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 109,
+              "value": 0.05860215053763441,
+              "ci95": [
+                0.04423866908051324,
+                0.07461549246126482
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 5,
+              "value": 0.002688172043010753,
+              "ci95": [
+                0.0005605224240354727,
+                0.005214747213044773
+              ]
+            }
+          },
+          "non-head, without Other": {
+            "n": 989,
+            "current_alone_gets_age": {
+              "n": 989,
+              "k": 243,
+              "value": 0.24570273003033366,
+              "ci95": [
+                0.21030976617672203,
+                0.28249224665269274
+              ]
+            },
+            "combined_gets_age": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 54,
+              "value": 0.054600606673407485,
+              "ci95": [
+                0.03955346231211994,
+                0.07175429765958775
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 2,
+              "value": 0.0020222446916076846,
+              "ci95": [
+                0.0,
+                0.005230125523012552
+              ]
+            }
+          },
+          "Fetal abdomen": {
+            "n": 134,
+            "current_alone_gets_age": {
+              "n": 134,
+              "k": 57,
+              "value": 0.4253731343283582,
+              "ci95": [
+                0.3355593607305936,
+                0.5116324848928767
+              ]
+            },
+            "combined_gets_age": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 22,
+              "value": 0.16417910447761194,
+              "ci95": [
+                0.09923664122137404,
+                0.23846153846153847
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Fetal femur": {
+            "n": 220,
+            "current_alone_gets_age": {
+              "n": 220,
+              "k": 71,
+              "value": 0.32272727272727275,
+              "ci95": [
+                0.2533921568627451,
+                0.39351851851851855
+              ]
+            },
+            "combined_gets_age": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 18,
+              "value": 0.08181818181818182,
+              "ci95": [
+                0.04888888888888889,
+                0.12020089285714282
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 1,
+              "value": 0.004545454545454545,
+              "ci95": [
+                0.0,
+                0.014499892910687475
+              ]
+            }
+          },
+          "Fetal thorax": {
+            "n": 346,
+            "current_alone_gets_age": {
+              "n": 346,
+              "k": 101,
+              "value": 0.29190751445086704,
+              "ci95": [
+                0.22153155923801943,
+                0.36604833743842363
+              ]
+            },
+            "combined_gets_age": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 14,
+              "value": 0.04046242774566474,
+              "ci95": [
+                0.018666666666666668,
+                0.06606671326498911
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 1,
+              "value": 0.002890173410404624,
+              "ci95": [
+                0.0,
+                0.009092994161801489
+              ]
+            }
+          },
+          "Maternal cervix": {
+            "n": 289,
+            "current_alone_gets_age": {
+              "n": 289,
+              "k": 14,
+              "value": 0.04844290657439446,
+              "ci95": [
+                0.015425084175084175,
+                0.09092509603072975
+              ]
+            },
+            "combined_gets_age": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Other": {
+            "n": 871,
+            "current_alone_gets_age": {
+              "n": 871,
+              "k": 214,
+              "value": 0.24569460390355913,
+              "ci95": [
+                0.18732152468316557,
+                0.3144802914747414
+              ]
+            },
+            "combined_gets_age": {
+              "n": 871,
+              "k": 6,
+              "value": 0.006888633754305396,
+              "ci95": [
+                0.0012609943428170294,
+                0.01428617871075608
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 55,
+              "value": 0.06314580941446613,
+              "ci95": [
+                0.0411106064380751,
+                0.09033078880407125
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 3,
+              "value": 0.003444316877152698,
+              "ci95": [
+                0.0,
+                0.008168266556887205
+              ]
+            }
+          },
+          "heads": {
+            "n": 618,
+            "current_alone_gets_age": {
+              "n": 618,
+              "k": 466,
+              "value": 0.7540453074433657,
+              "ci95": [
+                0.7021613199685978,
+                0.7996488759889463
+              ]
+            },
+            "combined_gets_age": {
+              "n": 618,
+              "k": 454,
+              "value": 0.7346278317152104,
+              "ci95": [
+                0.6838559841231117,
+                0.7779606657002677
+              ]
+            },
+            "current_alone_gets_a_verdict": {
+              "n": 618,
+              "k": 354,
+              "value": 0.5728155339805825,
+              "ci95": [
+                0.5148514851485149,
+                0.6266030844155844
+              ]
+            },
+            "combined_gets_a_verdict": {
+              "n": 618,
+              "k": 345,
+              "value": 0.558252427184466,
+              "ci95": [
+                0.5008512927063639,
+                0.6124411734665818
+              ]
+            }
+          }
+        },
+        "decision_accuracy": {
+          "new": 0.9858757062146892,
+          "current_not_refused": 0.7542372881355932,
+          "majority_baseline": 0.7506053268765134,
+          "new_ci95": [
+            0.980014320913665,
+            0.9909505125260517
+          ],
+          "current_ci95": [
+            0.7265528431245202,
+            0.7829806352934751
+          ]
+        }
+      },
+      "head_accept_target_98": {
+        "threshold": -1.1890010833740234,
+        "groups": [
+          {
+            "group": "Head: all brain",
+            "n_images": 618,
+            "n_patients": 208,
+            "new": 0.9822,
+            "new_lo": 0.9678,
+            "new_hi": 0.9935,
+            "new_k": 607,
+            "current_not_refused": 0.754,
+            "current_not_refused_lo": 0.7022,
+            "current_not_refused_hi": 0.7996,
+            "current_not_refused_k": 466,
+            "current_good_only": 0.5,
+            "current_good_only_lo": 0.4428,
+            "current_good_only_hi": 0.5531,
+            "current_good_only_k": 309
+          },
+          {
+            "group": "Head: trans-thalamic (HC plane)",
+            "n_images": 332,
+            "n_patients": 186,
+            "new": 1.0,
+            "new_lo": 1.0,
+            "new_hi": 1.0,
+            "new_k": 332,
+            "current_not_refused": 0.8072,
+            "current_not_refused_lo": 0.7515,
+            "current_not_refused_hi": 0.8551,
+            "current_not_refused_k": 268,
+            "current_good_only": 0.5633,
+            "current_good_only_lo": 0.5015,
+            "current_good_only_hi": 0.6218,
+            "current_good_only_k": 187
+          },
+          {
+            "group": "Head: brain, Trans-cerebellum",
+            "n_images": 154,
+            "n_patients": 121,
+            "new": 1.0,
+            "new_lo": 1.0,
+            "new_hi": 1.0,
+            "new_k": 154,
+            "current_not_refused": 0.7273,
+            "current_not_refused_lo": 0.6452,
+            "current_not_refused_hi": 0.8013,
+            "current_not_refused_k": 112,
+            "current_good_only": 0.4481,
+            "current_good_only_lo": 0.3586,
+            "current_good_only_hi": 0.5419,
+            "current_good_only_k": 69
+          },
+          {
+            "group": "Head: brain, Trans-ventricular",
+            "n_images": 103,
+            "n_patients": 77,
+            "new": 0.9903,
+            "new_lo": 0.9688,
+            "new_hi": 1.0,
+            "new_k": 102,
+            "current_not_refused": 0.6602,
+            "current_not_refused_lo": 0.5534,
+            "current_not_refused_hi": 0.7629,
+            "current_not_refused_k": 68,
+            "current_good_only": 0.3981,
+            "current_good_only_lo": 0.2982,
+            "current_good_only_hi": 0.5,
+            "current_good_only_k": 41
+          },
+          {
+            "group": "Head: brain, Other",
+            "n_images": 29,
+            "n_patients": 20,
+            "new": 0.6552,
+            "new_lo": 0.4516,
+            "new_hi": 0.8519,
+            "new_k": 19,
+            "current_not_refused": 0.6207,
+            "current_not_refused_lo": 0.4194,
+            "current_not_refused_hi": 0.8333,
+            "current_not_refused_k": 18,
+            "current_good_only": 0.4138,
+            "current_good_only_lo": 0.2142,
+            "current_good_only_hi": 0.6365,
+            "current_good_only_k": 12
+          },
+          {
+            "group": "NON-HEAD: all (incl. Other)",
+            "n_images": 1860,
+            "n_patients": 326,
+            "new": 0.0376,
+            "new_lo": 0.0261,
+            "new_hi": 0.0499,
+            "new_k": 70,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2098,
+            "current_not_refused_hi": 0.2838,
+            "current_not_refused_k": 457,
+            "current_good_only": 0.0903,
+            "current_good_only_lo": 0.0721,
+            "current_good_only_hi": 0.1106,
+            "current_good_only_k": 168
+          },
+          {
+            "group": "NON-HEAD: without Other",
+            "n_images": 989,
+            "n_patients": 313,
+            "new": 0.0142,
+            "new_lo": 0.0079,
+            "new_hi": 0.0215,
+            "new_k": 14,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.2103,
+            "current_not_refused_hi": 0.2825,
+            "current_not_refused_k": 243,
+            "current_good_only": 0.0799,
+            "current_good_only_lo": 0.061,
+            "current_good_only_hi": 0.1,
+            "current_good_only_k": 79
+          },
+          {
+            "group": "Non-head: Fetal abdomen",
+            "n_images": 134,
+            "n_patients": 117,
+            "new": 0.0299,
+            "new_lo": 0.0071,
+            "new_hi": 0.0615,
+            "new_k": 4,
+            "current_not_refused": 0.4254,
+            "current_not_refused_lo": 0.3356,
+            "current_not_refused_hi": 0.5116,
+            "current_not_refused_k": 57,
+            "current_good_only": 0.194,
+            "current_good_only_lo": 0.1231,
+            "current_good_only_hi": 0.2701,
+            "current_good_only_k": 26
+          },
+          {
+            "group": "Non-head: Fetal femur",
+            "n_images": 220,
+            "n_patients": 150,
+            "new": 0.0227,
+            "new_lo": 0.0047,
+            "new_hi": 0.0423,
+            "new_k": 5,
+            "current_not_refused": 0.3227,
+            "current_not_refused_lo": 0.2534,
+            "current_not_refused_hi": 0.3935,
+            "current_not_refused_k": 71,
+            "current_good_only": 0.1273,
+            "current_good_only_lo": 0.083,
+            "current_good_only_hi": 0.1754,
+            "current_good_only_k": 28
+          },
+          {
+            "group": "Non-head: Fetal thorax",
+            "n_images": 346,
+            "n_patients": 154,
+            "new": 0.0145,
+            "new_lo": 0.0029,
+            "new_hi": 0.0283,
+            "new_k": 5,
+            "current_not_refused": 0.2919,
+            "current_not_refused_lo": 0.2215,
+            "current_not_refused_hi": 0.366,
+            "current_not_refused_k": 101,
+            "current_good_only": 0.0694,
+            "current_good_only_lo": 0.0415,
+            "current_good_only_hi": 0.1003,
+            "current_good_only_k": 24
+          },
+          {
+            "group": "Non-head: Maternal cervix",
+            "n_images": 289,
+            "n_patients": 173,
+            "new": 0.0,
+            "new_lo": 0.0,
+            "new_hi": 0.0,
+            "new_k": 0,
+            "current_not_refused": 0.0484,
+            "current_not_refused_lo": 0.0154,
+            "current_not_refused_hi": 0.0909,
+            "current_not_refused_k": 14,
+            "current_good_only": 0.0035,
+            "current_good_only_lo": 0.0,
+            "current_good_only_hi": 0.0112,
+            "current_good_only_k": 1
+          },
+          {
+            "group": "Non-head: Other",
+            "n_images": 871,
+            "n_patients": 148,
+            "new": 0.0643,
+            "new_lo": 0.0424,
+            "new_hi": 0.0884,
+            "new_k": 56,
+            "current_not_refused": 0.2457,
+            "current_not_refused_lo": 0.1873,
+            "current_not_refused_hi": 0.3145,
+            "current_not_refused_k": 214,
+            "current_good_only": 0.1022,
+            "current_good_only_lo": 0.0728,
+            "current_good_only_hi": 0.1369,
+            "current_good_only_k": 89
+          }
+        ],
+        "combined_with_current": {
+          "non-head, all": {
+            "n": 1860,
+            "current_alone_gets_age": {
+              "n": 1860,
+              "k": 457,
+              "value": 0.2456989247311828,
+              "ci95": [
+                0.2097534101308851,
+                0.28383787324822846
+              ]
+            },
+            "combined_gets_age": {
+              "n": 1860,
+              "k": 39,
+              "value": 0.020967741935483872,
+              "ci95": [
+                0.012805476229277087,
+                0.030158587345002662
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 109,
+              "value": 0.05860215053763441,
+              "ci95": [
+                0.04423866908051324,
+                0.07461549246126482
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 1860,
+              "k": 17,
+              "value": 0.00913978494623656,
+              "ci95": [
+                0.003658745708888143,
+                0.0158559394695876
+              ]
+            }
+          },
+          "non-head, without Other": {
+            "n": 989,
+            "current_alone_gets_age": {
+              "n": 989,
+              "k": 243,
+              "value": 0.24570273003033366,
+              "ci95": [
+                0.21030976617672203,
+                0.28249224665269274
+              ]
+            },
+            "combined_gets_age": {
+              "n": 989,
+              "k": 6,
+              "value": 0.006066734074823054,
+              "ci95": [
+                0.001964588342128247,
+                0.011470281543274244
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 54,
+              "value": 0.054600606673407485,
+              "ci95": [
+                0.03955346231211994,
+                0.07175429765958775
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 989,
+              "k": 5,
+              "value": 0.005055611729019211,
+              "ci95": [
+                0.0010383946691485374,
+                0.009719359283892122
+              ]
+            }
+          },
+          "Fetal abdomen": {
+            "n": 134,
+            "current_alone_gets_age": {
+              "n": 134,
+              "k": 57,
+              "value": 0.4253731343283582,
+              "ci95": [
+                0.3355593607305936,
+                0.5116324848928767
+              ]
+            },
+            "combined_gets_age": {
+              "n": 134,
+              "k": 1,
+              "value": 0.007462686567164179,
+              "ci95": [
+                0.0,
+                0.023622047244094488
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 22,
+              "value": 0.16417910447761194,
+              "ci95": [
+                0.09923664122137404,
+                0.23846153846153847
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 134,
+              "k": 1,
+              "value": 0.007462686567164179,
+              "ci95": [
+                0.0,
+                0.023622047244094488
+              ]
+            }
+          },
+          "Fetal femur": {
+            "n": 220,
+            "current_alone_gets_age": {
+              "n": 220,
+              "k": 71,
+              "value": 0.32272727272727275,
+              "ci95": [
+                0.2533921568627451,
+                0.39351851851851855
+              ]
+            },
+            "combined_gets_age": {
+              "n": 220,
+              "k": 3,
+              "value": 0.013636363636363636,
+              "ci95": [
+                0.0,
+                0.030973451327433628
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 18,
+              "value": 0.08181818181818182,
+              "ci95": [
+                0.04888888888888889,
+                0.12020089285714282
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 220,
+              "k": 2,
+              "value": 0.00909090909090909,
+              "ci95": [
+                0.0,
+                0.023148148148148147
+              ]
+            }
+          },
+          "Fetal thorax": {
+            "n": 346,
+            "current_alone_gets_age": {
+              "n": 346,
+              "k": 101,
+              "value": 0.29190751445086704,
+              "ci95": [
+                0.22153155923801943,
+                0.36604833743842363
+              ]
+            },
+            "combined_gets_age": {
+              "n": 346,
+              "k": 2,
+              "value": 0.005780346820809248,
+              "ci95": [
+                0.0,
+                0.014622033023735798
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 14,
+              "value": 0.04046242774566474,
+              "ci95": [
+                0.018666666666666668,
+                0.06606671326498911
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 346,
+              "k": 2,
+              "value": 0.005780346820809248,
+              "ci95": [
+                0.0,
+                0.014622033023735798
+              ]
+            }
+          },
+          "Maternal cervix": {
+            "n": 289,
+            "current_alone_gets_age": {
+              "n": 289,
+              "k": 14,
+              "value": 0.04844290657439446,
+              "ci95": [
+                0.015425084175084175,
+                0.09092509603072975
+              ]
+            },
+            "combined_gets_age": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 289,
+              "k": 0,
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "Other": {
+            "n": 871,
+            "current_alone_gets_age": {
+              "n": 871,
+              "k": 214,
+              "value": 0.24569460390355913,
+              "ci95": [
+                0.18732152468316557,
+                0.3144802914747414
+              ]
+            },
+            "combined_gets_age": {
+              "n": 871,
+              "k": 33,
+              "value": 0.03788748564867968,
+              "ci95": [
+                0.022410803160383228,
+                0.05652449296961056
+              ]
+            },
+            "current_alone_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 55,
+              "value": 0.06314580941446613,
+              "ci95": [
+                0.0411106064380751,
+                0.09033078880407125
+              ]
+            },
+            "combined_gets_cryptic_or_possibly": {
+              "n": 871,
+              "k": 12,
+              "value": 0.013777267508610792,
+              "ci95": [
+                0.003840861728814445,
+                0.027147077666455674
+              ]
+            }
+          },
+          "heads": {
+            "n": 618,
+            "current_alone_gets_age": {
+              "n": 618,
+              "k": 466,
+              "value": 0.7540453074433657,
+              "ci95": [
+                0.7021613199685978,
+                0.7996488759889463
+              ]
+            },
+            "combined_gets_age": {
+              "n": 618,
+              "k": 462,
+              "value": 0.7475728155339806,
+              "ci95": [
+                0.6959349844853172,
+                0.7920963066701406
+              ]
+            },
+            "current_alone_gets_a_verdict": {
+              "n": 618,
+              "k": 354,
+              "value": 0.5728155339805825,
+              "ci95": [
+                0.5148514851485149,
+                0.6266030844155844
+              ]
+            },
+            "combined_gets_a_verdict": {
+              "n": 618,
+              "k": 350,
+              "value": 0.5663430420711975,
+              "ci95": [
+                0.5090850534328795,
+                0.6219744530995911
+              ]
+            }
+          }
+        },
+        "decision_accuracy": {
+          "new": 0.9673123486682809,
+          "current_not_refused": 0.7542372881355932,
+          "majority_baseline": 0.7506053268765134,
+          "new_ci95": [
+            0.9571536586538839,
+            0.9769455584159326
+          ],
+          "current_ci95": [
+            0.7265528431245202,
+            0.7829806352934751
+          ]
+        }
+      },
+      "auc_new": {
+        "value": 0.9972639802345409,
+        "ci95": [
+          0.994773419536411,
+          0.9989426527570775
+        ]
+      },
+      "auc_current": {
+        "value": 0.8400511535650903,
+        "ci95": [
+          0.8119758140941656,
+          0.8665374920056649
+        ]
+      },
+      "by_machine_primary": {
+        "Aloka": {
+          "heads": 149,
+          "new_head_accepted": 0.959731543624161,
+          "current_head_accepted": 0.7114093959731543,
+          "nonhead": 995,
+          "new_nonhead_accepted": 0.009045226130653266,
+          "current_nonhead_accepted": 0.25326633165829143
+        },
+        "Other": {
+          "heads": 7,
+          "new_head_accepted": 1.0,
+          "current_head_accepted": 1.0,
+          "nonhead": 23,
+          "new_nonhead_accepted": 0.0,
+          "current_nonhead_accepted": 0.21739130434782608
+        },
+        "Voluson E6": {
+          "heads": 406,
+          "new_head_accepted": 0.9655172413793104,
+          "current_head_accepted": 0.7783251231527094,
+          "nonhead": 697,
+          "new_nonhead_accepted": 0.00430416068866571,
+          "current_nonhead_accepted": 0.23529411764705882
+        },
+        "Voluson S10": {
+          "heads": 56,
+          "new_head_accepted": 0.9464285714285714,
+          "current_head_accepted": 0.6607142857142857,
+          "nonhead": 145,
+          "new_nonhead_accepted": 0.0,
+          "current_nonhead_accepted": 0.2482758620689655
+        }
+      }
+    }
+  },
+  "hc18": {
+    "HC18 held-out 218 (never in the current check's reference, never used to fit the new check)": {
+      "n": 218,
+      "current_not_refused": {
+        "n": 218,
+        "k": 216,
+        "value": 0.9908256880733946,
+        "ci95": [
+          0.9772727272727273,
+          1.0
+        ]
+      },
+      "current_good_only": {
+        "n": 218,
+        "k": 207,
+        "value": 0.9495412844036697,
+        "ci95": [
+          0.9114583333333334,
+          0.9808626136820191
+        ]
+      },
+      "new_A_with_other_at_90": {
+        "n": 218,
+        "k": 148,
+        "value": 0.6788990825688074,
+        "ci95": [
+          0.586659090909091,
+          0.7621408202359702
+        ]
+      },
+      "new_A_with_other_at_95": {
+        "n": 218,
+        "k": 166,
+        "value": 0.7614678899082569,
+        "ci95": [
+          0.6778767523364486,
+          0.8411214953271028
+        ]
+      },
+      "new_A_with_other_at_98": {
+        "n": 218,
+        "k": 187,
+        "value": 0.8577981651376146,
+        "ci95": [
+          0.7865612648221344,
+          0.9211851167670133
+        ]
+      },
+      "new_A_with_other_score_median": 6.8848182410034795,
+      "new_B_without_other_at_90": {
+        "n": 218,
+        "k": 147,
+        "value": 0.6743119266055045,
+        "ci95": [
+          0.5854559748427673,
+          0.756915464249316
+        ]
+      },
+      "new_B_without_other_at_95": {
+        "n": 218,
+        "k": 160,
+        "value": 0.7339449541284404,
+        "ci95": [
+          0.6432154905985326,
+          0.8127739113143765
+        ]
+      },
+      "new_B_without_other_at_98": {
+        "n": 218,
+        "k": 178,
+        "value": 0.8165137614678899,
+        "ci95": [
+          0.7397941710930948,
+          0.8859721875779496
+        ]
+      },
+      "new_B_without_other_score_median": 7.074161666906631
+    },
+    "HC18 unlabeled test_set, 335 (never used by either check)": {
+      "n": 335,
+      "current_not_refused": {
+        "n": 335,
+        "k": 333,
+        "value": 0.9940298507462687,
+        "ci95": [
+          0.9850746268656716,
+          1.0
+        ]
+      },
+      "current_good_only": {
+        "n": 335,
+        "k": 320,
+        "value": 0.9552238805970149,
+        "ci95": [
+          0.9313432835820895,
+          0.9761194029850746
+        ]
+      },
+      "new_A_with_other_at_90": {
+        "n": 335,
+        "k": 260,
+        "value": 0.7761194029850746,
+        "ci95": [
+          0.7313432835820896,
+          0.8208955223880597
+        ]
+      },
+      "new_A_with_other_at_95": {
+        "n": 335,
+        "k": 285,
+        "value": 0.8507462686567164,
+        "ci95": [
+          0.8119402985074626,
+          0.8895522388059701
+        ]
+      },
+      "new_A_with_other_at_98": {
+        "n": 335,
+        "k": 312,
+        "value": 0.9313432835820895,
+        "ci95": [
+          0.9014925373134328,
+          0.9582089552238806
+        ]
+      },
+      "new_A_with_other_score_median": 7.926001174646089,
+      "new_B_without_other_at_90": {
+        "n": 335,
+        "k": 249,
+        "value": 0.7432835820895523,
+        "ci95": [
+          0.6955223880597015,
+          0.7910447761194029
+        ]
+      },
+      "new_B_without_other_at_95": {
+        "n": 335,
+        "k": 269,
+        "value": 0.8029850746268656,
+        "ci95": [
+          0.7611940298507462,
+          0.844776119402985
+        ]
+      },
+      "new_B_without_other_at_98": {
+        "n": 335,
+        "k": 301,
+        "value": 0.8985074626865671,
+        "ci95": [
+          0.8656716417910447,
+          0.9283582089552239
+        ]
+      },
+      "new_B_without_other_score_median": 7.841015148232252
+    },
+    "HC18 training_set, all 999 (current check is optimistic here: 781 are in its own reference)": {
+      "n": 999,
+      "current_not_refused": {
+        "n": 999,
+        "k": 997,
+        "value": 0.997997997997998,
+        "ci95": [
+          0.9948924863275144,
+          1.0
+        ]
+      },
+      "current_good_only": {
+        "n": 999,
+        "k": 988,
+        "value": 0.988988988988989,
+        "ci95": [
+          0.9802066276275071,
+          0.9960668633235005
+        ]
+      },
+      "new_A_with_other_at_90": {
+        "n": 999,
+        "k": 736,
+        "value": 0.7367367367367368,
+        "ci95": [
+          0.7010177870741379,
+          0.77259524239415
+        ]
+      },
+      "new_A_with_other_at_95": {
+        "n": 999,
+        "k": 812,
+        "value": 0.8128128128128128,
+        "ci95": [
+          0.7793944017281228,
+          0.8446604405894238
+        ]
+      },
+      "new_A_with_other_at_98": {
+        "n": 999,
+        "k": 886,
+        "value": 0.8868868868868869,
+        "ci95": [
+          0.8598179802913009,
+          0.9134522463246633
+        ]
+      },
+      "new_A_with_other_score_median": 7.088369730842977,
+      "new_B_without_other_at_90": {
+        "n": 999,
+        "k": 709,
+        "value": 0.7097097097097097,
+        "ci95": [
+          0.6727949504810952,
+          0.7460195808373467
+        ]
+      },
+      "new_B_without_other_at_95": {
+        "n": 999,
+        "k": 786,
+        "value": 0.7867867867867868,
+        "ci95": [
+          0.7526053751247831,
+          0.8224531077991362
+        ]
+      },
+      "new_B_without_other_at_98": {
+        "n": 999,
+        "k": 864,
+        "value": 0.8648648648648649,
+        "ci95": [
+          0.8363028367225639,
+          0.8924199551923653
+        ]
+      },
+      "new_B_without_other_score_median": 7.052266910655124
+    },
+    "_note": {
+      "scans_matched_to_current_reference": 781,
+      "split_reproduction": "re-running grouped_split(seed 42) here gives 639/160/200, not the committed 618/163/218"
+    }
+  }
+}
