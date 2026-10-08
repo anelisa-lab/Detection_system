@@ -1,0 +1,10 @@
+{
+ "hc18_standin_709_2HC": {"path": "/home/user/data_hc18_unzipped/training_set/training_set/709_2HC.png", "answers": ["Yes", "No", "Not sure"]},
+ "hc18_standin_testset_000_HC": {"path": "/home/user/data_hc18_unzipped/test_set/test_set/000_HC.png", "answers": ["Yes", "No", "Not sure"]},
+ "abdomen_cryptic_before": {"path": "/home/user/data_fetal_planes_unzipped/Images/Patient00773_Plane2_1_of_1.png", "answers": ["Yes", "No", "Not sure"]},
+ "abdomen_poor_showed_age": {"path": "/home/user/data_fetal_planes_unzipped/Images/Patient01500_Plane2_1_of_1.png", "answers": ["Yes", "No", "Not sure"]},
+ "femur": {"path": "/home/user/data_fetal_planes_unzipped/Images/Patient01288_Plane5_1_of_1.png", "answers": ["Yes", "No", "Not sure"]},
+ "thorax": {"path": "/home/user/data_fetal_planes_unzipped/Images/Patient01063_Plane6_1_of_1.png", "answers": ["Yes", "No", "Not sure"]},
+ "trans_thalamic_refused_by_current_check": {"path": "/home/user/data_fetal_planes_unzipped/Images/Patient01322_Plane3_3_of_4.png", "answers": ["Yes", "No", "Not sure"]},
+ "trans_thalamic_accepted": {"path": "/home/user/data_fetal_planes_unzipped/Images/Patient01056_Plane3_1_of_2.png", "answers": ["Yes", "No", "Not sure"]}
+}

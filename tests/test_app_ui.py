@@ -77,14 +77,22 @@ def test_good_image_shows_summary_and_stage_guide():
 
 
 @needs_model
-def test_poor_image_warns_and_replaces_summary():
+def test_poor_image_shows_no_age_and_replaces_summary():
+    """A Poor image gives the verdict Cannot assess, so the page shows No estimate instead of an age."""
     at = run(WEEK12)
-    assert image_badge(at) in ("Limited", "Poor")
-    assert any(LIMITED_WARNING in w.value for w in at.warning)
     h = html_of(at)
+    assert "No estimate" in h and 'class="hero num"' not in h
+    assert not any(LIMITED_WARNING in w.value for w in at.warning)      # there is no estimate to call rough
     assert UNRELIABLE_SENTENCE in h and "The scan suggests a gestational age" not in h
-    assert "crown-rump length is the standard measure" in h
-    assert "Why " in h
+    assert "The image check is Poor" in h and "Why:" in h
+
+
+@needs_model
+def test_limited_image_still_shows_its_age_with_the_warning():
+    at = run(GOOD)                      # image check Limited: the estimate is shown, flagged as rough
+    assert image_badge(at) == "Limited"
+    assert any(LIMITED_WARNING in w.value for w in at.warning)
+    assert 'class="hero num"' in html_of(at)
 
 
 @needs_model

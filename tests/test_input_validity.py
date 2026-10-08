@@ -74,7 +74,9 @@ def test_valid_head_view_gets_an_estimate(predictor, name):
 def test_week12_crl_view_is_refused(predictor):
     r = predictor.predict((FIX / "crl_week12.png").read_bytes(), "crl_week12.png")
     assert r.level == "rejected" and r.ga_weeks is None and r.cam is None
-    assert "does not look like a standard head circumference view" in r.notes[0]
+    # refused by the head-view check or, failing that, the image check; either way with a plain reason
+    assert ("does not look like a standard fetal head view" in r.notes[0]
+            or "does not look like a standard head circumference view" in r.notes[0])
 
 
 @needs_model

@@ -40,9 +40,9 @@ def load_predictor(model_dir: str) -> Predictor:
 
 
 @st.cache_data(show_spinner=False, max_entries=1024)
-def analyse(data: bytes, name: str, model_dir: str, strictness: float):
+def analyse(data: bytes, name: str, model_dir: str, strictness: float, head_target: int | None = None):
     """Preprocess one upload, check it is a head-circumference view, and estimate the age."""
-    return load_predictor(model_dir).predict(data, name, strictness)
+    return load_predictor(model_dir).predict(data, name, strictness, head_target)
 
 
 # --- model ---------------------------------------------------------------------------------------
@@ -70,6 +70,21 @@ with st.sidebar:
             "Image check strictness", 0.5, 1.0, 1.0, 0.05,
             help="1.0 is the calibrated setting: about 0.5% of valid head scans are wrongly refused. "
                  "Lower values refuse more unusual images.")
+        head_target = None
+        if predictor.head is not None:
+            try:
+                head_default = predictor.head.target()          # HEAD_CHECK_TARGET, else 95
+            except ValueError as e:
+                st.error(str(e))
+                st.stop()
+            head_opts = sorted({95, 98, head_default})
+            head_target = st.selectbox(
+                "Head-view check", head_opts, index=head_opts.index(head_default), key="head_target",
+                format_func=lambda t: f"{t}%: accept {t}% of validation heads" + (" (default)" if t == 95 else ""),
+                help="Refuses images that do not look like a standard fetal head view (abdomen, femur, thorax, "
+                     "cervix and other planes). 95 refuses the most non-head images. 98 accepts more real heads "
+                     "but lets a few more non-head images through. An image is accepted only if this check and "
+                     "the image check both accept it. You can also set HEAD_CHECK_TARGET before starting the app.")
         st.toggle("Light theme", key="light", help="Brighter cards for bright rooms.")
     with st.expander("Model performance"):
         t = reg["test"]
@@ -135,15 +150,15 @@ with st.expander("Scans and question" + (f"  ·  answer: {st.session_state.get('
 # --- analysis (cached per file list) --------------------------------------------------------------------
 
 
-def ensure_results(files, strictness):
-    sig = (tuple((f.name, len(f.getvalue())) for f in files), round(strictness, 3), str(MODEL_DIR))
+def ensure_results(files, strictness, head_target):
+    sig = (tuple((f.name, len(f.getvalue())) for f in files), round(strictness, 3), str(MODEL_DIR), head_target)
     held = st.session_state.get("analysis")
     if held and held["sig"] == sig:
         return held["entries"]
     entries, bar = [], st.progress(0.0, text=f"Analysing 0 of {len(files)} scans...")
     for k, f in enumerate(files):
         try:
-            entries.append({"name": f.name, "res": analyse(f.getvalue(), f.name, str(MODEL_DIR), strictness),
+            entries.append({"name": f.name, "res": analyse(f.getvalue(), f.name, str(MODEL_DIR), strictness, head_target),
                             "error": None})
         except Exception as e:
             entries.append({"name": f.name, "res": None, "error": str(e)})
@@ -158,7 +173,7 @@ def ensure_results(files, strictness):
     return entries
 
 
-entries = ensure_results(files, strictness) if files else []
+entries = ensure_results(files, strictness, head_target) if files else []
 if not files:
     st.session_state.pop("analysis", None)
 
@@ -185,8 +200,14 @@ def describe(entry, i):
     limited = (not rejected) and res.badge != "Good"
     shown = "Good" if src == "crl" else res.badge
     sc = screen(ga, half, shown, answer, weeks_found, "; ".join(res.badge_reasons))
+    hidden = (not rejected) and sc.badge == "Cannot assess"       # a Cannot assess verdict never shows an age
+    if hidden:
+        ga = None
+    why = "; ".join(res.badge_reasons)
+    message = (res.notes[0] if rejected else
+               f"The image check is {res.badge}, so an age estimate would be unreliable. Why: {why}.")
     v = {"res": res, "ga": ga, "half": half, "src": src, "rejected": rejected, "limited": limited, "sc": sc,
-         "crl": crl, "badge": res.badge}
+         "crl": crl, "badge": res.badge, "hidden": hidden, "no_estimate_msg": message}
     if ga is not None:
         v.update(lo=max(ga - half / 7, 0), hi=ga + half / 7, tri=trimester(ga), due=due_date(ga),
                  headline=fmt_weeks_days(ga))
@@ -327,10 +348,10 @@ def page_scan():
             st.markdown(ui.timeline(v["ga"], v["lo"], v["hi"]), unsafe_allow_html=True)
 
     with right:
-        if v["limited"]:
+        if v["limited"] and not v["hidden"]:
             st.warning(LIMITED_WARNING)
         if v["ga"] is None:
-            st.markdown(ui.no_estimate_card(res.notes[0]), unsafe_allow_html=True)
+            st.markdown(ui.no_estimate_card(v["no_estimate_msg"]), unsafe_allow_html=True)
             st.markdown('<div class="hint">The model was trained on standard head views from about 12 to 40 weeks. '
                         'First-trimester whole-fetus (CRL) views, photos and unusual frames are outside that, and '
                         'image-based first-trimester scans are not supported yet.</div>', unsafe_allow_html=True)
@@ -361,7 +382,8 @@ def page_scan():
                         unsafe_allow_html=True)
         supportive = content.SUPPORTIVE if v["sc"].badge in ("Cryptic", "Possibly cryptic") else ""
         st.markdown(ui.verdict_card(v["sc"], supportive), unsafe_allow_html=True)
-        st.markdown(ui.tiles(res, v["half"], predictor.ref, predictor.heat["min_overlap"], v["rejected"], half_days),
+        st.markdown(ui.tiles(res, v["half"], predictor.ref, predictor.heat["min_overlap"], v["rejected"], half_days,
+                             v["hidden"]),
                     unsafe_allow_html=True)
         if v["ga"] is not None and v["src"] == "model":
             st.markdown(ui.growth_card(v["ga"], v["half"], light), unsafe_allow_html=True)
@@ -456,6 +478,9 @@ def page_about():
           f"{html.escape(reg['formula'])}. Average error on held-out scans is {reg['test']['mae_days']:.1f} days.</p>"
         + "<p><b>Image check.</b> Embedding distance to the training scans, a heatmap-on-skull check and the "
           "estimate's distance from the training data decide Good, Limited, Poor or Rejected.</p>"
+        + "<p><b>Head-view check.</b> A second check, trained on fetal brain, abdomen, femur, thorax, cervix and "
+          "other planes plus HC18 head scans, refuses images that do not look like a standard fetal head view. An "
+          "image is accepted only if both checks accept it.</p>"
         + "<p><b>Screening.</b> A cryptic pregnancy cannot be identified from a scan alone. The result combines the "
           "scan estimate with one question: did you know you were pregnant before this scan?</p>"
         + "<p><b>Limits.</b> Single-centre data; first-trimester scans are measured by crown-rump length, which the "

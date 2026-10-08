@@ -1,0 +1,6 @@
+case,file,answer,age_headline,image_check,screening_badge,screening_label,no_estimate_reason,head_view_tile_shown
+fixture_crl_week12,crl_week12.png,No,No estimate,,Cannot assess,Cannot assess,This does not look like a standard head circumference view. The estimate would be unreliable.,False
+fixture_week12_user_crop,week12_user_crop.png,No,14 weeks 0 days,Poor,Cannot assess,Cannot assess,,False
+poor_head_passes_head_check,Patient01426_Plane3_1_of_4.png,Yes,20 weeks 0 days,Poor,Cannot assess,Cannot assess,,False
+poor_head_passes_head_check,Patient01426_Plane3_1_of_4.png,No,20 weeks 0 days,Poor,Cannot assess,Cannot assess,,False
+poor_head_passes_head_check,Patient01426_Plane3_1_of_4.png,Not sure,20 weeks 0 days,Poor,Cannot assess,Cannot assess,,False

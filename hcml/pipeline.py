@@ -8,6 +8,7 @@ import keras
 import numpy as np
 
 from .growth import hadlock_ga_weeks
+from .headcheck import NOT_HEAD_VIEW, HeadCheck
 from .model import Analyzer
 from .preprocess import clean, read_gray, to_model_input
 from .skull import black_boxes, boxes_cover, cam_overlap, ellipse_mask, peak_inside, skull_ellipse
@@ -39,6 +40,9 @@ class Result:
     ellipse: tuple | None = None    # detected skull ellipse (cv2 format) or None
     original: np.ndarray | None = None   # the upload as grayscale, at most 640 px on the long side
     orig_size: tuple[int, int] = (0, 0)  # (width, height) of the upload
+    head_score: float | None = None      # head-view check score (None when that check is not installed)
+    head_threshold: float | None = None  # its threshold at the operating point used for this scan
+    rejected_by: str | None = None       # "head check" or "image check" when no estimate is given
 
 
 class Predictor:
@@ -50,9 +54,13 @@ class Predictor:
         self.ref = Reference.load(d / "ood_reference.npz")
         self.locator = keras.models.load_model(d / "locator.keras", compile=False)
         self.analyzer = Analyzer(self.model, self.locator)
+        # The head-view check lives in its own folder; without it the app behaves as before.
+        hc = d / "head_check"
+        self.head = HeadCheck.load(hc) if (hc / "classifier.npz").exists() else None
         self.heat = self.meta["heatmap_check"]
 
-    def predict(self, data: bytes, name: str = "", strictness: float = 1.0) -> Result:
+    def predict(self, data: bytes, name: str = "", strictness: float = 1.0, head_target: int | None = None) -> Result:
+        """`head_target` is the head-view check operating point (95 default, or 98); None uses HEAD_CHECK_TARGET/95."""
         if not data:
             raise ValueError("the file is empty")
         raw = read_gray(data, name)
@@ -66,9 +74,17 @@ class Predictor:
         dist = self.ref.distance(emb)
         level = self.ref.level(dist, strictness)
         half = float(self.reg["interval_days"])
-        if level == "rejected":      # no estimate and no heatmap for an input the model was not trained on
-            return Result(gray, None, np.zeros(0), float("nan"), None, level, dist, half, [REJECTED],
-                          original=original, orig_size=size)
+        head_score = head_thr = None
+        head_ok = True
+        if self.head is not None:     # accepted only if BOTH this check and the image check accept
+            head_thr = self.head.threshold(head_target)
+            head_score = self.head.score(emb)
+            head_ok = head_score >= head_thr
+        if not head_ok or level == "rejected":   # no estimate and no heatmap for an input the model was not trained on
+            return Result(gray, None, np.zeros(0), float("nan"), None, "rejected", dist, half,
+                          [NOT_HEAD_VIEW if not head_ok else REJECTED], original=original, orig_size=size,
+                          head_score=head_score, head_threshold=head_thr,
+                          rejected_by="head check" if not head_ok else "image check")
         hc = float(z * self.reg["hc_std_mm"] + self.reg["hc_mean_mm"])
         ga = float(hadlock_ga_weeks(hc))
         notes = []
@@ -97,4 +113,5 @@ class Predictor:
         if not EDGE_WEEKS[0] <= ga <= EDGE_WEEKS[1]:
             half *= EDGE_SCALE
             notes.append("The estimate is near the edge of the training data, so the range is widened.")
-        return Result(gray, cam, probs, hc, ga, level, dist, half, notes, badge, reasons, overlap, ell, original, size)
+        return Result(gray, cam, probs, hc, ga, level, dist, half, notes, badge, reasons, overlap, ell, original, size,
+                      head_score=head_score, head_threshold=head_thr)
