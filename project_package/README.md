@@ -11,7 +11,7 @@ This folder collects everything from the "is this a fetal head?" work (two studi
 | `02_testing_set/` | The 3,031 test images (Barcelona 2,478, HC18 held-out 218, HC18 test_set 335), one CSV per dataset with labels and each check's decision at 95% and 98%, SHA-256 manifest and the no-training-image check result. | 473.4 MB | files yes; `images/` no (git-ignored) | Reviewers and group members who want to re-test |
 | `02_testing_set.zip` | The folder above as one zip (+ .sha256). | 474.0 MB | no (git-ignored; SHA-256 yes) | Group members, markers |
 | `03_results/` | Final evaluation tables (CSV), one-page RESULTS_SUMMARY.md, example images, safety-failure lists, app screenshots (abdomen, femur, thorax, trans-thalamic, 1_2HC.png). | 12.5 MB | yes | Whoever writes the report or paper |
-| `04_code_and_models/` | Scripts to reproduce training and evaluation, the saved head classifier and thresholds, requirements.txt, exact commands in README.txt. | 380 KB | yes | Developers |
+| `04_code_and_models/` | Scripts to reproduce training and evaluation, the saved head classifier and thresholds, requirements.txt, exact commands in README.txt. | 381 KB | yes | Developers |
 | `05_share_with_group/` | Summary, citations and licences, NOTICE.md, results summary and a copy of the testing zip. | 474.1 MB | files yes; the zip copy no (git-ignored) | All group members |
 
 **Total size on disk: 1,435.3 MB.** Size that goes into git (everything except the test images and the zips): **14.7 MB**.
@@ -19,6 +19,18 @@ The test images and zips are git-ignored (`.gitignore` in this folder) because G
 directly. Verify it with `02_testing_set.zip.sha256` (SHA-256 `17f2f7bcd9d75ccc...`) or, per image,
 `02_testing_set/MANIFEST_SHA256.txt`. Largest single file: `02_testing_set.zip` (474.0 MB); it exists
 twice (here and in `05_share_with_group/`). No full dataset copies are included.
+
+## Getting the 474 MB zip to someone
+The zip is not in git (GitHub rejects files over 100 MB). It lives at `project_package/02_testing_set.zip` (and in `05_share_with_group/`).
+Chat uploads are limited to 30 MiB per file, so to send it split it into parts and rejoin it:
+```
+# make parts (Linux/macOS/Git Bash), 17 files of 29 MB:
+mkdir download_parts && split -b 29000000 -d -a 2 --numeric-suffixes=1 02_testing_set.zip download_parts/02_testing_set.zip.part
+# rejoin (Windows PowerShell):   cmd /c copy /b "02_testing_set.zip.part*" 02_testing_set.zip
+# rejoin (macOS/Linux):          cat 02_testing_set.zip.part* > 02_testing_set.zip
+# verify against 02_testing_set.zip.sha256:  Get-FileHash -Algorithm SHA256 02_testing_set.zip   (or sha256sum -c)
+```
+`download_parts/` is git-ignored and not part of the package size.
 
 ## Start here
 - Group member: `05_share_with_group/SUMMARY.md`.
@@ -28,7 +40,7 @@ twice (here and in `05_share_with_group/`). No full dataset copies are included.
 
 ## How it was checked
 - No training or validation image is in the testing set: PASS: no training or validation image is in the testing set (details in `02_testing_set/README.txt`).
-- Decisions in the CSVs use the shipped classifier and thresholds (`04_code_and_models/models/`), with scores that match the study to within 0.0001.
+- Decisions in the CSVs use the shipped classifier and thresholds (`04_code_and_models/models/`), with scores that match the study (largest difference 0.00005).
 
 ## Data and licences
 FETAL_PLANES_DB (Burgos-Artizzu et al., Sci Rep 10:10200, 2020, CC BY 4.0, doi:10.5281/zenodo.3904280) and HC18 (van den Heuvel

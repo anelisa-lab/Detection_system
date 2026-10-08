@@ -275,6 +275,9 @@ Data: FETAL_PLANES_DB (CC BY 4.0) and HC18 (CC BY 4.0). See 05_share_with_group/
             if f.is_file():
                 z.write(f, f"02_testing_set/{f.relative_to(d)}")
     write(pkg / "02_testing_set.zip.sha256", f"{sha256(zp)}  02_testing_set.zip\n")
+    write(pkg / "build_info.json", json.dumps({"zip_bytes": zp.stat().st_size, "leak_check": leak["RESULT"],
+                                               "max_score_difference_vs_study": diff,
+                                               "note": "recorded from the build run that produced 02_testing_set.zip"}, indent=2))
     return {"zip": zp.stat().st_size, "leak": leak["RESULT"], "parity": diff}
 
 
@@ -705,6 +708,18 @@ directly. Verify it with `02_testing_set.zip.sha256` (SHA-256 `{sha256(pkg / '02
 `02_testing_set/MANIFEST_SHA256.txt`. Largest single file: `02_testing_set.zip` ({human((pkg / '02_testing_set.zip').stat().st_size)}); it exists
 twice (here and in `05_share_with_group/`). No full dataset copies are included.
 
+## Getting the 474 MB zip to someone
+The zip is not in git (GitHub rejects files over 100 MB). It lives at `project_package/02_testing_set.zip` (and in `05_share_with_group/`).
+Chat uploads are limited to 30 MiB per file, so to send it split it into parts and rejoin it:
+```
+# make parts (Linux/macOS/Git Bash), 17 files of 29 MB:
+mkdir download_parts && split -b 29000000 -d -a 2 --numeric-suffixes=1 02_testing_set.zip download_parts/02_testing_set.zip.part
+# rejoin (Windows PowerShell):   cmd /c copy /b "02_testing_set.zip.part*" 02_testing_set.zip
+# rejoin (macOS/Linux):          cat 02_testing_set.zip.part* > 02_testing_set.zip
+# verify against 02_testing_set.zip.sha256:  Get-FileHash -Algorithm SHA256 02_testing_set.zip   (or sha256sum -c)
+```
+`download_parts/` is git-ignored and not part of the package size.
+
 ## Start here
 - Group member: `05_share_with_group/SUMMARY.md`.
 - Report writer: `03_results/RESULTS_SUMMARY.md`.
@@ -713,7 +728,7 @@ twice (here and in `05_share_with_group/`). No full dataset copies are included.
 
 ## How it was checked
 - No training or validation image is in the testing set: {info['leak']} (details in `02_testing_set/README.txt`).
-- Decisions in the CSVs use the shipped classifier and thresholds (`04_code_and_models/models/`), with scores that match the study to within {info['parity']:.4f}.
+- Decisions in the CSVs use the shipped classifier and thresholds (`04_code_and_models/models/`), with scores that match the study (largest difference {info['parity']:.5f}).
 
 ## Data and licences
 FETAL_PLANES_DB (Burgos-Artizzu et al., Sci Rep 10:10200, 2020, CC BY 4.0, doi:10.5281/zenodo.3904280) and HC18 (van den Heuvel
@@ -745,7 +760,9 @@ def main():
     if "05" in a.stage:
         stage05(pkg)
     if "top" in a.stage:
-        info = info or {"leak": json.loads((pkg / "02_testing_set" / "leak_check.json").read_text())["RESULT"], "parity": 0.0}
+        if not info:
+            bi = json.loads((pkg / "build_info.json").read_text())
+            info = {"leak": bi["leak_check"], "parity": bi["max_score_difference_vs_study"]}
         stage_top(pkg, info)
 
 
