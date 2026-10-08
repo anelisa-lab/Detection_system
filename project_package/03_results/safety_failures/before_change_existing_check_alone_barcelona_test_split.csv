@@ -1,0 +1,110 @@
+image,cls,subplane,machine,patient,score_new_A,current_distance,badge,ga_weeks,verdict_No,verdict_Not sure
+Patient00188_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,188,-3.2327654984018204,0.1794230341911316,Limited,19.712283954863963,Possibly cryptic,Possibly cryptic
+Patient00700_Plane6_1_of_1,Fetal thorax,Not A Brain,Voluson E6,700,-5.759156463145661,0.1710052490234375,Limited,18.876261419975336,Possibly cryptic,Possibly cryptic
+Patient00701_Plane6_1_of_1,Fetal thorax,Not A Brain,Voluson E6,701,-4.294160535250985,0.1684788465499878,Limited,26.736008069306344,Cryptic,Possibly cryptic
+Patient00717_Plane1_1_of_1,Other,Not A Brain,Voluson E6,717,-1.9608390841403245,0.2157033681869506,Limited,17.762199863296093,Possibly cryptic,Possibly cryptic
+Patient00720_Plane1_10_of_27,Other,Not A Brain,Aloka,720,-2.2560728327759643,0.1476476788520813,Limited,24.014383853018657,Cryptic,Possibly cryptic
+Patient00721_Plane5_1_of_1,Fetal femur,Not A Brain,Aloka,721,-5.891611171573285,0.1788989305496215,Limited,21.52590698017065,Possibly cryptic,Possibly cryptic
+Patient00721_Plane1_3_of_10,Other,Not A Brain,Aloka,721,-5.328101900479137,0.1771472692489624,Limited,24.817561659488263,Cryptic,Possibly cryptic
+Patient00721_Plane1_7_of_10,Other,Not A Brain,Aloka,721,-5.328101900479137,0.1771472692489624,Limited,24.817561659488263,Cryptic,Possibly cryptic
+Patient00721_Plane1_9_of_10,Other,Not A Brain,Aloka,721,-5.900706972262798,0.214896559715271,Limited,20.11853351947842,Possibly cryptic,Possibly cryptic
+Patient00739_Plane1_4_of_8,Other,Not A Brain,Aloka,739,-3.336608472924027,0.1714248657226562,Limited,21.27311092557502,Possibly cryptic,Possibly cryptic
+Patient00739_Plane1_6_of_8,Other,Not A Brain,Aloka,739,-3.6369568045073466,0.1491070985794067,Limited,23.05604893829337,Cryptic,Possibly cryptic
+Patient00768_Plane1_1_of_26,Other,Not A Brain,Aloka,768,-4.495793035411962,0.1726816296577453,Limited,19.343861672266627,Possibly cryptic,Possibly cryptic
+Patient00768_Plane1_3_of_26,Other,Not A Brain,Aloka,768,-3.919409911582584,0.174195110797882,Limited,20.546207675607413,Possibly cryptic,Possibly cryptic
+Patient00784_Plane6_3_of_3,Fetal thorax,Not A Brain,Voluson E6,784,-2.429445916293105,0.1684499979019165,Limited,24.48381930326584,Cryptic,Possibly cryptic
+Patient00789_Plane5_1_of_2,Fetal femur,Not A Brain,Aloka,789,-3.09380355469002,0.1785823106765747,Limited,20.76157813665383,Possibly cryptic,Possibly cryptic
+Patient00789_Plane1_8_of_64,Other,Not A Brain,Aloka,789,-5.518254537243584,0.167197048664093,Limited,22.74497584038944,Cryptic,Possibly cryptic
+Patient00789_Plane1_22_of_64,Other,Not A Brain,Aloka,789,-4.822687166298058,0.1750601530075073,Limited,18.158666866555656,Possibly cryptic,Possibly cryptic
+Patient00789_Plane1_26_of_64,Other,Not A Brain,Aloka,789,-5.506680225446534,0.1535539627075195,Limited,22.212172081833582,Possibly cryptic,Possibly cryptic
+Patient00789_Plane1_52_of_64,Other,Not A Brain,Aloka,789,-5.518254537243584,0.167197048664093,Limited,22.74497584038944,Cryptic,Possibly cryptic
+Patient00789_Plane1_57_of_64,Other,Not A Brain,Aloka,789,-5.506680225446534,0.1535539627075195,Limited,22.212172081833582,Possibly cryptic,Possibly cryptic
+Patient00789_Plane1_63_of_64,Other,Not A Brain,Aloka,789,-5.506680225446534,0.1535539627075195,Limited,22.212172081833582,Possibly cryptic,Possibly cryptic
+Patient00794_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,794,-1.5069398732206594,0.178482711315155,Limited,29.4617640929802,Cryptic,Possibly cryptic
+Patient00794_Plane1_2_of_7,Other,Not A Brain,Aloka,794,-2.2437759922752174,0.1753555536270141,Limited,27.937877245243925,Cryptic,Possibly cryptic
+Patient00794_Plane1_7_of_7,Other,Not A Brain,Aloka,794,-2.2437759922752174,0.1753555536270141,Limited,27.937877245243925,Cryptic,Possibly cryptic
+Patient00838_Plane6_1_of_1,Fetal thorax,Not A Brain,Voluson E6,838,-2.179527663911057,0.1744253039360046,Limited,21.54875077706417,Possibly cryptic,Possibly cryptic
+Patient00845_Plane6_3_of_3,Fetal thorax,Not A Brain,Voluson E6,845,2.133621812888181,0.1752700805664062,Limited,24.647373374522804,Cryptic,Possibly cryptic
+Patient00853_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,853,-2.5114649032016296,0.1568888425827026,Limited,19.68136150242083,Possibly cryptic,Possibly cryptic
+Patient00856_Plane1_4_of_12,Other,Not A Brain,Aloka,856,-2.780722609188123,0.1557061076164245,Limited,25.57796584553896,Cryptic,Possibly cryptic
+Patient00856_Plane1_9_of_12,Other,Not A Brain,Aloka,856,-5.785082917483603,0.1616622805595398,Limited,21.33712966036244,Possibly cryptic,Possibly cryptic
+Patient00856_Plane1_10_of_12,Other,Not A Brain,Aloka,856,-2.780722609188123,0.1557061076164245,Limited,25.57796584553896,Cryptic,Possibly cryptic
+Patient00856_Plane1_11_of_12,Other,Not A Brain,Aloka,856,-4.981294670443536,0.1714485883712768,Limited,18.90298878598968,Possibly cryptic,Possibly cryptic
+Patient00871_Plane1_1_of_11,Other,Not A Brain,Aloka,871,-3.6689605992726326,0.1676100492477417,Limited,25.93372899366281,Cryptic,Possibly cryptic
+Patient00871_Plane1_5_of_11,Other,Not A Brain,Aloka,871,-6.068552098732079,0.1693170666694641,Limited,19.3694643525547,Possibly cryptic,Possibly cryptic
+Patient00871_Plane1_7_of_11,Other,Not A Brain,Aloka,871,-4.628227207972555,0.1640859842300415,Limited,25.604588673892888,Cryptic,Possibly cryptic
+Patient00871_Plane1_9_of_11,Other,Not A Brain,Aloka,871,-5.46545243338476,0.1639052629470825,Limited,27.608772984709752,Cryptic,Possibly cryptic
+Patient00873_Plane1_11_of_23,Other,Not A Brain,Aloka,873,-3.177408734816745,0.1219404339790344,Limited,26.61689181428632,Cryptic,Possibly cryptic
+Patient00882_Plane6_2_of_7,Fetal thorax,Not A Brain,Voluson E6,882,-4.78432676075128,0.2152174115180969,Limited,20.49828074587961,Possibly cryptic,Possibly cryptic
+Patient00882_Plane6_3_of_7,Fetal thorax,Not A Brain,Voluson E6,882,-3.1380442469972603,0.1776182055473327,Good,21.40630524011896,Possibly cryptic,Possibly cryptic
+Patient00892_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,892,-2.7095322660070225,0.1714269518852234,Limited,22.85975355653821,Cryptic,Possibly cryptic
+Patient00892_Plane1_1_of_4,Other,Not A Brain,Aloka,892,-3.748673110472983,0.1750943064689636,Limited,28.952492616428227,Cryptic,Possibly cryptic
+Patient00892_Plane1_3_of_4,Other,Not A Brain,Aloka,892,-2.979515588414291,0.1794291734695434,Limited,22.444253455177687,Possibly cryptic,Possibly cryptic
+Patient00895_Plane6_2_of_2,Fetal thorax,Not A Brain,Voluson E6,895,-3.093037761107785,0.1716498136520385,Limited,23.58268648882437,Cryptic,Possibly cryptic
+Patient00948_Plane2_1_of_1,Fetal abdomen,Not A Brain,Voluson E6,948,-2.63952612620031,0.1788883209228515,Limited,20.326179073433085,Possibly cryptic,Possibly cryptic
+Patient00963_Plane6_1_of_3,Fetal thorax,Not A Brain,Voluson E6,963,-4.652687314337006,0.2054364085197448,Limited,16.58412473666102,Possibly cryptic,Possibly cryptic
+Patient01012_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,1012,-2.5759275432871367,0.1958163380622863,Limited,19.421843274235687,Possibly cryptic,Possibly cryptic
+Patient01015_Plane2_1_of_1,Fetal abdomen,Not A Brain,Voluson E6,1015,-1.8011841428459268,0.180072009563446,Limited,21.37042119270762,Possibly cryptic,Possibly cryptic
+Patient01015_Plane6_2_of_3,Fetal thorax,Not A Brain,Voluson E6,1015,-4.961610421440519,0.1566173434257507,Limited,22.3665113416678,Possibly cryptic,Possibly cryptic
+Patient01022_Plane1_1_of_1,Other,Not A Brain,Voluson E6,1022,-1.1642046548829368,0.1689499616622924,Limited,18.8153210261822,Possibly cryptic,Possibly cryptic
+Patient01056_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,1056,-4.439431234170375,0.1764366030693054,Limited,23.86927197604137,Cryptic,Possibly cryptic
+Patient01063_Plane5_2_of_2,Fetal femur,Not A Brain,Voluson E6,1063,-5.249609681266399,0.1661878824234008,Limited,21.19637624759949,Possibly cryptic,Possibly cryptic
+Patient01063_Plane6_1_of_1,Fetal thorax,Not A Brain,Voluson E6,1063,-1.3893030851233117,0.1554769277572631,Limited,18.59060350640443,Possibly cryptic,Possibly cryptic
+Patient01092_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,1092,-5.2909542137398535,0.1776482462882995,Limited,23.684621468217028,Cryptic,Possibly cryptic
+Patient01092_Plane6_2_of_3,Fetal thorax,Not A Brain,Aloka,1092,-1.6472471385212089,0.1789716482162475,Limited,20.091177922738392,Possibly cryptic,Possibly cryptic
+Patient01092_Plane6_3_of_3,Fetal thorax,Not A Brain,Aloka,1092,-2.149745083581323,0.1652948260307312,Limited,18.74085946830204,Possibly cryptic,Possibly cryptic
+Patient01139_Plane5_3_of_3,Fetal femur,Not A Brain,Voluson E6,1139,-2.2990502503675168,0.1663110852241516,Limited,17.652105220947718,Possibly cryptic,Possibly cryptic
+Patient01140_Plane6_2_of_2,Fetal thorax,Not A Brain,Aloka,1140,-4.558201171089804,0.2179782390594482,Limited,18.98873226562777,Possibly cryptic,Possibly cryptic
+Patient01173_Plane2_1_of_1,Fetal abdomen,Not A Brain,Voluson E6,1173,-4.676127727941532,0.1597112417221069,Limited,22.79508652748494,Cryptic,Possibly cryptic
+Patient01173_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson E6,1173,-4.436464154428634,0.1734944581985473,Limited,23.61578921479844,Cryptic,Possibly cryptic
+Patient01175_Plane2_1_of_2,Fetal abdomen,Not A Brain,Voluson E6,1175,-5.950749296608942,0.1750936508178711,Limited,22.13352501762395,Possibly cryptic,Possibly cryptic
+Patient01175_Plane2_2_of_2,Fetal abdomen,Not A Brain,Voluson E6,1175,-3.7148658171387456,0.1302092671394348,Limited,24.46413248307172,Cryptic,Possibly cryptic
+Patient01181_Plane5_3_of_3,Fetal femur,Not A Brain,Voluson E6,1181,5.629029052362827,0.1828863024711609,Limited,18.045422554866665,Possibly cryptic,Possibly cryptic
+Patient01185_Plane1_1_of_15,Other,Not A Brain,Aloka,1185,-5.8170505810945805,0.1706985235214233,Limited,19.6062398110056,Possibly cryptic,Possibly cryptic
+Patient01185_Plane1_7_of_15,Other,Not A Brain,Aloka,1185,-3.2009454077815205,0.2175804376602172,Limited,17.36917407643742,Possibly cryptic,Possibly cryptic
+Patient01185_Plane1_9_of_15,Other,Not A Brain,Aloka,1185,-1.5176901689425533,0.1820502281188964,Limited,17.68995195970794,Possibly cryptic,Possibly cryptic
+Patient01185_Plane1_11_of_15,Other,Not A Brain,Aloka,1185,-3.9441907463318713,0.1406210064888,Limited,22.35099321047556,Possibly cryptic,Possibly cryptic
+Patient01198_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,1198,-5.979457404370373,0.178986370563507,Limited,23.43781765083712,Cryptic,Possibly cryptic
+Patient01198_Plane1_8_of_9,Other,Not A Brain,Aloka,1198,-4.821726992957833,0.1731338500976562,Limited,26.15164696167431,Cryptic,Possibly cryptic
+Patient01198_Plane1_9_of_9,Other,Not A Brain,Aloka,1198,-5.126011362640463,0.1636703610420227,Limited,23.24834875438381,Cryptic,Possibly cryptic
+Patient01212_Plane5_2_of_4,Fetal femur,Not A Brain,Voluson E6,1212,-1.2683206760823054,0.1646402478218078,Good,18.88970111425648,Possibly cryptic,Possibly cryptic
+Patient01212_Plane1_1_of_1,Other,Not A Brain,Voluson E6,1212,-0.6854768778113096,0.218457818031311,Limited,16.944596487780633,Possibly cryptic,Possibly cryptic
+Patient01228_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson E6,1228,-4.773284917171944,0.1689039468765258,Limited,19.3103603554461,Possibly cryptic,Possibly cryptic
+Patient01247_Plane5_1_of_1,Fetal femur,Not A Brain,Aloka,1247,-6.007212592326608,0.1900043487548828,Limited,20.2439715060322,Possibly cryptic,Possibly cryptic
+Patient01247_Plane1_7_of_8,Other,Not A Brain,Aloka,1247,-4.440655317215999,0.2014228105545044,Limited,20.65490890878129,Possibly cryptic,Possibly cryptic
+Patient01269_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson E6,1269,-2.455543741576405,0.1623643040657043,Limited,19.483924168374383,Possibly cryptic,Possibly cryptic
+Patient01275_Plane2_2_of_2,Fetal abdomen,Not A Brain,Voluson S10,1275,-1.8744669849682556,0.1482074856758117,Limited,24.0462513691338,Cryptic,Possibly cryptic
+Patient01275_Plane5_3_of_3,Fetal femur,Not A Brain,Voluson S10,1275,-3.841189378930607,0.1560454368591308,Good,24.290964499455256,Cryptic,Possibly cryptic
+Patient01275_Plane1_9_of_9,Other,Not A Brain,Voluson S10,1275,-4.633024171315087,0.1735408902168274,Limited,23.704340219079967,Cryptic,Possibly cryptic
+Patient01288_Plane5_1_of_1,Fetal femur,Not A Brain,Aloka,1288,-4.43764045813668,0.141500174999237,Limited,21.81084541039136,Possibly cryptic,Possibly cryptic
+Patient01288_Plane1_1_of_4,Other,Not A Brain,Aloka,1288,-4.259429862575615,0.1521898508071899,Limited,29.637741440142594,Cryptic,Possibly cryptic
+Patient01288_Plane1_4_of_4,Other,Not A Brain,Aloka,1288,-6.396922817497475,0.1754935383796692,Limited,23.21897624043244,Cryptic,Possibly cryptic
+Patient01327_Plane5_1_of_1,Fetal femur,Not A Brain,Aloka,1327,0.4645650902059088,0.2072004079818725,Limited,17.62839253986592,Possibly cryptic,Possibly cryptic
+Patient01328_Plane1_7_of_13,Other,Not A Brain,Aloka,1328,-0.2562810348670694,0.1818581819534301,Limited,19.465444468412898,Possibly cryptic,Possibly cryptic
+Patient01330_Plane1_3_of_16,Other,Not A Brain,Aloka,1330,-0.5238406602244399,0.1757327318191528,Limited,18.410926730591243,Possibly cryptic,Possibly cryptic
+Patient01330_Plane1_5_of_16,Other,Not A Brain,Aloka,1330,-2.6099889157576746,0.1670236587524414,Good,19.24224606983756,Possibly cryptic,Possibly cryptic
+Patient01330_Plane1_8_of_16,Other,Not A Brain,Aloka,1330,-1.800075875647014,0.1772216558456421,Limited,30.22411342576542,Cryptic,Possibly cryptic
+Patient01366_Plane1_3_of_8,Other,Not A Brain,Aloka,1366,-7.259883860007273,0.1887362599372863,Limited,20.93537248678377,Possibly cryptic,Possibly cryptic
+Patient01406_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson S10,1406,-5.621123700174769,0.1684068441390991,Limited,25.689171351123967,Cryptic,Possibly cryptic
+Patient01406_Plane1_6_of_7,Other,Not A Brain,Voluson S10,1406,-0.9209041622905676,0.1721659898757934,Limited,28.442704168379656,Cryptic,Possibly cryptic
+Patient01445_Plane2_1_of_1,Fetal abdomen,Not A Brain,Voluson E6,1445,-2.0517101040172263,0.1520441770553589,Limited,28.81653326419517,Cryptic,Possibly cryptic
+Patient01445_Plane1_1_of_11,Other,Not A Brain,Voluson S10,1445,-1.111167131315288,0.1757556200027465,Limited,26.073812038367592,Cryptic,Possibly cryptic
+Patient01445_Plane1_4_of_11,Other,Not A Brain,Voluson S10,1445,-1.111167131315288,0.1757556200027465,Limited,26.073812038367592,Cryptic,Possibly cryptic
+Patient01445_Plane1_9_of_11,Other,Not A Brain,Voluson S10,1445,-2.602432812413757,0.1625939607620239,Limited,23.73139547708816,Cryptic,Possibly cryptic
+Patient01483_Plane2_1_of_1,Fetal abdomen,Not A Brain,Voluson E6,1483,-3.171820653828734,0.1546161770820617,Limited,24.442500388765254,Cryptic,Possibly cryptic
+Patient01484_Plane1_13_of_16,Other,Not A Brain,Aloka,1484,-2.18446292300989,0.1792322993278503,Good,17.925223883740767,Possibly cryptic,Possibly cryptic
+Patient01580_Plane2_1_of_1,Fetal abdomen,Not A Brain,Voluson E6,1580,-3.494808895820183,0.1803954839706421,Limited,17.781612408548217,Possibly cryptic,Possibly cryptic
+Patient01612_Plane1_9_of_21,Other,Not A Brain,Aloka,1612,-5.839449323934,0.221242070198059,Limited,18.47477293504007,Possibly cryptic,Possibly cryptic
+Patient01630_Plane1_1_of_3,Other,Not A Brain,Aloka,1630,-1.3978993105201738,0.1607401967048645,Limited,22.09338095417872,Possibly cryptic,Possibly cryptic
+Patient01656_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,1656,-2.2491520146898982,0.1707473993301391,Limited,25.12033885179392,Cryptic,Possibly cryptic
+Patient01656_Plane1_1_of_5,Other,Not A Brain,Aloka,1656,-5.058838364894132,0.1792327165603637,Limited,20.000438668026284,Possibly cryptic,Possibly cryptic
+Patient01657_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,1657,-4.186386710920996,0.178966224193573,Limited,17.919698364561167,Possibly cryptic,Possibly cryptic
+Patient01657_Plane1_1_of_2,Other,Not A Brain,Aloka,1657,-6.597537163933881,0.1579893827438354,Limited,27.50409477956149,Cryptic,Possibly cryptic
+Patient01657_Plane1_2_of_2,Other,Not A Brain,Aloka,1657,-3.667461494959124,0.1636606454849243,Limited,30.64847586088964,Cryptic,Possibly cryptic
+Patient01726_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson S10,1726,-5.320174744745773,0.1795212030410766,Limited,25.156871326734915,Cryptic,Possibly cryptic
+Patient01741_Plane2_1_of_1,Fetal abdomen,Not A Brain,Aloka,1741,-4.508325264833317,0.1553789973258972,Limited,20.33548843655661,Possibly cryptic,Possibly cryptic
+Patient01759_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson S10,1759,-2.813504645762866,0.1729640960693359,Limited,27.904746939029707,Cryptic,Possibly cryptic
+Patient01776_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson S10,1776,-2.984101220163038,0.1809926033020019,Limited,28.23190954952089,Cryptic,Possibly cryptic
+Patient01780_Plane2_1_of_2,Fetal abdomen,Not A Brain,Voluson S10,1780,-4.381765808158505,0.1756930351257324,Limited,24.980281604882183,Cryptic,Possibly cryptic
+Patient01780_Plane2_2_of_2,Fetal abdomen,Not A Brain,Voluson S10,1780,-3.0550591483141,0.1480375528335571,Limited,27.20074759046424,Cryptic,Possibly cryptic
+Patient01780_Plane5_1_of_1,Fetal femur,Not A Brain,Voluson S10,1780,-4.327521221805357,0.1561643481254577,Limited,24.10688030659904,Cryptic,Possibly cryptic

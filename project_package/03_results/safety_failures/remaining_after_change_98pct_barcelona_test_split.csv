@@ -1,0 +1,8 @@
+image,cls,subplane,machine,patient,score_new_A,current_distance,badge,ga_weeks,verdict_No,verdict_Not sure
+Patient00845_Plane6_3_of_3,Fetal thorax,Not A Brain,Voluson E6,845,2.133621812888181,0.1752700805664062,Limited,24.647373374522804,Cryptic,Possibly cryptic
+Patient01181_Plane5_3_of_3,Fetal femur,Not A Brain,Voluson E6,1181,5.629029052362827,0.1828863024711609,Limited,18.045422554866665,Possibly cryptic,Possibly cryptic
+Patient01212_Plane1_1_of_1,Other,Not A Brain,Voluson E6,1212,-0.6854768778113096,0.218457818031311,Limited,16.944596487780633,Possibly cryptic,Possibly cryptic
+Patient01327_Plane5_1_of_1,Fetal femur,Not A Brain,Aloka,1327,0.4645650902059088,0.2072004079818725,Limited,17.62839253986592,Possibly cryptic,Possibly cryptic
+Patient01328_Plane1_7_of_13,Other,Not A Brain,Aloka,1328,-0.2562810348670694,0.1818581819534301,Limited,19.465444468412898,Possibly cryptic,Possibly cryptic
+Patient01330_Plane1_3_of_16,Other,Not A Brain,Aloka,1330,-0.5238406602244399,0.1757327318191528,Limited,18.410926730591243,Possibly cryptic,Possibly cryptic
+Patient01406_Plane1_6_of_7,Other,Not A Brain,Voluson S10,1406,-0.9209041622905676,0.1721659898757934,Limited,28.442704168379656,Cryptic,Possibly cryptic

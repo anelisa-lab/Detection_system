@@ -1,0 +1,167 @@
+{
+  "split_counts": {
+    "train": {
+      "images": 7442,
+      "patients": 1092,
+      "heads": 1855
+    },
+    "val": {
+      "images": 2480,
+      "patients": 364,
+      "heads": 619
+    },
+    "test": {
+      "images": 2478,
+      "patients": 336,
+      "heads": 618
+    }
+  },
+  "current_check_on_val": {
+    "auc": 0.8693182656674413,
+    "far_at_head_accept_90": 0.40193444384739385,
+    "far_at_head_accept_95": 0.5341214400859753,
+    "far_at_head_accept_98": 0.6679204728640515
+  },
+  "variants": {
+    "A_with_other": {
+      "chosen_C": 0.1,
+      "grid": [
+        {
+          "C": 0.0001,
+          "val_auc": 0.9935553261878244,
+          "val_far_at_head_accept_95": 0.017195056421278884
+        },
+        {
+          "C": 0.001,
+          "val_auc": 0.9948826303713935,
+          "val_far_at_head_accept_95": 0.008597528210639442
+        },
+        {
+          "C": 0.01,
+          "val_auc": 0.9950249965493564,
+          "val_far_at_head_accept_95": 0.0032240730789897904
+        },
+        {
+          "C": 0.1,
+          "val_auc": 0.9943557018956404,
+          "val_far_at_head_accept_95": 0.0016120365394948952
+        },
+        {
+          "C": 1.0,
+          "val_auc": 0.9938487394082602,
+          "val_far_at_head_accept_95": 0.0021493820526598604
+        }
+      ],
+      "thresholds_from_val": {
+        "90": 3.082185745239258,
+        "95": 0.6635956764221191,
+        "98": -2.635291576385498
+      },
+      "val_scores_by_class": {
+        "head_accept_target_90": {
+          "head_accepted": 0.901453957996769,
+          "thalamic_accepted": 0.9319526627218935,
+          "nonhead_accepted_all": 0.0010746910263299302,
+          "nonhead_accepted_without_other": 0.0,
+          "accepted_Fetal abdomen": 0.0,
+          "accepted_Fetal femur": 0.0,
+          "accepted_Fetal thorax": 0.0,
+          "accepted_Maternal cervix": 0.0,
+          "accepted_Other": 0.002336448598130841
+        },
+        "head_accept_target_95": {
+          "head_accepted": 0.9515347334410339,
+          "thalamic_accepted": 0.9704142011834319,
+          "nonhead_accepted_all": 0.0016120365394948952,
+          "nonhead_accepted_without_other": 0.0009950248756218905,
+          "accepted_Fetal abdomen": 0.006622516556291391,
+          "accepted_Fetal femur": 0.0,
+          "accepted_Fetal thorax": 0.0,
+          "accepted_Maternal cervix": 0.0,
+          "accepted_Other": 0.002336448598130841
+        },
+        "head_accept_target_98": {
+          "head_accepted": 0.9806138933764136,
+          "thalamic_accepted": 0.9940828402366864,
+          "nonhead_accepted_all": 0.029016657710908115,
+          "nonhead_accepted_without_other": 0.029850746268656716,
+          "accepted_Fetal abdomen": 0.06622516556291391,
+          "accepted_Fetal femur": 0.018957345971563982,
+          "accepted_Fetal thorax": 0.05136986301369863,
+          "accepted_Maternal cervix": 0.002849002849002849,
+          "accepted_Other": 0.028037383177570093
+        }
+      }
+    },
+    "B_without_other": {
+      "chosen_C": 0.1,
+      "grid": [
+        {
+          "C": 0.0001,
+          "val_auc": 0.9932325448685491,
+          "val_far_at_head_accept_95": 0.021890547263681594
+        },
+        {
+          "C": 0.001,
+          "val_auc": 0.994994333662865,
+          "val_far_at_head_accept_95": 0.010945273631840797
+        },
+        {
+          "C": 0.01,
+          "val_auc": 0.9953817343010312,
+          "val_far_at_head_accept_95": 0.0009950248756218905
+        },
+        {
+          "C": 0.1,
+          "val_auc": 0.9950875670114693,
+          "val_far_at_head_accept_95": 0.0
+        },
+        {
+          "C": 1.0,
+          "val_auc": 0.9950039784920309,
+          "val_far_at_head_accept_95": 0.0
+        }
+      ],
+      "thresholds_from_val": {
+        "90": 3.4910125732421875,
+        "95": 1.7130703926086426,
+        "98": -1.1890010833740234
+      },
+      "val_scores_by_class": {
+        "head_accept_target_90": {
+          "head_accepted": 0.901453957996769,
+          "thalamic_accepted": 0.9319526627218935,
+          "nonhead_accepted_all": 0.0021493820526598604,
+          "nonhead_accepted_without_other": 0.0,
+          "accepted_Fetal abdomen": 0.0,
+          "accepted_Fetal femur": 0.0,
+          "accepted_Fetal thorax": 0.0,
+          "accepted_Maternal cervix": 0.0,
+          "accepted_Other": 0.004672897196261682
+        },
+        "head_accept_target_95": {
+          "head_accepted": 0.9515347334410339,
+          "thalamic_accepted": 0.9704142011834319,
+          "nonhead_accepted_all": 0.007522837184309511,
+          "nonhead_accepted_without_other": 0.0,
+          "accepted_Fetal abdomen": 0.0,
+          "accepted_Fetal femur": 0.0,
+          "accepted_Fetal thorax": 0.0,
+          "accepted_Maternal cervix": 0.0,
+          "accepted_Other": 0.016355140186915886
+        },
+        "head_accept_target_98": {
+          "head_accepted": 0.9806138933764136,
+          "thalamic_accepted": 0.9911242603550295,
+          "nonhead_accepted_all": 0.037614185921547555,
+          "nonhead_accepted_without_other": 0.01990049751243781,
+          "accepted_Fetal abdomen": 0.046357615894039736,
+          "accepted_Fetal femur": 0.009478672985781991,
+          "accepted_Fetal thorax": 0.03424657534246575,
+          "accepted_Maternal cervix": 0.002849002849002849,
+          "accepted_Other": 0.05841121495327103
+        }
+      }
+    }
+  }
+}

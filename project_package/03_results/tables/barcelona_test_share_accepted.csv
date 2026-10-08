@@ -1,0 +1,13 @@
+group,n_images,n_patients,existing_image_check_pct,existing_image_check_ci_low,existing_image_check_ci_high,barcelona_only_95_pct,barcelona_only_95_ci_low,barcelona_only_95_ci_high,barcelona_only_98_pct,barcelona_only_98_ci_low,barcelona_only_98_ci_high,shipped_95_pct,shipped_95_ci_low,shipped_95_ci_high,shipped_98_pct,shipped_98_ci_low,shipped_98_ci_high
+Head: all brain,618,208,75.4,70.2,80.0,95.8,93.8,97.5,99.2,98.3,99.8,94.5,92.5,96.3,98.7,97.7,99.7
+Head: trans-thalamic (HC plane),332,186,80.7,75.1,85.5,98.2,96.4,99.7,100.0,100.0,100.0,97.6,95.7,99.1,100.0,100.0,100.0
+"Head: brain, Trans-cerebellum",154,121,72.7,64.5,80.1,98.0,95.5,100.0,100.0,100.0,100.0,96.1,92.7,98.8,100.0,100.0,100.0
+"Head: brain, Trans-ventricular",103,77,66.0,55.3,76.3,97.1,93.2,100.0,100.0,100.0,100.0,95.2,90.3,99.0,100.0,100.0,100.0
+"Head: brain, Other",29,20,62.1,41.9,83.3,51.7,27.3,75.9,82.8,69.6,96.3,48.3,28.1,69.2,72.4,55.6,88.0
+NON-HEAD: all (incl. Other),1860,326,24.6,21.0,28.4,0.3,0.1,0.7,3.1,2.2,4.1,0.2,0.1,0.4,1.4,0.8,2.0
+NON-HEAD: without Other,989,313,24.6,21.0,28.2,0.4,0.1,0.8,3.6,2.4,4.9,0.4,0.1,0.8,1.7,0.9,2.6
+Non-head: Fetal abdomen,134,117,42.5,33.6,51.2,0.0,0.0,0.0,6.7,2.9,11.5,0.0,0.0,0.0,3.0,0.7,6.2
+Non-head: Fetal femur,220,150,32.3,25.3,39.4,0.4,0.0,1.5,3.6,1.4,6.2,0.4,0.0,1.5,3.2,0.9,5.7
+Non-head: Fetal thorax,346,154,29.2,22.1,36.6,0.9,0.0,2.0,4.9,2.6,7.5,0.9,0.0,2.0,1.5,0.3,2.9
+Non-head: Maternal cervix,289,173,4.8,1.5,9.1,0.0,0.0,0.0,0.7,0.0,1.8,0.0,0.0,0.0,0.4,0.0,1.1
+Non-head: Other,871,148,24.6,18.7,31.4,0.2,0.0,0.6,2.5,1.4,3.9,0.0,0.0,0.0,1.0,0.4,1.8

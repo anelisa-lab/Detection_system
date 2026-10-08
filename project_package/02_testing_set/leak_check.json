@@ -1,0 +1,18 @@
+{
+  "FETAL_PLANES_DB: files in folder == CSV rows == 2478": true,
+  "HC18_heldout: files in folder == CSV rows == 218": true,
+  "HC18_test_set: files in folder == CSV rows == 335": true,
+  "FETAL_PLANES test file names also in training/validation": 0,
+  "HC18 held-out file names also in training/validation": 0,
+  "HC18 test_set file names that equal an HC18 training/validation name (name re-use between releases; pixels decide)": 269,
+  "FETAL_PLANES patients on both sides": 0,
+  "HC18 linked-scan groups on both sides (held-out vs training/validation)": 0,
+  "training+validation images hashed": 10702,
+  "FETAL_PLANES_DB: test images with the same pixels as a training/validation image": 0,
+  "FETAL_PLANES_DB: test images with the same file bytes as a training/validation image": 0,
+  "HC18_heldout: test images with the same pixels as a training/validation image": 0,
+  "HC18_heldout: test images with the same file bytes as a training/validation image": 0,
+  "HC18_test_set: test images with the same pixels as a training/validation image": 0,
+  "HC18_test_set: test images with the same file bytes as a training/validation image": 0,
+  "RESULT": "PASS: no training or validation image is in the testing set"
+}

@@ -1,0 +1,219 @@
+file_name,dataset,label,original_plane,group_id,head_circumference_mm,hadlock_age_weeks,age_band,head_check_score,head_check_95,head_check_98,current_check_distance,current_check,combined_95,combined_98
+001_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g1,56.81,12.08,under 17 weeks,2.2871,accepted,accepted,0.178,accepted,accepted,accepted
+002_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g2,68.75,12.77,under 17 weeks,3.4576,accepted,accepted,0.1554,accepted,accepted,accepted
+018_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g23,71.59,12.94,under 17 weeks,7.8352,accepted,accepted,0.1585,accepted,accepted,accepted
+019_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g23,75.75,13.18,under 17 weeks,0.8775,refused,accepted,0.2079,accepted,refused,accepted
+019_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g23,75.38,13.16,under 17 weeks,1.4883,accepted,accepted,0.2102,accepted,accepted,accepted
+020_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g25,68.41,12.75,under 17 weeks,6.2175,accepted,accepted,0.1451,accepted,accepted,accepted
+021_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g29,69.49,12.81,under 17 weeks,4.0663,accepted,accepted,0.1368,accepted,accepted,accepted
+022_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g29,64.45,12.52,under 17 weeks,3.6834,accepted,accepted,0.1723,accepted,accepted,accepted
+022_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g29,65.8,12.6,under 17 weeks,0.927,refused,accepted,0.2,accepted,refused,accepted
+023_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g29,67.9,12.72,under 17 weeks,1.938,accepted,accepted,0.195,accepted,accepted,accepted
+023_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g29,70.0,12.84,under 17 weeks,2.4797,accepted,accepted,0.17,accepted,accepted,accepted
+024_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g31,73.2,13.03,under 17 weeks,2.4589,accepted,accepted,0.1606,accepted,accepted,accepted
+027_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g35,65.75,12.6,under 17 weeks,5.582,accepted,accepted,0.2086,accepted,accepted,accepted
+029_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g37,66.3,12.63,under 17 weeks,3.6238,accepted,accepted,0.1944,accepted,accepted,accepted
+030_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g38,64.3,12.51,under 17 weeks,2.8161,accepted,accepted,0.1806,accepted,accepted,accepted
+044_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g54,69.49,12.81,under 17 weeks,-3.3888,refused,refused,0.2859,refused,refused,refused
+046_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g56,70.13,12.85,under 17 weeks,1.1722,accepted,accepted,0.1872,accepted,accepted,accepted
+052_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g63,71.91,12.95,under 17 weeks,2.4292,accepted,accepted,0.1957,accepted,accepted,accepted
+056_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g67,69.86,12.83,under 17 weeks,4.7884,accepted,accepted,0.15,accepted,accepted,accepted
+062_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g78,74.6,13.11,under 17 weeks,6.425,accepted,accepted,0.182,accepted,accepted,accepted
+063_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g78,72.96,13.02,under 17 weeks,3.264,accepted,accepted,0.1643,accepted,accepted,accepted
+063_3HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g78,80.3,13.45,under 17 weeks,5.3687,accepted,accepted,0.2242,accepted,accepted,accepted
+063_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g78,69.76,12.83,under 17 weeks,0.7029,refused,accepted,0.1756,accepted,refused,accepted
+064_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g78,80.85,13.48,under 17 weeks,0.0038,refused,accepted,0.2249,refused,refused,refused
+064_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g78,77.75,13.3,under 17 weeks,2.1893,accepted,accepted,0.1939,accepted,accepted,accepted
+065_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g81,76.3,13.21,under 17 weeks,-1.1661,refused,refused,0.1842,accepted,refused,refused
+066_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g81,81.44,13.52,under 17 weeks,3.1264,accepted,accepted,0.2093,accepted,accepted,accepted
+066_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g81,77.18,13.27,under 17 weeks,4.6585,accepted,accepted,0.1768,accepted,accepted,accepted
+071_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g88,72.7,13.0,under 17 weeks,3.5656,accepted,accepted,0.1838,accepted,accepted,accepted
+087_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g109,79.09,13.38,under 17 weeks,8.4033,accepted,accepted,0.1805,accepted,accepted,accepted
+088_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g109,95.71,14.39,under 17 weeks,3.095,accepted,accepted,0.1922,accepted,accepted,accepted
+088_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g109,80.72,13.48,under 17 weeks,2.4247,accepted,accepted,0.179,accepted,accepted,accepted
+096_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g117,75.64,13.17,under 17 weeks,3.1982,accepted,accepted,0.159,accepted,accepted,accepted
+104_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g127,84.39,13.7,under 17 weeks,9.7489,accepted,accepted,0.1712,accepted,accepted,accepted
+106_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g132,78.3,13.33,under 17 weeks,4.1799,accepted,accepted,0.1884,accepted,accepted,accepted
+107_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g132,77.42,13.28,under 17 weeks,2.5998,accepted,accepted,0.1748,accepted,accepted,accepted
+107_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g132,77.71,13.3,under 17 weeks,3.0131,accepted,accepted,0.1855,accepted,accepted,accepted
+108_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g132,94.35,14.31,under 17 weeks,6.4879,accepted,accepted,0.1615,accepted,accepted,accepted
+108_3HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g132,83.42,13.64,under 17 weeks,9.1556,accepted,accepted,0.1887,accepted,accepted,accepted
+108_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g132,94.8,14.33,under 17 weeks,5.2797,accepted,accepted,0.1582,accepted,accepted,accepted
+114_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g140,82.33,13.57,under 17 weeks,4.7497,accepted,accepted,0.1617,accepted,accepted,accepted
+119_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g145,80.32,13.45,under 17 weeks,2.3427,accepted,accepted,0.1736,accepted,accepted,accepted
+130_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g162,96.8,14.46,under 17 weeks,2.3558,accepted,accepted,0.1601,accepted,accepted,accepted
+142_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g183,107.99,15.17,under 17 weeks,5.8487,accepted,accepted,0.1335,accepted,accepted,accepted
+143_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g183,81.12,13.5,under 17 weeks,3.8412,accepted,accepted,0.1717,accepted,accepted,accepted
+143_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g183,102.83,14.84,under 17 weeks,2.7606,accepted,accepted,0.18,accepted,accepted,accepted
+144_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g183,95.63,14.39,under 17 weeks,9.398,accepted,accepted,0.1367,accepted,accepted,accepted
+144_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g183,98.67,14.58,under 17 weeks,9.8717,accepted,accepted,0.1649,accepted,accepted,accepted
+145_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g186,99.4,14.62,under 17 weeks,6.1221,accepted,accepted,0.1542,accepted,accepted,accepted
+146_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g186,101.5,14.75,under 17 weeks,11.3276,accepted,accepted,0.1445,accepted,accepted,accepted
+146_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g186,99.7,14.64,under 17 weeks,7.662,accepted,accepted,0.1607,accepted,accepted,accepted
+149_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g190,99.4,14.62,under 17 weeks,8.2626,accepted,accepted,0.1518,accepted,accepted,accepted
+150_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g191,88.5,13.95,under 17 weeks,5.1865,accepted,accepted,0.1507,accepted,accepted,accepted
+163_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g206,111.5,15.4,under 17 weeks,1.6165,accepted,accepted,0.1586,accepted,accepted,accepted
+164_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g206,120.29,15.98,under 17 weeks,6.7221,accepted,accepted,0.1229,accepted,accepted,accepted
+164_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g206,119.77,15.94,under 17 weeks,5.7952,accepted,accepted,0.1391,accepted,accepted,accepted
+165_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g208,112.7,15.48,under 17 weeks,9.2226,accepted,accepted,0.1699,accepted,accepted,accepted
+174_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g217,116.6,15.73,under 17 weeks,4.675,accepted,accepted,0.1453,accepted,accepted,accepted
+179_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g223,122.0,16.09,under 17 weeks,10.544,accepted,accepted,0.1378,accepted,accepted,accepted
+180_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g224,131.15,16.72,under 17 weeks,6.7834,accepted,accepted,0.1602,accepted,accepted,accepted
+185_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g229,105.0,14.98,under 17 weeks,7.937,accepted,accepted,0.1548,accepted,accepted,accepted
+208_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g259,171.21,19.71,17 to 20 weeks,9.8247,accepted,accepted,0.1801,accepted,accepted,accepted
+209_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g261,163.1,19.07,17 to 20 weeks,7.2724,accepted,accepted,0.1515,accepted,accepted,accepted
+210_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g261,163.26,19.08,17 to 20 weeks,10.0726,accepted,accepted,0.1283,accepted,accepted,accepted
+210_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g261,165.58,19.26,17 to 20 weeks,16.3193,accepted,accepted,0.138,accepted,accepted,accepted
+217_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g270,171.8,19.76,17 to 20 weeks,13.7328,accepted,accepted,0.1173,accepted,accepted,accepted
+218_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g271,171.98,19.77,17 to 20 weeks,10.1893,accepted,accepted,0.114,accepted,accepted,accepted
+226_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g283,169.48,19.57,17 to 20 weeks,10.5537,accepted,accepted,0.1117,accepted,accepted,accepted
+227_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g283,176.8,20.17,20 weeks or more,12.019,accepted,accepted,0.1645,accepted,accepted,accepted
+227_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g283,173.2,19.87,17 to 20 weeks,8.8229,accepted,accepted,0.163,accepted,accepted,accepted
+236_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g297,168.1,19.46,17 to 20 weeks,7.9771,accepted,accepted,0.1395,accepted,accepted,accepted
+237_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g297,154.43,18.4,17 to 20 weeks,10.4455,accepted,accepted,0.1653,accepted,accepted,accepted
+237_3HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g297,167.17,19.39,17 to 20 weeks,11.082,accepted,accepted,0.1172,accepted,accepted,accepted
+237_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g297,154.5,18.41,17 to 20 weeks,10.1239,accepted,accepted,0.145,accepted,accepted,accepted
+251_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g317,168.32,19.48,17 to 20 weeks,10.7655,accepted,accepted,0.1369,accepted,accepted,accepted
+262_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g329,163.87,19.13,17 to 20 weeks,16.5045,accepted,accepted,0.1442,accepted,accepted,accepted
+274_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g342,172.74,19.83,17 to 20 weeks,7.0253,accepted,accepted,0.137,accepted,accepted,accepted
+286_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g356,176.9,20.17,20 weeks or more,1.9227,accepted,accepted,0.1392,accepted,accepted,accepted
+295_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g367,171.26,19.71,17 to 20 weeks,13.6218,accepted,accepted,0.1308,accepted,accepted,accepted
+313_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g388,179.0,20.35,20 weeks or more,12.7085,accepted,accepted,0.1398,accepted,accepted,accepted
+318_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g394,163.65,19.11,17 to 20 weeks,7.2069,accepted,accepted,0.144,accepted,accepted,accepted
+322_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g399,174.9,20.01,20 weeks or more,14.0867,accepted,accepted,0.1245,accepted,accepted,accepted
+323_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g399,181.03,20.52,20 weeks or more,10.4264,accepted,accepted,0.1587,accepted,accepted,accepted
+323_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g399,175.08,20.02,20 weeks or more,11.397,accepted,accepted,0.1503,accepted,accepted,accepted
+330_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g408,176.57,20.15,20 weeks or more,11.1064,accepted,accepted,0.1186,accepted,accepted,accepted
+335_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g413,170.84,19.68,17 to 20 weeks,15.6891,accepted,accepted,0.1193,accepted,accepted,accepted
+341_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g420,177.71,20.24,20 weeks or more,10.2814,accepted,accepted,0.1449,accepted,accepted,accepted
+349_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g429,165.24,19.24,17 to 20 weeks,8.8878,accepted,accepted,0.1398,accepted,accepted,accepted
+351_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g432,172.1,19.78,17 to 20 weeks,6.5958,accepted,accepted,0.1096,accepted,accepted,accepted
+352_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g432,176.68,20.16,20 weeks or more,7.5093,accepted,accepted,0.1532,accepted,accepted,accepted
+352_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g432,175.21,20.03,20 weeks or more,13.6957,accepted,accepted,0.1869,accepted,accepted,accepted
+358_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g444,170.2,19.63,17 to 20 weeks,15.6079,accepted,accepted,0.1227,accepted,accepted,accepted
+359_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g444,178.04,20.27,20 weeks or more,9.4834,accepted,accepted,0.1378,accepted,accepted,accepted
+359_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g444,178.28,20.29,20 weeks or more,7.2996,accepted,accepted,0.1261,accepted,accepted,accepted
+360_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g444,182.08,20.6,20 weeks or more,13.5273,accepted,accepted,0.1465,accepted,accepted,accepted
+360_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g444,175.23,20.04,20 weeks or more,11.3015,accepted,accepted,0.1708,accepted,accepted,accepted
+361_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g444,180.08,20.44,20 weeks or more,11.2449,accepted,accepted,0.151,accepted,accepted,accepted
+361_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g444,184.76,20.83,20 weeks or more,9.6259,accepted,accepted,0.1065,accepted,accepted,accepted
+366_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g451,181.39,20.55,20 weeks or more,9.5269,accepted,accepted,0.1128,accepted,accepted,accepted
+372_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g458,172.39,19.81,17 to 20 weeks,11.8913,accepted,accepted,0.109,accepted,accepted,accepted
+373_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g458,183.1,20.69,20 weeks or more,6.8988,accepted,accepted,0.122,accepted,accepted,accepted
+373_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g458,178.3,20.29,20 weeks or more,6.0473,accepted,accepted,0.1507,accepted,accepted,accepted
+379_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g466,169.68,19.59,17 to 20 weeks,6.9491,accepted,accepted,0.1698,accepted,accepted,accepted
+386_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g475,171.65,19.75,17 to 20 weeks,8.5564,accepted,accepted,0.106,accepted,accepted,accepted
+393_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g485,172.93,19.85,17 to 20 weeks,13.5435,accepted,accepted,0.1092,accepted,accepted,accepted
+394_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g485,184.6,20.82,20 weeks or more,10.4683,accepted,accepted,0.1373,accepted,accepted,accepted
+394_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g485,184.5,20.81,20 weeks or more,14.7382,accepted,accepted,0.1344,accepted,accepted,accepted
+397_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g489,167.7,19.43,17 to 20 weeks,10.8079,accepted,accepted,0.1316,accepted,accepted,accepted
+398_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g491,167.28,19.4,17 to 20 weeks,10.8569,accepted,accepted,0.1324,accepted,accepted,accepted
+399_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g491,175.87,20.09,20 weeks or more,10.741,accepted,accepted,0.165,accepted,accepted,accepted
+399_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g491,173.96,19.93,17 to 20 weeks,11.3596,accepted,accepted,0.1364,accepted,accepted,accepted
+400_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g493,168.35,19.48,17 to 20 weeks,11.2413,accepted,accepted,0.1164,accepted,accepted,accepted
+407_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g502,177.02,20.18,20 weeks or more,14.0147,accepted,accepted,0.1271,accepted,accepted,accepted
+416_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g512,160.6,18.88,17 to 20 weeks,13.7715,accepted,accepted,0.1046,accepted,accepted,accepted
+420_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g516,171.5,19.73,17 to 20 weeks,11.9936,accepted,accepted,0.1193,accepted,accepted,accepted
+424_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g523,176.6,20.15,20 weeks or more,15.3938,accepted,accepted,0.1333,accepted,accepted,accepted
+425_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g523,166.74,19.35,17 to 20 weeks,12.1839,accepted,accepted,0.1234,accepted,accepted,accepted
+425_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g523,162.25,19.0,17 to 20 weeks,13.1432,accepted,accepted,0.114,accepted,accepted,accepted
+426_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g523,142.25,17.51,17 to 20 weeks,10.6359,accepted,accepted,0.1532,accepted,accepted,accepted
+426_3HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g523,142.34,17.51,17 to 20 weeks,6.3609,accepted,accepted,0.1572,accepted,accepted,accepted
+426_4HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g523,155.6,18.49,17 to 20 weeks,5.5761,accepted,accepted,0.1391,accepted,accepted,accepted
+426_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g523,145.19,17.72,17 to 20 weeks,8.0615,accepted,accepted,0.15,accepted,accepted,accepted
+430_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g531,178.66,20.32,20 weeks or more,5.8369,accepted,accepted,0.116,accepted,accepted,accepted
+431_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g531,163.95,19.14,17 to 20 weeks,15.0126,accepted,accepted,0.1335,accepted,accepted,accepted
+431_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g531,166.41,19.33,17 to 20 weeks,11.4178,accepted,accepted,0.1533,accepted,accepted,accepted
+445_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g550,176.2,20.12,20 weeks or more,15.5866,accepted,accepted,0.1189,accepted,accepted,accepted
+446_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g551,171.69,19.75,17 to 20 weeks,12.168,accepted,accepted,0.1268,accepted,accepted,accepted
+452_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g558,167.75,19.43,17 to 20 weeks,13.5505,accepted,accepted,0.1184,accepted,accepted,accepted
+453_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g558,166.8,19.36,17 to 20 weeks,9.0965,accepted,accepted,0.1547,accepted,accepted,accepted
+453_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g558,176.0,20.1,20 weeks or more,12.0635,accepted,accepted,0.1326,accepted,accepted,accepted
+459_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g566,178.31,20.29,20 weeks or more,5.1641,accepted,accepted,0.118,accepted,accepted,accepted
+461_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g569,169.27,19.56,17 to 20 weeks,12.7708,accepted,accepted,0.1147,accepted,accepted,accepted
+462_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g569,168.55,19.5,17 to 20 weeks,10.8427,accepted,accepted,0.1296,accepted,accepted,accepted
+462_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g569,171.94,19.77,17 to 20 weeks,11.1033,accepted,accepted,0.1215,accepted,accepted,accepted
+466_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g574,176.31,20.12,20 weeks or more,13.0429,accepted,accepted,0.1199,accepted,accepted,accepted
+474_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g585,175.08,20.02,20 weeks or more,8.0703,accepted,accepted,0.1392,accepted,accepted,accepted
+485_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g601,177.9,20.26,20 weeks or more,9.2696,accepted,accepted,0.1335,accepted,accepted,accepted
+486_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g601,193.79,21.61,20 weeks or more,11.2392,accepted,accepted,0.1301,accepted,accepted,accepted
+486_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g601,192.29,21.48,20 weeks or more,9.0598,accepted,accepted,0.1362,accepted,accepted,accepted
+492_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g609,170.41,19.65,17 to 20 weeks,10.7831,accepted,accepted,0.1413,accepted,accepted,accepted
+498_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g619,176.68,20.16,20 weeks or more,11.3289,accepted,accepted,0.1271,accepted,accepted,accepted
+499_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g619,177.0,20.18,20 weeks or more,12.7302,accepted,accepted,0.143,accepted,accepted,accepted
+499_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g619,177.13,20.19,20 weeks or more,8.7637,accepted,accepted,0.1073,accepted,accepted,accepted
+500_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g621,177.58,20.23,20 weeks or more,10.0217,accepted,accepted,0.1317,accepted,accepted,accepted
+512_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g634,180.2,20.45,20 weeks or more,12.3024,accepted,accepted,0.1136,accepted,accepted,accepted
+521_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g643,178.2,20.28,20 weeks or more,10.7722,accepted,accepted,0.1424,accepted,accepted,accepted
+530_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g656,174.06,19.94,17 to 20 weeks,10.9884,accepted,accepted,0.0932,accepted,accepted,accepted
+531_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g656,175.45,20.05,20 weeks or more,8.3268,accepted,accepted,0.1233,accepted,accepted,accepted
+531_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g656,177.82,20.25,20 weeks or more,4.6221,accepted,accepted,0.1216,accepted,accepted,accepted
+532_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g656,185.12,20.86,20 weeks or more,12.3647,accepted,accepted,0.1243,accepted,accepted,accepted
+532_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g656,177.5,20.22,20 weeks or more,15.2973,accepted,accepted,0.1348,accepted,accepted,accepted
+535_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g660,179.88,20.42,20 weeks or more,11.5099,accepted,accepted,0.1828,accepted,accepted,accepted
+536_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g661,177.38,20.21,20 weeks or more,14.2148,accepted,accepted,0.1267,accepted,accepted,accepted
+538_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g663,179.19,20.36,20 weeks or more,14.979,accepted,accepted,0.119,accepted,accepted,accepted
+549_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g679,169.48,19.57,17 to 20 weeks,11.3981,accepted,accepted,0.1388,accepted,accepted,accepted
+550_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g679,153.8,18.36,17 to 20 weeks,9.6413,accepted,accepted,0.1417,accepted,accepted,accepted
+551_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g680,182.0,20.6,20 weeks or more,13.2594,accepted,accepted,0.165,accepted,accepted,accepted
+558_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g688,183.13,20.69,20 weeks or more,13.9456,accepted,accepted,0.1077,accepted,accepted,accepted
+559_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g689,179.0,20.35,20 weeks or more,17.0054,accepted,accepted,0.113,accepted,accepted,accepted
+562_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g694,178.85,20.33,20 weeks or more,8.7537,accepted,accepted,0.1305,accepted,accepted,accepted
+571_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g707,175.8,20.08,20 weeks or more,11.5781,accepted,accepted,0.0987,accepted,accepted,accepted
+578_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g715,179.6,20.4,20 weeks or more,17.0951,accepted,accepted,0.1412,accepted,accepted,accepted
+591_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g732,179.9,20.42,20 weeks or more,11.0745,accepted,accepted,0.1302,accepted,accepted,accepted
+592_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g732,176.33,20.13,20 weeks or more,12.6558,accepted,accepted,0.1349,accepted,accepted,accepted
+592_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g732,180.65,20.48,20 weeks or more,14.8209,accepted,accepted,0.1509,accepted,accepted,accepted
+598_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g739,184.33,20.79,20 weeks or more,17.6482,accepted,accepted,0.1115,accepted,accepted,accepted
+603_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g744,185.94,20.93,20 weeks or more,15.2106,accepted,accepted,0.1106,accepted,accepted,accepted
+605_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g746,183.7,20.74,20 weeks or more,12.2638,accepted,accepted,0.1329,accepted,accepted,accepted
+616_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g763,185.4,20.88,20 weeks or more,18.3315,accepted,accepted,0.1319,accepted,accepted,accepted
+617_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g763,197.72,21.96,20 weeks or more,15.3823,accepted,accepted,0.1058,accepted,accepted,accepted
+617_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g763,189.78,21.26,20 weeks or more,12.4223,accepted,accepted,0.118,accepted,accepted,accepted
+618_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g763,202.7,22.4,20 weeks or more,4.5962,accepted,accepted,0.1403,accepted,accepted,accepted
+618_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g763,198.9,22.06,20 weeks or more,8.8172,accepted,accepted,0.1897,accepted,accepted,accepted
+624_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g770,197.77,21.96,20 weeks or more,5.0049,accepted,accepted,0.1761,accepted,accepted,accepted
+634_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g783,204.3,22.55,20 weeks or more,6.5422,accepted,accepted,0.138,accepted,accepted,accepted
+644_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g794,209.06,22.99,20 weeks or more,17.6804,accepted,accepted,0.0966,accepted,accepted,accepted
+650_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g801,201.9,22.33,20 weeks or more,2.9007,accepted,accepted,0.1202,accepted,accepted,accepted
+660_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g814,224.0,24.43,20 weeks or more,14.0134,accepted,accepted,0.1348,accepted,accepted,accepted
+661_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g814,219.8,24.01,20 weeks or more,14.0101,accepted,accepted,0.1115,accepted,accepted,accepted
+667_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g820,223.9,24.42,20 weeks or more,13.693,accepted,accepted,0.1221,accepted,accepted,accepted
+668_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g821,220.82,24.11,20 weeks or more,4.8649,accepted,accepted,0.146,accepted,accepted,accepted
+669_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g822,246.6,26.78,20 weeks or more,8.9734,accepted,accepted,0.1206,accepted,accepted,accepted
+687_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g846,249.5,27.09,20 weeks or more,11.7423,accepted,accepted,0.1551,accepted,accepted,accepted
+694_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g855,260.4,28.32,20 weeks or more,4.0274,accepted,accepted,0.1134,accepted,accepted,accepted
+700_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g861,259.46,28.21,20 weeks or more,10.8414,accepted,accepted,0.1281,accepted,accepted,accepted
+706_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g868,269.8,29.42,20 weeks or more,14.2248,accepted,accepted,0.1491,accepted,accepted,accepted
+714_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g880,277.6,30.37,20 weeks or more,10.3284,accepted,accepted,0.1142,accepted,accepted,accepted
+715_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g881,291.9,32.18,20 weeks or more,10.7889,accepted,accepted,0.1074,accepted,accepted,accepted
+716_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g885,298.8,33.1,20 weeks or more,9.8917,accepted,accepted,0.1326,accepted,accepted,accepted
+717_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g885,265.5,28.91,20 weeks or more,9.1595,accepted,accepted,0.1786,accepted,accepted,accepted
+717_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g885,272.72,29.77,20 weeks or more,9.5643,accepted,accepted,0.148,accepted,accepted,accepted
+718_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g885,260.9,28.38,20 weeks or more,4.0878,accepted,accepted,0.1087,accepted,accepted,accepted
+718_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g885,280.5,30.73,20 weeks or more,6.2587,accepted,accepted,0.1496,accepted,accepted,accepted
+724_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g894,284.71,31.26,20 weeks or more,14.477,accepted,accepted,0.11,accepted,accepted,accepted
+725_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g894,278.34,30.46,20 weeks or more,9.3228,accepted,accepted,0.1164,accepted,accepted,accepted
+725_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g894,287.15,31.57,20 weeks or more,8.5131,accepted,accepted,0.1269,accepted,accepted,accepted
+729_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g902,278.1,30.43,20 weeks or more,6.0519,accepted,accepted,0.0834,accepted,accepted,accepted
+730_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g902,296.44,32.78,20 weeks or more,9.8308,accepted,accepted,0.1282,accepted,accepted,accepted
+730_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g902,274.39,29.97,20 weeks or more,8.4095,accepted,accepted,0.1114,accepted,accepted,accepted
+731_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g902,283.53,31.11,20 weeks or more,13.8393,accepted,accepted,0.1354,accepted,accepted,accepted
+731_3HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g902,277.41,30.34,20 weeks or more,8.9436,accepted,accepted,0.1245,accepted,accepted,accepted
+731_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g902,292.44,32.25,20 weeks or more,12.1021,accepted,accepted,0.1448,accepted,accepted,accepted
+732_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g905,247.82,26.91,20 weeks or more,10.8673,accepted,accepted,0.1223,accepted,accepted,accepted
+741_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g915,280.2,30.69,20 weeks or more,9.4849,accepted,accepted,0.1279,accepted,accepted,accepted
+749_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g926,323.3,36.56,20 weeks or more,9.4135,accepted,accepted,0.1182,accepted,accepted,accepted
+757_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g936,300.0,33.26,20 weeks or more,16.6694,accepted,accepted,0.1374,accepted,accepted,accepted
+762_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g941,277.6,30.37,20 weeks or more,7.8946,accepted,accepted,0.1096,accepted,accepted,accepted
+771_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g952,278.9,30.53,20 weeks or more,10.6522,accepted,accepted,0.1162,accepted,accepted,accepted
+774_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g957,286.4,31.47,20 weeks or more,9.1728,accepted,accepted,0.0965,accepted,accepted,accepted
+782_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g968,268.8,29.3,20 weeks or more,4.1451,accepted,accepted,0.1812,accepted,accepted,accepted
+783_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g968,314.98,35.34,20 weeks or more,7.492,accepted,accepted,0.1506,accepted,accepted,accepted
+783_3HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g968,314.32,35.25,20 weeks or more,9.4594,accepted,accepted,0.1456,accepted,accepted,accepted
+783_4HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g968,320.0,36.07,20 weeks or more,10.5108,accepted,accepted,0.1408,accepted,accepted,accepted
+783_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g968,315.22,35.38,20 weeks or more,7.8817,accepted,accepted,0.1366,accepted,accepted,accepted
+792_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g983,299.17,33.15,20 weeks or more,2.5213,accepted,accepted,0.1056,accepted,accepted,accepted
+793_2HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g983,327.12,37.13,20 weeks or more,7.659,accepted,accepted,0.1638,accepted,accepted,accepted
+793_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g983,328.59,37.35,20 weeks or more,11.2307,accepted,accepted,0.1428,accepted,accepted,accepted
+800_HC.png,HC18,head,Fetal head (HC18 axial head-circumference plane),g993,321.83,36.34,20 weeks or more,5.2601,accepted,accepted,0.1395,accepted,accepted,accepted
