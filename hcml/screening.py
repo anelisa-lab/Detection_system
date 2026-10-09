@@ -13,7 +13,7 @@ THRESHOLD_WEEKS = 20.0
 YES, NO, NOT_SURE = "Yes", "No", "Not sure"
 ANSWERS = [YES, NO, NOT_SURE]
 
-CRYPTIC, POSSIBLY, NOT_CRYPTIC, CANNOT = "Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess"
+CRYPTIC, POSSIBLY, NOT_CRYPTIC, CANNOT = "Cryptic", "Possibly cryptic", "Not cryptic", "Inconclusive"
 NO_FETUS = "No fetus seen"
 KIND = {CRYPTIC: "amber", POSSIBLY: "amber", NOT_CRYPTIC: "blue", CANNOT: "grey", NO_FETUS: "grey"}
 
@@ -77,8 +77,9 @@ def screen(ga_weeks: float | None, half_days: float, image_badge: str, answer: s
                          "head. If there is any doubt, a pregnancy test and a clinician can confirm.",
                          "Why: no fetal head was found in the image.", KIND[NO_FETUS])
     if ga_weeks is None or image_badge in ("Poor", "Rejected"):
-        return Screening(CANNOT, "Cannot assess",
-                         "The scan is not a reliable head view, so no screening result is given. Please retake "
+        return Screening(CANNOT, "Inconclusive",
+                         "The scan is not a reliable head view, so no screening result is given. This does not mean you are not "
+                         "pregnant: it only means this image could not be read. Please retake "
                          "the scan or use a standard head circumference view. If you are worried, please see a clinician "
                          "regardless.",
                          "Why: the scan is not a reliable head view.", KIND[CANNOT])

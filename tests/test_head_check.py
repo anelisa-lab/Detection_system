@@ -1,4 +1,4 @@
-"""Regression tests for the head-view check (hcml/headcheck.py) and for the Cannot assess display fix.
+"""Regression tests for the head-view check (hcml/headcheck.py) and for the Inconclusive display fix.
 
 Fixtures: HC18-style head views (valid_head_*), the two first-trimester images (crl_week12, week12_user_crop) and
 FETAL_PLANES_DB images (see fixtures/NOTICE_FETAL_PLANES.md). Needs the committed model in artifacts/.
@@ -199,7 +199,7 @@ def test_page_for_a_non_head_plane_has_no_age_and_no_cryptic_label(name, answer)
     assert "No estimate" in h and not HERO_AGE.search(h)
     assert "does not look like a standard fetal head view" in h
     badge, label = T.verdict_text(at)
-    assert badge == "Cannot assess" and label == "Cannot assess"
+    assert badge == "Inconclusive" and label == "Inconclusive"
     assert "see a clinician regardless" in h and "Cryptic" not in (badge or "")
 
 
@@ -211,7 +211,7 @@ def test_a_cannot_assess_verdict_never_shows_an_age_headline(name):
     T = _ui()
     at = T.run(FIX / f"{name}.png", "No")
     h = T.html_of(at)
-    assert T.verdict_text(at)[0] == "Cannot assess"
+    assert T.verdict_text(at)[0] == "Inconclusive"
     assert "No estimate" in h and not HERO_AGE.search(h)
     assert "Pregnancy timeline" not in h and "Trimester" not in h
 

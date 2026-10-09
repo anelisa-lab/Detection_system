@@ -200,7 +200,7 @@ def describe(entry, i):
     limited = (not rejected) and res.badge != "Good"
     shown = "Good" if src == "crl" else res.badge
     sc = screen(ga, half, shown, answer, weeks_found, "; ".join(res.badge_reasons))
-    hidden = (not rejected) and sc.badge == "Cannot assess"       # a Cannot assess verdict never shows an age
+    hidden = (not rejected) and sc.badge == "Inconclusive"       # a Inconclusive verdict never shows an age
     if hidden:
         ga = None
     why = "; ".join(res.badge_reasons)
@@ -253,7 +253,7 @@ def table_rows():
         v = describe(e, i)
         if v is None:
             rows.append({"i": i, "file": e["name"], "estimate": "Unreadable", "ga": np.inf, "image_check": "Unreadable",
-                         "verdict": "Cannot assess", "label": e["error"] or "", "heatmap_on_skull": None, "score": None})
+                         "verdict": "Inconclusive", "label": e["error"] or "", "heatmap_on_skull": None, "score": None})
         else:
             r = v["res"]
             rows.append({"i": i, "file": e["name"], "estimate": v["headline"],
@@ -273,7 +273,7 @@ def guidance(v):
     """Stage guide, scan summary and when-to-contact tabs."""
     g1, g2, g3 = st.tabs(["Stage guide", "What this scan suggests", "When to contact a doctor"])
     with g1:
-        if v["ga"] is not None and v["sc"].badge != "Cannot assess":
+        if v["ga"] is not None and v["sc"].badge != "Inconclusive":
             length_cm, weight_g = content.size_at(v["ga"])
             st.markdown(ui.card(
                 ui.eyebrow(f"About this stage · {fmt_weeks_days(v['ga'])} · trimester {v['tri']}")
@@ -414,7 +414,7 @@ def page_batch():
     f1, f2, f3 = st.columns([2, 2, 1.6])
     present = [k for k in BADGE_ORDER if counts[k]]
     pick = f1.multiselect("Filter by image check", present, default=present, key="f_badge")
-    verdicts = ["Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess", "No fetus seen"]
+    verdicts = ["Cryptic", "Possibly cryptic", "Not cryptic", "Inconclusive", "No fetus seen"]
     vpick = f2.multiselect("Filter by screening result", verdicts, default=verdicts, key="f_verdict")
     order = f3.selectbox("Sort by", ["File name", "Estimate, low to high", "Estimate, high to low",
                                      "Image check, best first", "Screening result"], key="sort")

@@ -9,7 +9,7 @@ HALF = 14.0   # +/- 14 days = +/- 2 weeks
 @pytest.mark.parametrize("badge", ["Poor", "Rejected"])
 def test_poor_image_cannot_assess(badge):
     s = screen(25.0, HALF, badge, NO)
-    assert s.badge == CANNOT and s.label == "Cannot assess" and "not a reliable head view" in s.why
+    assert s.badge == CANNOT and s.label == "Inconclusive" and "not a reliable head view" in s.why
 
 
 def test_withheld_estimate_cannot_assess():

@@ -2,7 +2,7 @@
 
 Nothing is trained and nothing in artifacts/ is changed. Every image goes through the same code path the app
 uses for an upload: `Predictor.predict(bytes, name)` (image check, age estimate, Grad-CAM skull check) and then
-`screen(...)` (the Cryptic / Possibly cryptic / Not cryptic / Cannot assess rule).
+`screen(...)` (the Cryptic / Possibly cryptic / Not cryptic / Inconclusive rule).
 
     python scripts/eval_fetal_planes.py --data <unzipped FETAL_PLANES_ZENODO dir> --out eval_fetal_planes
 

@@ -85,7 +85,7 @@ def main():
     pipe = pd.read_csv(old / "test_pipeline.csv").set_index("image").loc[t["image"]].reset_index()
     ga_ok = pipe["ga_weeks"].notna().to_numpy()
     label_ok = (pipe["verdict_No"].isin(LABELLED) | pipe["verdict_Not sure"].isin(LABELLED)).to_numpy()
-    verdict_ok = (pipe["verdict_No"] != "Cannot assess").to_numpy()
+    verdict_ok = (pipe["verdict_No"] != "Inconclusive").to_numpy()
 
     report = {"fetal_test": {"images": int(len(t)), "patients": int(t["patient"].nunique()), "heads": int(head.sum()),
                              "thalamic": int(t["thalamic"].sum()), "always_not_head_baseline": float(1 - head.mean())},

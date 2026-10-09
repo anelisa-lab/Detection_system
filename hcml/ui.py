@@ -43,7 +43,7 @@ VERDICTS = {
     "Cryptic": ("limited", "warn"),
     "Possibly cryptic": ("limited", "ring"),
     "Not cryptic": ("info", "check"),
-    "Cannot assess": ("grey", "ring"),
+    "Inconclusive": ("grey", "ring"),
     "No fetus seen": ("grey", "ring"),
 }
 
@@ -211,7 +211,7 @@ def tiles(res, half_days: float, ref, heat_min: float, rejected: bool, base_half
         tile("Range width", f"±{half_days:.0f} d", f"validation error ±{base_half:.0f} d, widened if unusual",
              gauge(half_days / 42, [(base_half / 42, "validation error")], "range width in days")),
     ]
-    if hide_age:     # the verdict is Cannot assess: no age-derived numbers either
+    if hide_age:     # the verdict is Inconclusive: no age-derived numbers either
         out[0] = tile("Head circumference", "—", "not shown: no estimate")
         out[3] = tile("Range width", "—", "no estimate")
     return f'<div class="tiles">{"".join(out)}</div>'

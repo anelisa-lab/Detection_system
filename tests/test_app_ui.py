@@ -79,7 +79,7 @@ def test_good_image_shows_summary_and_stage_guide():
 
 @needs_model
 def test_poor_image_shows_no_age_and_replaces_summary():
-    """A Poor image gives the verdict Cannot assess, so the page shows No estimate instead of an age."""
+    """A Poor image gives the verdict Inconclusive, so the page shows No estimate instead of an age."""
     at = run(WEEK12)
     h = html_of(at)
     assert "No estimate" in h and 'class="hero num"' not in h
@@ -117,7 +117,7 @@ def test_bad_images_cannot_assess():
     for f in (CRL, WEEK12):
         at = run(f, "No")
         badge, label = verdict_text(at)
-        assert badge == "Cannot assess" and label == "Cannot assess"
+        assert badge == "Inconclusive" and label == "Inconclusive"
         assert "not a reliable head view" in html_of(at)
 
 

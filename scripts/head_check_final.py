@@ -183,8 +183,8 @@ def main():
             combo["heads"] = {"n": int(hm.sum()),
                               "current_alone_gets_age": rate(ga_ok[hm], pat[hm]),
                               "combined_gets_age": rate((ga_ok & comb)[hm], pat[hm]),
-                              "current_alone_gets_a_verdict": rate((pipe["verdict_No"] != "Cannot assess").to_numpy()[hm], pat[hm]),
-                              "combined_gets_a_verdict": rate(((pipe["verdict_No"] != "Cannot assess").to_numpy() & comb)[hm], pat[hm])}
+                              "current_alone_gets_a_verdict": rate((pipe["verdict_No"] != "Inconclusive").to_numpy()[hm], pat[hm]),
+                              "combined_gets_a_verdict": rate(((pipe["verdict_No"] != "Inconclusive").to_numpy() & comb)[hm], pat[hm])}
             decision_acc_new = float(((acc_new == head)).mean())
             decision_acc_cur = float(((acc_cur == head)).mean())
             block[f"head_accept_target_{int(tg * 100)}"] = {

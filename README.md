@@ -119,7 +119,7 @@ Upload PNG, JPEG, BMP or DICOM scans and answer one question (did you know you w
 each scan the app shows the preprocessed image, a Grad-CAM overlay with the detected skull, the estimated
 gestational age (weeks and days, likely range, trimester, due date and a growth chart), an image-check badge, a
 cryptic pregnancy screening result (below), and a short plain-language "What this scan suggests" paragraph. When the
-image check is **Limited** the age is shown with a warning that it is rough. When the verdict is **Cannot assess** (the
+image check is **Limited** the age is shown with a warning that it is rough. When the verdict is **Inconclusive** (the
 image check is Poor, or the head-view check or the image check refuses the image) the page shows **No estimate** with a
 short reason, no age headline, no age-derived tiles and no cryptic label. Several uploads give
 a per-image result, an overall average, a CSV and a PDF report.
@@ -135,7 +135,7 @@ images with no head. If the probability is below the threshold in `artifacts/pre
 
 The result never says "not pregnant" outright, because the tool cannot rule a pregnancy out (a very early
 pregnancy or another view may show no head), and a first-trimester CRL view also has no head. Such scans stay
-"Rejected" / "Cannot assess" and keep the CRL box.
+"Rejected" / "Inconclusive" and keep the CRL box.
 
 ```bash
 python scripts/train_presence.py                          # proxies: heads erased from scans in tests/fixtures
@@ -164,7 +164,7 @@ into one result, using the usual definition (cryptic = not recognised until abou
 | Situation | Result |
 |---|---|
 | No fetal head found (presence check) | **No fetus seen** ("This image does not show a fetal head ... cannot rule a pregnancy out"); no age, no cryptic result |
-| Image check Poor, estimate withheld, or refused by the head-view check or the image check | Cannot assess ("the scan is not a reliable head view ... If you are worried, please see a clinician regardless."), with **No estimate** shown instead of an age |
+| Image check Poor, estimate withheld, or refused by the head-view check or the image check | Inconclusive ("the scan is not a reliable head view ... If you are worried, please see a clinician regardless."), with **No estimate** shown instead of an age |
 | Found out at about 20 weeks or later (answer Yes with a week of 20 or more) | **Cryptic**, whatever the scan estimate; if the scan suggests under 20 weeks a note says the two disagree |
 | Estimate under 20 weeks | Not cryptic by the usual definition |
 | 20 weeks or more, answer No | Consistent with a cryptic pregnancy |
@@ -200,7 +200,7 @@ photo, DICOM input, unreadable files, the false-rejection rate, the image-check 
 `tests/test_head_check.py` adds regression tests for the head-view check: its files and operating points (95 default, 98,
 the `HEAD_CHECK_TARGET` setting), the rule that both checks must accept, non-head planes (abdomen, femur, thorax) refused with
 No estimate and no Cryptic label, HC18-style heads and a trans-thalamic head still accepted, the `crl_week12` and
-`week12_user_crop` fixtures, and that a Cannot assess verdict never shows an age headline. The HC18 `test_set` test needs the
+`week12_user_crop` fixtures, and that a Inconclusive verdict never shows an age headline. The HC18 `test_set` test needs the
 folder next to the repository (`../data/test_set`, or `HC18_TEST_SET`) and is skipped without it.
 
 ### Image-check badge (Good / Limited / Poor)
@@ -225,7 +225,7 @@ FETAL_PLANES_DB (12,400 routine screening images, six plane types) it accepted 2
 of real heads. A second, separate check was therefore added (`hcml/headcheck.py`). It is a logistic regression on the 2048-d
 embedding of the app's own frozen encoder, fitted on FETAL_PLANES_DB (fetal brain planes = head; abdomen, femur, thorax,
 maternal cervix and "other" planes = not head) plus 613 HC18 scans. **An image is accepted only if both checks accept it.**
-If the head-view check refuses it, the page shows the same Cannot assess / No estimate result as any refused image, with the
+If the head-view check refuses it, the page shows the same Inconclusive / No estimate result as any refused image, with the
 reason "This image does not look like a standard fetal head view".
 
 * Files, separate from the model and the image-check thresholds: `artifacts/head_check/classifier.npz` and
@@ -305,7 +305,7 @@ Counts: of 1,860 non-head images, 2 get an age and 2 get a label at 95% (14 and 
 - **HC18 has no non-head images.** The head-view check could not be tested on non-head scans that look like HC18, and it may
   partly have learned "HC18 look means head". The two first-trimester fixtures moved toward acceptance: `week12_user_crop.png`
   is refused by the Barcelona-only version but accepted by the shipped one (the image check still rates it Poor, so the verdict
-  is Cannot assess), and `crl_week12.png` stays refused (by the head check at 95%; at 98% only the image check refuses it).
+  is Inconclusive), and `crl_week12.png` stays refused (by the head check at 95%; at 98% only the image check refuses it).
   That is why both checks are required.
 - **The HC18 split and group counts could not be reproduced.** `metadata.json` records 585 linked-scan groups and a 618/163/218
   split. With the code in this repository and the HC18 CSV from Zenodo, `patient_ids` gives **628** groups (not 585), re-running
@@ -370,7 +370,7 @@ outline, a caption bar with file name, size and image-check badge, heatmap opaci
 Right: the estimate with range, trimester, due date and image-check chips; the screening result with its badge and
 "why" line; four metric tiles (head circumference, heatmap on skull, image-check score, range width) with gauges; and
 the growth chart. A 40-week timeline sits under the viewer, with the stage guide below. Status is always icon plus text
-(Good, Limited, Poor, Rejected; Cryptic, Possibly cryptic, Not cryptic, Cannot assess), contrast is at least 4.5:1 in both
+(Good, Limited, Poor, Rejected; Cryptic, Possibly cryptic, Not cryptic, Inconclusive), contrast is at least 4.5:1 in both
 themes (`tests/test_ui_contrast.py`), images carry alt text, and the disclaimer is pinned in the footer. Code:
 `hcml/ui.py` (cards), `hcml/ui.css` (one stylesheet, palettes are CSS variables), `app.py` (pages).
 
