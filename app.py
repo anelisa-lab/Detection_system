@@ -214,7 +214,7 @@ def describe(entry, i):
                  headline=fmt_weeks_days(ga))
         v["paras"] = content.what_scan_suggests(ga) if (src == "crl" or not limited) else [content.UNRELIABLE_SENTENCE]
     else:
-        v.update(headline="No estimate",
+        v.update(headline="Not pregnant" if res.no_fetus else "No estimate",
                  paras=[content.NO_FETUS_SENTENCE if res.no_fetus else content.UNRELIABLE_SENTENCE])
     return v
 
@@ -353,7 +353,7 @@ def page_scan():
         if v["limited"] and not v["hidden"]:
             st.warning(LIMITED_WARNING)
         if v["ga"] is None:
-            st.markdown(ui.no_estimate_card(v["no_estimate_msg"]), unsafe_allow_html=True)
+            st.markdown(ui.no_estimate_card(v["no_estimate_msg"], v["no_fetus"]), unsafe_allow_html=True)
             st.markdown('<div class="hint">'
                         + ('No fetal head was found. For a scan of someone who is not pregnant this is the expected '
                            'result. The tool cannot rule a pregnancy out, so if there is any doubt a pregnancy test '

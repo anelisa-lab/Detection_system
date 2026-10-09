@@ -25,6 +25,19 @@ REJECTED = ("This does not look like a standard head circumference view. The est
 NO_FETUS = ("No fetal head was found in this image, so no gestational age is given.")
 
 
+SCAN_MAX_COLOURFULNESS = 10.0   # mean (max - min) over R, G, B; ultrasound scans are grey (about 0), photos are not
+
+
+def looks_like_scan(data: bytes) -> bool:
+    """True for an image that is grey like an ultrasound. Photos and other colourful pictures are not scans.
+    Files OpenCV cannot decode as a picture (DICOM) count as scans."""
+    img = cv2.imdecode(np.frombuffer(data, np.uint8), cv2.IMREAD_COLOR)
+    if img is None:
+        return True
+    img = img.astype(np.int16)
+    return float((img.max(-1) - img.min(-1)).mean()) < SCAN_MAX_COLOURFULNESS
+
+
 @dataclass
 class Result:
     gray: np.ndarray
@@ -84,6 +97,9 @@ class Predictor:
         presence_prob = None
         if self.presence is not None:
             found, presence_prob = self.presence.present(emb)
+            if not found and not looks_like_scan(data):    # a photo, not a scan: refused as before, never "no fetus"
+                return Result(gray, None, np.zeros(0), float("nan"), None, "rejected", dist, half, [REJECTED],
+                              original=original, orig_size=size, head_present_prob=presence_prob)
             if not found:        # nothing like a fetus: no age, no heatmap, no screening result
                 return Result(gray, None, np.zeros(0), float("nan"), None, "rejected", dist, half, [NO_FETUS],
                               badge="No fetus", original=original, orig_size=size, no_fetus=True,
