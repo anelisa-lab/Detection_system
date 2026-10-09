@@ -177,9 +177,10 @@ def test_compare_toggle_shows_side_by_side():
 
 @needs_model
 def test_batch_table_filter_sort_and_open():
-    files = sorted((ROOT.parent / "data" / "test_set").glob("*.png"))[:12]
+    ts = Path(os.environ.get("HC18_TEST_SET", ROOT.parent / "data" / "test_set"))
+    files = sorted(ts.glob("*.png"))[:12]
     if len(files) < 12:
-        pytest.skip("HC18 test_set not available")
+        pytest.skip(f"HC18 test_set not found at {ts}: download test_set.zip from https://zenodo.org/records/1327317 and unzip it there, or set HC18_TEST_SET (see README, Running the tests)")
     at = run(files)
     assert at.radio(key="nav").value == "Batch"                   # many files start on the table
     h = html_of(at)

@@ -20,7 +20,7 @@ EXACT COMMANDS TO RE-RUN EVERYTHING (about 1.5 hours on 4 CPU cores; no GPU need
 1. Data (details and checksums in 01_training_set/README.txt). The study scripts use these locations; symlink if yours differ:
      /home/user/data_fetal_planes_unzipped   (unzipped FETAL_PLANES_ZENODO.zip: Images/ and FETAL_PLANES_DB_data.csv)
      /home/user/data_hc18_unzipped           (training_set/training_set/*.png, test_set/test_set/*.png, training_set_pixel_size_and_HC.csv)
-     mkdir -p /home/user/head_check_cache
+     mkdir -p /home/user/head_check_cache      # or set HEAD_CHECK_CACHE to another folder; scripts say so if it is empty
 2. Image lists and embeddings from the app's own frozen encoder:
      python scripts/head_check_make_lists.py --fetal /home/user/data_fetal_planes_unzipped --hc18 /home/user/data_hc18_unzipped --cache /home/user/head_check_cache
      python scripts/head_check_extract.py --list /home/user/head_check_cache/fetal_list.csv --out /home/user/head_check_cache/fetal
@@ -40,7 +40,7 @@ EXACT COMMANDS TO RE-RUN EVERYTHING (about 1.5 hours on 4 CPU cores; no GPU need
 6. Run the app (95% default; 98% with the environment variable) and the tests:
      streamlit run app.py
      HEAD_CHECK_TARGET=98 streamlit run app.py
-     python -m pytest tests -q          # 99 passed (needs the HC18 test_set at ../data/test_set for the last test)
+     python -m pytest tests -q          # 96 passed, 3 skipped; 99 passed when the HC18 test_set is at ../data/test_set (or set HC18_TEST_SET)
 7. Before/after cases and the package itself:
      python scripts/wiring_cases.py --root . --label after --cases eval_wiring/cases.json --out eval_wiring
      python scripts/package_build.py --pkg project_package --fetal /home/user/data_fetal_planes_unzipped --hc18 /home/user/data_hc18_unzipped

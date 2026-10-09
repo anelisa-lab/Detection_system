@@ -1,0 +1,4 @@
+case,file,answer,age_headline,image_check,screening_badge,screening_label,no_estimate_reason,head_view_tile_shown
+user_1_2HC,1_2HC.png,Yes,29 weeks 1 day,Good,Not cryptic,Not cryptic: the pregnancy was known,,False
+user_1_2HC,1_2HC.png,No,29 weeks 1 day,Good,Cryptic,Consistent with a cryptic pregnancy,,False
+user_1_2HC,1_2HC.png,Not sure,29 weeks 1 day,Good,Possibly cryptic,Possibly cryptic: answer the question above to confirm,,False

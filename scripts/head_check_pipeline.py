@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import pandas as pd
 
 from eval_fetal_planes import run_images
+from head_check_common import CACHE
 from hcml.pipeline import Predictor
 
 
@@ -24,7 +25,9 @@ def main():
     ap.add_argument("--split", default="test")
     args = ap.parse_args()
     out = Path(args.out)
-    lst = pd.read_csv("/home/user/head_check_cache/fetal_list.csv")
+    if not (CACHE / "fetal_list.csv").exists():
+        raise SystemExit(f"{CACHE / 'fetal_list.csv'} not found: run scripts/head_check_make_lists.py first, or set HEAD_CHECK_CACHE")
+    lst = pd.read_csv(CACHE / "fetal_list.csv")
     sp = pd.read_csv(out / "splits.csv")
     assert list(lst["image"]) == list(sp["image"])
     lst["split"] = sp["split"].values
