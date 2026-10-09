@@ -1,0 +1,5 @@
+# large files: share the zip directly, verify with the SHA-256 files
+02_testing_set/images/
+02_testing_set.zip
+05_share_with_group/02_testing_set.zip
+download_parts/

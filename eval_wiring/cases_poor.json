@@ -1,0 +1,22 @@
+{
+ "fixture_crl_week12": {
+  "path": "/home/user/Detection_system/tests/fixtures/crl_week12.png",
+  "answers": [
+   "No"
+  ]
+ },
+ "fixture_week12_user_crop": {
+  "path": "/home/user/Detection_system/tests/fixtures/week12_user_crop.png",
+  "answers": [
+   "No"
+  ]
+ },
+ "poor_head_passes_head_check": {
+  "path": "/home/user/data_fetal_planes_unzipped/Images/Patient01426_Plane3_1_of_4.png",
+  "answers": [
+   "Yes",
+   "No",
+   "Not sure"
+  ]
+ }
+}

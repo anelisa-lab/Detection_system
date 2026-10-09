@@ -27,7 +27,7 @@ from hcml.screening import ANSWERS, screen
 MODEL_DIR = Path(os.environ.get("MODEL_DIR", "artifacts"))
 PAGE_SIZE = 20
 MAX_PDF_SCANS = 100
-BADGE_ORDER = ["Good", "Limited", "Poor", "Rejected", "Unreadable"]
+BADGE_ORDER = ["Good", "Limited", "Poor", "Rejected", "No fetus", "Unreadable"]
 
 st.set_page_config(page_title="Ultrasound age estimate", page_icon="🩺", layout="wide")
 light = bool(st.session_state.get("light", False))
@@ -40,9 +40,9 @@ def load_predictor(model_dir: str) -> Predictor:
 
 
 @st.cache_data(show_spinner=False, max_entries=1024)
-def analyse(data: bytes, name: str, model_dir: str, strictness: float):
+def analyse(data: bytes, name: str, model_dir: str, strictness: float, head_target: int | None = None):
     """Preprocess one upload, check it is a head-circumference view, and estimate the age."""
-    return load_predictor(model_dir).predict(data, name, strictness)
+    return load_predictor(model_dir).predict(data, name, strictness, head_target)
 
 
 # --- model ---------------------------------------------------------------------------------------
@@ -70,18 +70,58 @@ with st.sidebar:
             "Image check strictness", 0.5, 1.0, 1.0, 0.05,
             help="1.0 is the calibrated setting: about 0.5% of valid head scans are wrongly refused. "
                  "Lower values refuse more unusual images.")
+        head_target = None
+        if predictor.head is not None:
+            try:
+                head_default = predictor.head.target()          # HEAD_CHECK_TARGET, else 95
+            except ValueError as e:
+                st.error(str(e))
+                st.stop()
+            head_opts = sorted({95, 98, head_default})
+            head_target = st.selectbox(
+                "Head-view check", head_opts, index=head_opts.index(head_default), key="head_target",
+                format_func=lambda t: f"{t}%: accept {t}% of validation heads" + (" (default)" if t == 95 else ""),
+                help="Refuses images that do not look like a standard fetal head view (abdomen, femur, thorax, "
+                     "cervix and other planes). 95 refuses the most non-head images. 98 accepts more real heads "
+                     "but lets a few more non-head images through. An image is accepted only if this check and "
+                     "the image check both accept it. You can also set HEAD_CHECK_TARGET before starting the app.")
         st.toggle("Light theme", key="light", help="Brighter cards for bright rooms.")
     with st.expander("Model performance"):
         t = reg["test"]
+        n = t.get("n")
+        st.caption(f"Held-out HC18 test scans (n = {n}).")
+        st.markdown("**1. Age estimate**")
         st.metric("Age error (MAE)", f"{t['mae_days']:.1f} days",
                   help="Mean absolute error of the gestational-age estimate on held-out HC18 scans.")
-        st.caption(f"Typical range shown: ±{half_days:.0f} days (80% of validation errors were within it). "
-                   f"Within 14 days: {t['within_14_days']:.0%}.")
+        st.caption(f"Median {t['median_abs_error_days']:.1f} days, RMSE {t['rmse_days']:.1f} days, "
+                   f"R\u00b2 {t['r2_ga']:.3f}. Within 7 days: {t['within_7_days']:.1%}; "
+                   f"within 14 days: {t['within_14_days']:.1%}. "
+                   f"Range shown in the app: \u00b1{half_days:.1f} days (80% of validation errors).")
+        sc = meta.get("screening_20w")
+        if sc:
+            st.markdown("**2. 20-week screening** (is the pregnancy 20 weeks or more?)")
+            rows = []
+            for label, key in (("Recall (sensitivity)", "recall_sensitivity"), ("Precision", "precision"),
+                               ("Specificity", "specificity"), ("Accuracy", "accuracy")):
+                v, (lo, hi) = sc[key]["value"], sc[key]["ci95"]
+                rows.append({"Metric": label, "Value": f"{v:.1%}", "95% CI": f"{lo:.1%} to {hi:.1%}"})
+            st.table(pd.DataFrame(rows))
+            c = sc["counts"]
+            st.caption(f"{c['tp']} TP, {c['fp']} FP, {c['fn']} FN, {c['tn']} TN. Majority baseline accuracy "
+                       f"{sc['majority_baseline_accuracy']:.1%}. Reference is Hadlock age from head circumference, "
+                       "not clinical dating.")
+        st.markdown("**3. Stage classifier** (early / mid / late, secondary)")
         m = meta.get("metrics", {})
         st.table(pd.DataFrame({
-            "Stage classifier": ["Recall", "Accuracy", "Precision", "F1", "Specificity"],
-            "Score": [m.get(k) for k in ("recall_sensitivity", "accuracy", "precision", "f1", "specificity")],
+            "Stage classifier": ["Accuracy (= weighted recall)", "Precision", "F1", "Specificity"],
+            "Score": [m.get(k) for k in ("accuracy", "precision", "f1", "specificity")],
         }).round(3))
+        pc = meta.get("per_class", {})
+        if pc:
+            base = max(v["support"] for v in pc.values()) / sum(v["support"] for v in pc.values())
+            st.caption(f"Read stage accuracy against the always-\"early\" baseline of {base:.1%}. "
+                       + " ".join(f"{k} recall {v['recall_sensitivity']:.1%} ({v['support']} scans)."
+                                  for k, v in pc.items() if k != "early"))
         st.caption(f"Age formula: {reg['formula']}.")
 
 # --- top bar, question and upload ---------------------------------------------------------------------
@@ -110,15 +150,15 @@ with st.expander("Scans and question" + (f"  ·  answer: {st.session_state.get('
 # --- analysis (cached per file list) --------------------------------------------------------------------
 
 
-def ensure_results(files, strictness):
-    sig = (tuple((f.name, len(f.getvalue())) for f in files), round(strictness, 3), str(MODEL_DIR))
+def ensure_results(files, strictness, head_target):
+    sig = (tuple((f.name, len(f.getvalue())) for f in files), round(strictness, 3), str(MODEL_DIR), head_target)
     held = st.session_state.get("analysis")
     if held and held["sig"] == sig:
         return held["entries"]
     entries, bar = [], st.progress(0.0, text=f"Analysing 0 of {len(files)} scans...")
     for k, f in enumerate(files):
         try:
-            entries.append({"name": f.name, "res": analyse(f.getvalue(), f.name, str(MODEL_DIR), strictness),
+            entries.append({"name": f.name, "res": analyse(f.getvalue(), f.name, str(MODEL_DIR), strictness, head_target),
                             "error": None})
         except Exception as e:
             entries.append({"name": f.name, "res": None, "error": str(e)})
@@ -133,7 +173,7 @@ def ensure_results(files, strictness):
     return entries
 
 
-entries = ensure_results(files, strictness) if files else []
+entries = ensure_results(files, strictness, head_target) if files else []
 if not files:
     st.session_state.pop("analysis", None)
 
@@ -160,14 +200,22 @@ def describe(entry, i):
     limited = (not rejected) and res.badge != "Good"
     shown = "Good" if src == "crl" else res.badge
     sc = screen(ga, half, shown, answer, weeks_found, "; ".join(res.badge_reasons))
+    hidden = (not rejected) and sc.badge == "Cannot assess"       # a Cannot assess verdict never shows an age
+    if hidden:
+        ga = None
+    why = "; ".join(res.badge_reasons)
+    message = (res.notes[0] if rejected else
+               f"The image check is {res.badge}, so an age estimate would be unreliable. Why: {why}.")
     v = {"res": res, "ga": ga, "half": half, "src": src, "rejected": rejected, "limited": limited, "sc": sc,
-         "crl": crl, "badge": res.badge}
+         "crl": crl, "badge": res.badge, "hidden": hidden, "no_estimate_msg": message,
+         "no_fetus": res.no_fetus}
     if ga is not None:
         v.update(lo=max(ga - half / 7, 0), hi=ga + half / 7, tri=trimester(ga), due=due_date(ga),
                  headline=fmt_weeks_days(ga))
         v["paras"] = content.what_scan_suggests(ga) if (src == "crl" or not limited) else [content.UNRELIABLE_SENTENCE]
     else:
-        v.update(headline="No estimate", paras=[content.UNRELIABLE_SENTENCE])
+        v.update(headline="No estimate",
+                 paras=[content.NO_FETUS_SENTENCE if res.no_fetus else content.UNRELIABLE_SENTENCE])
     return v
 
 
@@ -302,11 +350,15 @@ def page_scan():
             st.markdown(ui.timeline(v["ga"], v["lo"], v["hi"]), unsafe_allow_html=True)
 
     with right:
-        if v["limited"]:
+        if v["limited"] and not v["hidden"]:
             st.warning(LIMITED_WARNING)
         if v["ga"] is None:
-            st.markdown(ui.no_estimate_card(res.notes[0]), unsafe_allow_html=True)
-            st.markdown('<div class="hint">The model was trained on standard head views from about 12 to 40 weeks. '
+            st.markdown(ui.no_estimate_card(v["no_estimate_msg"]), unsafe_allow_html=True)
+            st.markdown('<div class="hint">'
+                        + ('No fetal head was found. For a scan of someone who is not pregnant this is the expected '
+                           'result. The tool cannot rule a pregnancy out, so if there is any doubt a pregnancy test '
+                           'and a clinician can confirm. ' if v["no_fetus"] else '')
+                        + 'The model was trained on standard head views from about 12 to 40 weeks. '
                         'First-trimester whole-fetus (CRL) views, photos and unusual frames are outside that, and '
                         'image-based first-trimester scans are not supported yet.</div>', unsafe_allow_html=True)
         if v["rejected"]:
@@ -336,7 +388,8 @@ def page_scan():
                         unsafe_allow_html=True)
         supportive = content.SUPPORTIVE if v["sc"].badge in ("Cryptic", "Possibly cryptic") else ""
         st.markdown(ui.verdict_card(v["sc"], supportive), unsafe_allow_html=True)
-        st.markdown(ui.tiles(res, v["half"], predictor.ref, predictor.heat["min_overlap"], v["rejected"], half_days),
+        st.markdown(ui.tiles(res, v["half"], predictor.ref, predictor.heat["min_overlap"], v["rejected"], half_days,
+                             v["hidden"]),
                     unsafe_allow_html=True)
         if v["ga"] is not None and v["src"] == "model":
             st.markdown(ui.growth_card(v["ga"], v["half"], light), unsafe_allow_html=True)
@@ -361,7 +414,7 @@ def page_batch():
     f1, f2, f3 = st.columns([2, 2, 1.6])
     present = [k for k in BADGE_ORDER if counts[k]]
     pick = f1.multiselect("Filter by image check", present, default=present, key="f_badge")
-    verdicts = ["Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess"]
+    verdicts = ["Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess", "No fetus seen"]
     vpick = f2.multiselect("Filter by screening result", verdicts, default=verdicts, key="f_verdict")
     order = f3.selectbox("Sort by", ["File name", "Estimate, low to high", "Estimate, high to low",
                                      "Image check, best first", "Screening result"], key="sort")
@@ -431,6 +484,11 @@ def page_about():
           f"{html.escape(reg['formula'])}. Average error on held-out scans is {reg['test']['mae_days']:.1f} days.</p>"
         + "<p><b>Image check.</b> Embedding distance to the training scans, a heatmap-on-skull check and the "
           "estimate's distance from the training data decide Good, Limited, Poor or Rejected.</p>"
+        + "<p><b>Head-view check.</b> A second check, trained on fetal brain, abdomen, femur, thorax, cervix and "
+          "other planes plus HC18 head scans, refuses images that do not look like a standard fetal head view. An "
+          "image is accepted only if both checks accept it.</p>"
+        + "<p><b>Fetal-head presence check.</b> A third check asks whether a fetal head is in the image at all; if "
+          "not (for example a scan of someone who is not pregnant) the result is No fetus, with no age.</p>"
         + "<p><b>Screening.</b> A cryptic pregnancy cannot be identified from a scan alone. The result combines the "
           "scan estimate with one question: did you know you were pregnant before this scan?</p>"
         + "<p><b>Limits.</b> Single-centre data; first-trimester scans are measured by crown-rump length, which the "

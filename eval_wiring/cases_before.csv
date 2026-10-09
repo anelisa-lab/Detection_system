@@ -1,0 +1,25 @@
+case,file,answer,age_headline,image_check,screening_badge,screening_label,no_estimate_reason,head_view_tile_shown
+hc18_standin_709_2HC,709_2HC.png,Yes,29 weeks 1 day,Good,Not cryptic,Not cryptic: the pregnancy was known,,False
+hc18_standin_709_2HC,709_2HC.png,No,29 weeks 1 day,Good,Cryptic,Consistent with a cryptic pregnancy,,False
+hc18_standin_709_2HC,709_2HC.png,Not sure,29 weeks 1 day,Good,Possibly cryptic,Possibly cryptic: answer the question above to confirm,,False
+hc18_standin_testset_000_HC,000_HC.png,Yes,29 weeks 1 day,Good,Not cryptic,Not cryptic: the pregnancy was known,,False
+hc18_standin_testset_000_HC,000_HC.png,No,29 weeks 1 day,Good,Cryptic,Consistent with a cryptic pregnancy,,False
+hc18_standin_testset_000_HC,000_HC.png,Not sure,29 weeks 1 day,Good,Possibly cryptic,Possibly cryptic: answer the question above to confirm,,False
+abdomen_cryptic_before,Patient00773_Plane2_1_of_1.png,Yes,23 weeks 0 days,Limited,Not cryptic,May be not cryptic: the pregnancy was known,,False
+abdomen_cryptic_before,Patient00773_Plane2_1_of_1.png,No,23 weeks 0 days,Limited,Cryptic,May be consistent with a cryptic pregnancy,,False
+abdomen_cryptic_before,Patient00773_Plane2_1_of_1.png,Not sure,23 weeks 0 days,Limited,Possibly cryptic,May be cryptic: answer the question above to confirm,,False
+abdomen_poor_showed_age,Patient01500_Plane2_1_of_1.png,Yes,21 weeks 5 days,Poor,Cannot assess,Cannot assess,,False
+abdomen_poor_showed_age,Patient01500_Plane2_1_of_1.png,No,21 weeks 5 days,Poor,Cannot assess,Cannot assess,,False
+abdomen_poor_showed_age,Patient01500_Plane2_1_of_1.png,Not sure,21 weeks 5 days,Poor,Cannot assess,Cannot assess,,False
+femur,Patient01288_Plane5_1_of_1.png,Yes,21 weeks 6 days,Limited,Not cryptic,Borderline around 20 weeks: it could fall on either side,,False
+femur,Patient01288_Plane5_1_of_1.png,No,21 weeks 6 days,Limited,Possibly cryptic,Borderline around 20 weeks: it could fall on either side,,False
+femur,Patient01288_Plane5_1_of_1.png,Not sure,21 weeks 6 days,Limited,Possibly cryptic,Borderline around 20 weeks: it could fall on either side,,False
+thorax,Patient01063_Plane6_1_of_1.png,Yes,18 weeks 4 days,Limited,Not cryptic,Borderline around 20 weeks: it could fall on either side,,False
+thorax,Patient01063_Plane6_1_of_1.png,No,18 weeks 4 days,Limited,Possibly cryptic,Borderline around 20 weeks: it could fall on either side,,False
+thorax,Patient01063_Plane6_1_of_1.png,Not sure,18 weeks 4 days,Limited,Possibly cryptic,Borderline around 20 weeks: it could fall on either side,,False
+trans_thalamic_refused_by_current_check,Patient01322_Plane3_3_of_4.png,Yes,No estimate,,Cannot assess,Cannot assess,This does not look like a standard head circumference view. The estimate would be unreliable.,False
+trans_thalamic_refused_by_current_check,Patient01322_Plane3_3_of_4.png,No,No estimate,,Cannot assess,Cannot assess,This does not look like a standard head circumference view. The estimate would be unreliable.,False
+trans_thalamic_refused_by_current_check,Patient01322_Plane3_3_of_4.png,Not sure,No estimate,,Cannot assess,Cannot assess,This does not look like a standard head circumference view. The estimate would be unreliable.,False
+trans_thalamic_accepted,Patient01056_Plane3_1_of_2.png,Yes,36 weeks 1 day,Good,Not cryptic,Not cryptic: the pregnancy was known,,False
+trans_thalamic_accepted,Patient01056_Plane3_1_of_2.png,No,36 weeks 1 day,Good,Cryptic,Consistent with a cryptic pregnancy,,False
+trans_thalamic_accepted,Patient01056_Plane3_1_of_2.png,Not sure,36 weeks 1 day,Good,Possibly cryptic,Possibly cryptic: answer the question above to confirm,,False

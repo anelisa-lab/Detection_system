@@ -80,7 +80,7 @@ def evaluate(y_true, y_pred, names) -> dict:
     return {
         "test_size": int(s.sum()),
         "weighted": {
-            "recall_sensitivity": float((r * w).sum()),
+            "recall_sensitivity": float((r * w).sum()),   # support-weighted recall == accuracy; not screening recall
             "accuracy": float(accuracy_score(y_true, y_pred)),
             "precision": float((p * w).sum()),
             "f1": float((f * w).sum()),

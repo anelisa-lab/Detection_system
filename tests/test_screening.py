@@ -1,7 +1,7 @@
 """Unit tests for the cryptic pregnancy screening verdict (no model needed)."""
 import pytest
 
-from hcml.screening import (CANNOT, CRYPTIC, NO, NOT_CRYPTIC, NOT_SURE, POSSIBLY, YES, screen)
+from hcml.screening import (CANNOT, CRYPTIC, NO, NO_FETUS, NOT_CRYPTIC, NOT_SURE, POSSIBLY, YES, screen)
 
 HALF = 14.0   # +/- 14 days = +/- 2 weeks
 
@@ -97,9 +97,19 @@ def test_found_out_late_is_softened_when_image_is_limited():
     assert s.badge == CRYPTIC and s.label.startswith("May be cryptic by the usual definition")
 
 
-def test_found_out_late_but_scan_under_20_weeks_is_not_cryptic_with_a_note():
+def test_found_out_late_is_cryptic_even_when_scan_is_under_20_weeks():
     s = screen(15.0, HALF, "Good", YES, weeks_found=24)
-    assert s.badge == NOT_CRYPTIC and any("scan suggests a shorter" in n for n in s.notes)
+    assert s.badge == CRYPTIC and s.label.startswith("Cryptic by the usual definition")
+    assert not s.borderline and any("do not agree" in n for n in s.notes)
+
+
+def test_found_out_late_settles_a_borderline_estimate():
+    s = screen(20.0, HALF, "Good", YES, weeks_found=22)
+    assert s.badge == CRYPTIC and not s.borderline
+
+
+def test_cannot_assess_tells_the_user_to_see_a_clinician():
+    assert "see a clinician regardless" in screen(None, HALF, "Good", NO).sentence
 
 
 def test_weeks_found_later_than_scan_note():
@@ -121,3 +131,11 @@ def test_pdf_report_contains_verdict_answer_and_reason():
                          "screen_badge": s.badge, "screen_label": s.label,
                          "screen_lines": [s.sentence, s.why, "Your answer: No"], "summary": ["x"]}])
     assert pdf[:4] == b"%PDF" and len(pdf) > 2000
+
+
+@pytest.mark.parametrize("answer", [YES, NO, NOT_SURE])
+def test_no_fetal_head_gives_no_fetus_seen_whatever_the_answer(answer):
+    s = screen(None, HALF, "No fetus", answer, 22.0 if answer == YES else None)
+    assert s.badge == NO_FETUS and s.label == "No fetal head seen in this scan"
+    assert "cannot rule a pregnancy out" in s.sentence and "pregnancy test" in s.sentence
+    assert not s.borderline and not s.readings and s.kind == "grey"

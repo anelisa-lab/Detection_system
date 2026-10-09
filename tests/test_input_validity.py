@@ -74,7 +74,9 @@ def test_valid_head_view_gets_an_estimate(predictor, name):
 def test_week12_crl_view_is_refused(predictor):
     r = predictor.predict((FIX / "crl_week12.png").read_bytes(), "crl_week12.png")
     assert r.level == "rejected" and r.ga_weeks is None and r.cam is None
-    assert "does not look like a standard head circumference view" in r.notes[0]
+    # refused by the head-view check or, failing that, the image check; either way with a plain reason
+    assert ("does not look like a standard fetal head view" in r.notes[0]
+            or "does not look like a standard head circumference view" in r.notes[0])
 
 
 @needs_model
@@ -126,3 +128,69 @@ def test_scan_summary_wording_by_stage():
     assert "earlier stage" in early and "Typical at this stage" in early
     for t in (late, early):
         assert "diagnos" not in t.lower().replace("not a diagnostic", "") and "you have a cryptic" not in t.lower()
+
+
+NO_FETUS_FILES = ["no_fetus_a.png", "no_fetus_b.png"]
+
+
+@needs_model
+@pytest.mark.parametrize("name", NO_FETUS_FILES)
+def test_scan_with_no_fetal_head_gets_no_age(predictor, name):
+    """Ultrasound texture and fan, but no fetus (as for someone who is not pregnant): no age may be given."""
+    if predictor.presence is None:
+        pytest.skip("this model folder has no presence.npz (python scripts/train_presence.py)")
+    r = predictor.predict((FIX / name).read_bytes(), name)
+    assert r.no_fetus and r.badge == "No fetus" and r.ga_weeks is None and r.cam is None
+    assert r.head_present_prob < predictor.presence.threshold
+    assert "No fetal head was found" in r.notes[0]
+
+
+@needs_model
+def test_fake_ultrasound_with_no_fetus_gets_no_age(predictor):
+    """A speckled fan with an empty-uterus-like shape; never seen in training."""
+    if predictor.presence is None:
+        pytest.skip("this model folder has no presence.npz")
+    rng = np.random.default_rng(3)
+    y, x = np.mgrid[0:480, 0:640]
+    img = rng.rayleigh(30, (480, 640)).astype(np.float32) * (((x - 320) ** 2 + (y + 80) ** 2 < 560 ** 2) & (np.abs(x - 320) < (y + 80) * 0.8))
+    cv2.ellipse(img, (320, 260), (180, 90), 0, 0, 360, 110, 25)
+    img = np.clip(cv2.GaussianBlur(img, (0, 0), 2) * 2, 0, 255).astype(np.uint8)
+    r = predictor.predict(cv2.imencode(".png", img)[1].tobytes(), "pelvis.png")
+    assert r.ga_weeks is None and r.cam is None
+
+
+@needs_model
+@pytest.mark.parametrize("name", ["valid_head_a.png", "valid_head_b.png", "valid_head_early.png",
+                                  "valid_head_good.png", "valid_head_late.png", "week12_user_crop.png"])
+def test_real_head_views_are_never_called_no_fetus(predictor, name):
+    r = predictor.predict((FIX / name).read_bytes(), name)
+    assert not r.no_fetus
+    if predictor.presence is not None:
+        assert r.head_present_prob >= predictor.presence.threshold
+
+
+@needs_model
+def test_first_trimester_crl_view_is_not_called_empty(predictor):
+    """A week-12 whole-fetus view has a fetus in it: it stays 'Rejected' (use the CRL box), not 'No fetus'."""
+    r = predictor.predict((FIX / "crl_week12.png").read_bytes(), "crl_week12.png")
+    assert r.ga_weeks is None and not r.no_fetus
+
+
+@needs_model
+@pytest.mark.parametrize("name", ["nonhead_abdomen.png", "nonhead_femur.png", "nonhead_thorax.png", "crl_week12.png"])
+def test_other_fetal_views_are_not_called_no_fetus(predictor, name):
+    """A fetal abdomen, femur, thorax or first-trimester view has a fetus in it. It is refused as 'not a head view'
+    (no age) but is never told 'no fetus seen'."""
+    r = predictor.predict((FIX / name).read_bytes(), name)
+    assert r.ga_weeks is None and not r.no_fetus
+
+
+@needs_model
+@pytest.mark.parametrize("target", [95, 98])
+@pytest.mark.parametrize("name", NO_FETUS_FILES)
+def test_no_fetus_gets_no_age_at_every_head_check_setting(predictor, name, target):
+    """The head-view check alone lets some head-free scans through (more at 98); the presence check must not."""
+    if predictor.presence is None:
+        pytest.skip("this model folder has no presence.npz")
+    r = predictor.predict((FIX / name).read_bytes(), name, 1.0, target)
+    assert r.ga_weeks is None and r.no_fetus

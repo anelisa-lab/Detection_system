@@ -14,7 +14,8 @@ YES, NO, NOT_SURE = "Yes", "No", "Not sure"
 ANSWERS = [YES, NO, NOT_SURE]
 
 CRYPTIC, POSSIBLY, NOT_CRYPTIC, CANNOT = "Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess"
-KIND = {CRYPTIC: "amber", POSSIBLY: "amber", NOT_CRYPTIC: "blue", CANNOT: "grey"}
+NO_FETUS = "No fetus seen"
+KIND = {CRYPTIC: "amber", POSSIBLY: "amber", NOT_CRYPTIC: "blue", CANNOT: "grey", NO_FETUS: "grey"}
 
 _LABEL = {
     "early": "Not cryptic by the usual definition",
@@ -59,18 +60,27 @@ class Screening:
 
 
 def _side(late: bool, answer: str) -> str:
-    return answer if late else "early"
+    # Found out at 20 weeks or later ("Late") is cryptic whatever the scan estimate says.
+    return answer if late or answer == "Late" else "early"
 
 
 def screen(ga_weeks: float | None, half_days: float, image_badge: str, answer: str = NOT_SURE,
            weeks_found: float | None = None, image_reason: str = "") -> Screening:
-    """image_badge is the image check: Good, Limited, Poor or Rejected. ga_weeks is None when withheld."""
+    """image_badge is the image check: Good, Limited, Poor, Rejected or No fetus. ga_weeks is None when withheld."""
     if answer not in ANSWERS:
         answer = NOT_SURE
+    if image_badge == "No fetus":
+        return Screening(NO_FETUS, "No fetal head seen in this scan",
+                         "This image does not show a fetal head, so there is no gestational age and no cryptic "
+                         "pregnancy result. This is what to expect from a scan of someone who is not pregnant. The "
+                         "tool cannot rule a pregnancy out: a very early pregnancy or a different view may not show a "
+                         "head. If there is any doubt, a pregnancy test and a clinician can confirm.",
+                         "Why: no fetal head was found in the image.", KIND[NO_FETUS])
     if ga_weeks is None or image_badge in ("Poor", "Rejected"):
         return Screening(CANNOT, "Cannot assess",
                          "The scan is not a reliable head view, so no screening result is given. Please retake "
-                         "the scan or use a standard head circumference view.",
+                         "the scan or use a standard head circumference view. If you are worried, please see a clinician "
+                         "regardless.",
                          "Why: the scan is not a reliable head view.", KIND[CANNOT])
 
     low, high = ga_weeks - half_days / 7.0, ga_weeks + half_days / 7.0
@@ -86,15 +96,15 @@ def screen(ga_weeks: float | None, half_days: float, image_badge: str, answer: s
     notes = []
     if answer == YES and weeks_found:
         if found_late and not late_main:
-            notes.append(f"You found out at about {weeks_found:.0f} weeks. The usual definition counts a pregnancy "
-                         "recognised at about 20 weeks or later as cryptic, but the scan suggests a shorter "
-                         "pregnancy, so please discuss this with your clinician.")
+            notes.append(f"You found out at about {weeks_found:.0f} weeks, which the usual definition counts as "
+                         "cryptic, but the scan suggests a pregnancy under 20 weeks. The two do not agree, so "
+                         "please discuss this with your clinician.")
         if weeks_found > high + 1:
             notes.append("The week you found out is later than the scan suggests. Please check it with your "
                          "clinician.")
 
     main = _side(late_main, eff)
-    borderline = low < THRESHOLD_WEEKS <= high
+    borderline = low < THRESHOLD_WEEKS <= high and not found_late   # a late found-out week settles it
     if soft:
         notes.append(f"The image check is Limited ({image_reason or 'see the reason under the badge'}), so "
                      "treat this as a 'may be' reading.")
@@ -107,4 +117,8 @@ def screen(ga_weeks: float | None, half_days: float, image_badge: str, answer: s
         return Screening(badge, "Borderline around 20 weeks: it could fall on either side",
                          "The estimate is close to 20 weeks, so the result could fall on either side. Both "
                          "readings are shown.", why, KIND[badge], True, soft, readings, notes)
-    return Screening(_BADGE[main], labels[main], _SENTENCE[main], why, KIND[_BADGE[main]], False, soft, [], notes)
+    sentence = _SENTENCE[main]
+    if found_late and not late_main:
+        sentence = ("You found out about the pregnancy at about 20 weeks or later, which fits the usual definition "
+                    "of a cryptic pregnancy, although the scan suggests a pregnancy under 20 weeks.")
+    return Screening(_BADGE[main], labels[main], sentence, why, KIND[_BADGE[main]], False, soft, [], notes)

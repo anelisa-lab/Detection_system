@@ -17,7 +17,9 @@ MODEL_DIR = Path(os.environ.get("MODEL_DIR", ROOT / "artifacts"))
 needs_model = pytest.mark.skipif(not (MODEL_DIR / "ood_reference.npz").exists(), reason="train a model first")
 
 GOOD, LATE, EARLY = FIX / "valid_head_good.png", FIX / "valid_head_late.png", FIX / "valid_head_early.png"
+NEAR20 = FIX / "valid_head_b.png"      # estimate close to 20 weeks, so its range straddles 20
 WEEK12, CRL = FIX / "week12_user_crop.png", FIX / "crl_week12.png"
+NO_FETUS_SCAN = FIX / "no_fetus_a.png"
 
 
 def run(paths, answer="Not sure", nav=None):
@@ -67,7 +69,7 @@ def test_only_the_one_question_remains():
 
 @needs_model
 def test_good_image_shows_summary_and_stage_guide():
-    at = run(GOOD)
+    at = run(LATE)      # a head view the image check rates Good
     assert image_badge(at) == "Good"
     h = html_of(at)
     assert "What this scan suggests" in h and "The scan suggests a gestational age of about" in h
@@ -76,14 +78,22 @@ def test_good_image_shows_summary_and_stage_guide():
 
 
 @needs_model
-def test_poor_image_warns_and_replaces_summary():
+def test_poor_image_shows_no_age_and_replaces_summary():
+    """A Poor image gives the verdict Cannot assess, so the page shows No estimate instead of an age."""
     at = run(WEEK12)
-    assert image_badge(at) in ("Limited", "Poor")
-    assert any(LIMITED_WARNING in w.value for w in at.warning)
     h = html_of(at)
+    assert "No estimate" in h and 'class="hero num"' not in h
+    assert not any(LIMITED_WARNING in w.value for w in at.warning)      # there is no estimate to call rough
     assert UNRELIABLE_SENTENCE in h and "The scan suggests a gestational age" not in h
-    assert "crown-rump length is the standard measure" in h
-    assert "Why " in h
+    assert "The image check is Poor" in h and "Why:" in h
+
+
+@needs_model
+def test_limited_image_still_shows_its_age_with_the_warning():
+    at = run(GOOD)                      # image check Limited: the estimate is shown, flagged as rough
+    assert image_badge(at) == "Limited"
+    assert any(LIMITED_WARNING in w.value for w in at.warning)
+    assert 'class="hero num"' in html_of(at)
 
 
 @needs_model
@@ -112,9 +122,25 @@ def test_bad_images_cannot_assess():
 
 
 @needs_model
+def test_scan_with_no_fetus_says_so_and_gives_no_age():
+    if not (MODEL_DIR / "presence.npz").exists():
+        pytest.skip("this model folder has no presence.npz")
+    for answer in ("Not sure", "No"):
+        at = run(NO_FETUS_SCAN, answer)
+        assert verdict_text(at) == ("No fetus seen", "No fetal head seen in this scan")
+        h = html_of(at)
+        assert "No fetal head was found" in h and "No estimate" in h
+        assert "cannot rule a pregnancy out" in h
+        assert "Cryptic by the usual definition" not in h and "Consistent with a cryptic" not in h
+        assert "promptly for confirmation, dating and antenatal care" not in h
+        assert image_badge(at) is None or image_badge(at) == "No fetus"
+
+
+@needs_model
 def test_borderline_scan_shows_both_readings():
-    h = html_of(run(GOOD, "No"))
-    assert "Borderline around 20 weeks" in h and "Consistent with a cryptic pregnancy" in h
+    # The wording may be softened ("May be consistent ...") if a retrain turns this scan Limited.
+    h = html_of(run(NEAR20, "No"))
+    assert "Borderline around 20 weeks" in h and "onsistent with a cryptic pregnancy" in h
 
 
 @needs_model
@@ -129,7 +155,7 @@ def test_workstation_chrome_and_accessibility():
     for badge in re.findall(r'<span class="badge [^"]*">(.*?)</span></span>', h, re.S):
         assert "<svg" in badge                        # status is never colour alone: icon + text
     assert len(at.tabs) >= 3 and [r.label for r in at.radio if r.label == "Navigation"]
-    names = re.findall(r"<span>(Good|Limited|Poor|Rejected)</span>", h)
+    names = re.findall(r"<span>(Good|Limited|Poor|Rejected|No fetus)</span>", h)
     assert names
 
 

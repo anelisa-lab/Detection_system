@@ -35,6 +35,7 @@ BADGES = {
     "Limited": ("limited", "warn", "Limited"),
     "Poor": ("poor", "cross", "Poor"),
     "Rejected": ("grey", "ring", "Rejected"),
+    "No fetus": ("grey", "ring", "No fetus"),
     "Unreadable": ("grey", "ring", "Unreadable"),
 }
 # screening badge -> (css class, icon name)
@@ -43,6 +44,7 @@ VERDICTS = {
     "Possibly cryptic": ("limited", "ring"),
     "Not cryptic": ("info", "check"),
     "Cannot assess": ("grey", "ring"),
+    "No fetus seen": ("grey", "ring"),
 }
 
 _ICONS = {
@@ -173,12 +175,24 @@ def tile(label: str, value: str, sub: str, gauge_html: str = "") -> str:
             f'<div class="tile-s">{html.escape(sub)}</div></div>')
 
 
-def tiles(res, half_days: float, ref, heat_min: float, rejected: bool, base_half: float) -> str:
+def tiles(res, half_days: float, ref, heat_min: float, rejected: bool, base_half: float, hide_age: bool = False) -> str:
     if rejected:
+        if getattr(res, "no_fetus", False) and res.head_present_prob is not None:
+            thr = res.presence_threshold or 0.5
+            score_tile = tile("Fetal-head presence", f"{res.head_present_prob:.0%}",
+                              f"refused below {thr:.0%} (higher is more head-like)",
+                              gauge(float(res.head_present_prob), [(thr, "acceptance limit")], "fetal head presence"))
+        elif getattr(res, "rejected_by", None) == "head check" and res.head_score is not None:
+            lo, hi = res.head_threshold - 8.0, res.head_threshold + 8.0
+            score_tile = tile("Head-view check", f"{res.head_score:+.1f}",
+                              f"refused below {res.head_threshold:+.1f} (higher is more head-like)",
+                              gauge(float(np.clip((res.head_score - lo) / (hi - lo), 0, 1)), [(0.5, "acceptance limit")],
+                                    "head view check score"))
+        else:
+            score_tile = tile("Image-check score", f"{res.distance:.3f}", f"refused above {ref.reject:.3f} (lower is better)",
+                              gauge(res.distance / (ref.reject * 1.4), [(1 / 1.4, "refusal limit")], "image check score"))
         dash = [tile("Head circumference", "—", "not measured"), tile("Heatmap on skull", "—", "no heatmap"),
-                tile("Image-check score", f"{res.distance:.3f}", f"refused above {ref.reject:.3f} (lower is better)",
-                     gauge(res.distance / (ref.reject * 1.4), [(1 / 1.4, "refusal limit")], "image check score")),
-                tile("Range width", "—", "no estimate")]
+                score_tile, tile("Range width", "—", "no estimate")]
         return f'<div class="tiles">{"".join(dash)}</div>'
     hc_lo, hc_hi = 44.0, 346.0
     ov = res.overlap or 0.0
@@ -194,6 +208,9 @@ def tiles(res, half_days: float, ref, heat_min: float, rejected: bool, base_half
         tile("Range width", f"±{half_days:.0f} d", f"validation error ±{base_half:.0f} d, widened if unusual",
              gauge(half_days / 42, [(base_half / 42, "validation error")], "range width in days")),
     ]
+    if hide_age:     # the verdict is Cannot assess: no age-derived numbers either
+        out[0] = tile("Head circumference", "—", "not shown: no estimate")
+        out[3] = tile("Range width", "—", "no estimate")
     return f'<div class="tiles">{"".join(out)}</div>'
 
 

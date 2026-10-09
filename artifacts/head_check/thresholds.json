@@ -1,0 +1,59 @@
+{
+  "default": 95,
+  "operating_points": {
+    "90": 2.275054931640625,
+    "95": 0.9856867790222168,
+    "98": -1.0875248908996582
+  },
+  "provenance": {
+    "what": "logistic regression (class-balanced) on the frozen encoder's 2048-d embedding; head vs not head",
+    "variant": "A: 'Other' plane used as a negative class",
+    "C": 0.01,
+    "trained_on": "FETAL_PLANES_DB train patients (brain planes = head) + HC18 head scans from the current model's own train/validation pool (613 train); the 218 held-out HC18 scans and the 335 unlabeled HC18 test_set scans were never used",
+    "threshold_rule": "highest score that still accepts the stated share of ALL validation heads (FETAL_PLANES + HC18 validation scans pooled)",
+    "validation": {
+      "head_accept_target_90": {
+        "heads_pooled": 0.9007633587786259,
+        "fetal_heads": 0.8869143780290791,
+        "fetal_thalamic": 0.9142011834319527,
+        "hc18_val_heads": 0.9520958083832335,
+        "nonhead_all": 0.0016120365394948952,
+        "nonhead_without_other": 0.0009950248756218905,
+        "accepted_Fetal abdomen": 0.006622516556291391,
+        "accepted_Fetal femur": 0.0,
+        "accepted_Fetal thorax": 0.0,
+        "accepted_Maternal cervix": 0.0,
+        "accepted_Other": 0.002336448598130841
+      },
+      "head_accept_target_95": {
+        "heads_pooled": 0.950381679389313,
+        "fetal_heads": 0.9418416801292407,
+        "fetal_thalamic": 0.9615384615384616,
+        "hc18_val_heads": 0.9820359281437125,
+        "nonhead_all": 0.0016120365394948952,
+        "nonhead_without_other": 0.0009950248756218905,
+        "accepted_Fetal abdomen": 0.006622516556291391,
+        "accepted_Fetal femur": 0.0,
+        "accepted_Fetal thorax": 0.0,
+        "accepted_Maternal cervix": 0.0,
+        "accepted_Other": 0.002336448598130841
+      },
+      "head_accept_target_98": {
+        "heads_pooled": 0.9809160305343512,
+        "fetal_heads": 0.975767366720517,
+        "fetal_thalamic": 0.9911242603550295,
+        "hc18_val_heads": 1.0,
+        "nonhead_all": 0.014508328855454057,
+        "nonhead_without_other": 0.010945273631840797,
+        "accepted_Fetal abdomen": 0.026490066225165563,
+        "accepted_Fetal femur": 0.004739336492890996,
+        "accepted_Fetal thorax": 0.02054794520547945,
+        "accepted_Maternal cervix": 0.0,
+        "accepted_Other": 0.018691588785046728
+      }
+    },
+    "exported": "2026-10-08",
+    "study": "scripts/head_check_hc18_fit.py, scripts/head_check_hc18_final.py, eval_head_check_hc18/",
+    "data": "FETAL_PLANES_DB, Burgos-Artizzu et al., Sci Rep 10:10200 (2020), CC BY 4.0, doi:10.5281/zenodo.3904280; HC18, van den Heuvel et al., PLoS ONE 13(8):e0200412 (2018), CC BY 4.0"
+  }
+}

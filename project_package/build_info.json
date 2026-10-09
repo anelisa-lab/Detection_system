@@ -1,0 +1,6 @@
+{
+  "zip_bytes": 474040492,
+  "leak_check": "PASS: no training or validation image is in the testing set",
+  "max_score_difference_vs_study": 5.058109458033755e-05,
+  "note": "recorded from the build run that produced 02_testing_set.zip"
+}

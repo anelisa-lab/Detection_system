@@ -1,0 +1,2 @@
+file_name,dataset,patient_or_group_id,reason
+089_HC.png,HC18,g109,"Dropped from training and validation: it belongs to a linked-scan chain (087_HC, 088_2HC, 088_HC, 089_HC) that straddles the committed HC18 split; the other three scans are held-out test scans."

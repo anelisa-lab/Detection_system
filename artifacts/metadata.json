@@ -142,5 +142,15 @@
       "test": 116
     },
     "patients_in_more_than_one_split": 0
+  },
+  "presence": {
+    "threshold": 0.5,
+    "cv_positive_pass_rate": 1.0,
+    "cv_positive_p01": 0.7730396628379822,
+    "n_positive": 781,
+    "n_negative_rows": 120,
+    "target_pass": 0.98,
+    "real_negative_rows": 0,
+    "proxy_negative_rows": 120
   }
 }
