@@ -19,6 +19,7 @@ needs_model = pytest.mark.skipif(not (MODEL_DIR / "ood_reference.npz").exists(),
 GOOD, LATE, EARLY = FIX / "valid_head_good.png", FIX / "valid_head_late.png", FIX / "valid_head_early.png"
 NEAR20 = FIX / "valid_head_b.png"      # estimate close to 20 weeks, so its range straddles 20
 WEEK12, CRL = FIX / "week12_user_crop.png", FIX / "crl_week12.png"
+NO_FETUS_SCAN = FIX / "no_fetus_a.png"
 
 
 def run(paths, answer="Not sure", nav=None):
@@ -121,6 +122,21 @@ def test_bad_images_cannot_assess():
 
 
 @needs_model
+def test_scan_with_no_fetus_says_so_and_gives_no_age():
+    if not (MODEL_DIR / "presence.npz").exists():
+        pytest.skip("this model folder has no presence.npz")
+    for answer in ("Not sure", "No"):
+        at = run(NO_FETUS_SCAN, answer)
+        assert verdict_text(at) == ("No fetus seen", "No fetal head seen in this scan")
+        h = html_of(at)
+        assert "No fetal head was found" in h and "No estimate" in h
+        assert "cannot rule a pregnancy out" in h
+        assert "Cryptic by the usual definition" not in h and "Consistent with a cryptic" not in h
+        assert "promptly for confirmation, dating and antenatal care" not in h
+        assert image_badge(at) is None or image_badge(at) == "No fetus"
+
+
+@needs_model
 def test_borderline_scan_shows_both_readings():
     # The wording may be softened ("May be consistent ...") if a retrain turns this scan Limited.
     h = html_of(run(NEAR20, "No"))
@@ -139,7 +155,7 @@ def test_workstation_chrome_and_accessibility():
     for badge in re.findall(r'<span class="badge [^"]*">(.*?)</span></span>', h, re.S):
         assert "<svg" in badge                        # status is never colour alone: icon + text
     assert len(at.tabs) >= 3 and [r.label for r in at.radio if r.label == "Navigation"]
-    names = re.findall(r"<span>(Good|Limited|Poor|Rejected)</span>", h)
+    names = re.findall(r"<span>(Good|Limited|Poor|Rejected|No fetus)</span>", h)
     assert names
 
 

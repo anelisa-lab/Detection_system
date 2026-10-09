@@ -35,6 +35,7 @@ BADGES = {
     "Limited": ("limited", "warn", "Limited"),
     "Poor": ("poor", "cross", "Poor"),
     "Rejected": ("grey", "ring", "Rejected"),
+    "No fetus": ("grey", "ring", "No fetus"),
     "Unreadable": ("grey", "ring", "Unreadable"),
 }
 # screening badge -> (css class, icon name)
@@ -43,6 +44,7 @@ VERDICTS = {
     "Possibly cryptic": ("limited", "ring"),
     "Not cryptic": ("info", "check"),
     "Cannot assess": ("grey", "ring"),
+    "No fetus seen": ("grey", "ring"),
 }
 
 _ICONS = {
@@ -175,7 +177,12 @@ def tile(label: str, value: str, sub: str, gauge_html: str = "") -> str:
 
 def tiles(res, half_days: float, ref, heat_min: float, rejected: bool, base_half: float, hide_age: bool = False) -> str:
     if rejected:
-        if getattr(res, "rejected_by", None) == "head check" and res.head_score is not None:
+        if getattr(res, "no_fetus", False) and res.head_present_prob is not None:
+            thr = res.presence_threshold or 0.5
+            score_tile = tile("Fetal-head presence", f"{res.head_present_prob:.0%}",
+                              f"refused below {thr:.0%} (higher is more head-like)",
+                              gauge(float(res.head_present_prob), [(thr, "acceptance limit")], "fetal head presence"))
+        elif getattr(res, "rejected_by", None) == "head check" and res.head_score is not None:
             lo, hi = res.head_threshold - 8.0, res.head_threshold + 8.0
             score_tile = tile("Head-view check", f"{res.head_score:+.1f}",
                               f"refused below {res.head_threshold:+.1f} (higher is more head-like)",

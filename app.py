@@ -27,7 +27,7 @@ from hcml.screening import ANSWERS, screen
 MODEL_DIR = Path(os.environ.get("MODEL_DIR", "artifacts"))
 PAGE_SIZE = 20
 MAX_PDF_SCANS = 100
-BADGE_ORDER = ["Good", "Limited", "Poor", "Rejected", "Unreadable"]
+BADGE_ORDER = ["Good", "Limited", "Poor", "Rejected", "No fetus", "Unreadable"]
 
 st.set_page_config(page_title="Ultrasound age estimate", page_icon="🩺", layout="wide")
 light = bool(st.session_state.get("light", False))
@@ -207,13 +207,15 @@ def describe(entry, i):
     message = (res.notes[0] if rejected else
                f"The image check is {res.badge}, so an age estimate would be unreliable. Why: {why}.")
     v = {"res": res, "ga": ga, "half": half, "src": src, "rejected": rejected, "limited": limited, "sc": sc,
-         "crl": crl, "badge": res.badge, "hidden": hidden, "no_estimate_msg": message}
+         "crl": crl, "badge": res.badge, "hidden": hidden, "no_estimate_msg": message,
+         "no_fetus": res.no_fetus}
     if ga is not None:
         v.update(lo=max(ga - half / 7, 0), hi=ga + half / 7, tri=trimester(ga), due=due_date(ga),
                  headline=fmt_weeks_days(ga))
         v["paras"] = content.what_scan_suggests(ga) if (src == "crl" or not limited) else [content.UNRELIABLE_SENTENCE]
     else:
-        v.update(headline="No estimate", paras=[content.UNRELIABLE_SENTENCE])
+        v.update(headline="No estimate",
+                 paras=[content.NO_FETUS_SENTENCE if res.no_fetus else content.UNRELIABLE_SENTENCE])
     return v
 
 
@@ -352,7 +354,11 @@ def page_scan():
             st.warning(LIMITED_WARNING)
         if v["ga"] is None:
             st.markdown(ui.no_estimate_card(v["no_estimate_msg"]), unsafe_allow_html=True)
-            st.markdown('<div class="hint">The model was trained on standard head views from about 12 to 40 weeks. '
+            st.markdown('<div class="hint">'
+                        + ('No fetal head was found. For a scan of someone who is not pregnant this is the expected '
+                           'result. The tool cannot rule a pregnancy out, so if there is any doubt a pregnancy test '
+                           'and a clinician can confirm. ' if v["no_fetus"] else '')
+                        + 'The model was trained on standard head views from about 12 to 40 weeks. '
                         'First-trimester whole-fetus (CRL) views, photos and unusual frames are outside that, and '
                         'image-based first-trimester scans are not supported yet.</div>', unsafe_allow_html=True)
         if v["rejected"]:
@@ -408,7 +414,7 @@ def page_batch():
     f1, f2, f3 = st.columns([2, 2, 1.6])
     present = [k for k in BADGE_ORDER if counts[k]]
     pick = f1.multiselect("Filter by image check", present, default=present, key="f_badge")
-    verdicts = ["Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess"]
+    verdicts = ["Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess", "No fetus seen"]
     vpick = f2.multiselect("Filter by screening result", verdicts, default=verdicts, key="f_verdict")
     order = f3.selectbox("Sort by", ["File name", "Estimate, low to high", "Estimate, high to low",
                                      "Image check, best first", "Screening result"], key="sort")
@@ -481,6 +487,8 @@ def page_about():
         + "<p><b>Head-view check.</b> A second check, trained on fetal brain, abdomen, femur, thorax, cervix and "
           "other planes plus HC18 head scans, refuses images that do not look like a standard fetal head view. An "
           "image is accepted only if both checks accept it.</p>"
+        + "<p><b>Fetal-head presence check.</b> A third check asks whether a fetal head is in the image at all; if "
+          "not (for example a scan of someone who is not pregnant) the result is No fetus, with no age.</p>"
         + "<p><b>Screening.</b> A cryptic pregnancy cannot be identified from a scan alone. The result combines the "
           "scan estimate with one question: did you know you were pregnant before this scan?</p>"
         + "<p><b>Limits.</b> Single-centre data; first-trimester scans are measured by crown-rump length, which the "

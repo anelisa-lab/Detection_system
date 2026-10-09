@@ -56,6 +56,8 @@ majority class: **mid 42.3% (26 scans)** and **late 35.7% (14 scans)**.
 - Grad-CAM: median overlap with the skull 54.0%; 54.1% of scans have at least half the heatmap on the skull; the
   peak is on the skull in 64.2%.
 - Input check cut points: warn 0.194, reject 0.225 (see below).
+- Fetal-head presence check: a scan with no fetal head (for example someone who is not pregnant) gets "No fetus
+  seen" and no age (see below).
 
 ### Data
 
@@ -100,7 +102,8 @@ does not give its numbers, so set them to the ones the group used), `--no-denois
 | Confusion matrix, regression scatter, Grad-CAM on 2 correct and 2 misclassified test images | `reports/*.png` |
 | DICOM input via pydicom | `hcml/preprocess.py`, used by the app |
 
-Outputs in `artifacts/`: `model.keras`, `locator.keras`, `ood_reference.npz`, `metadata.json`, and `reports/`
+Outputs in `artifacts/`: `model.keras`, `locator.keras`, `ood_reference.npz`, `presence.npz` (from
+`scripts/train_presence.py`, run after `train.py`), `metadata.json`, and `reports/`
 (metrics, confusion matrix, training curves, regression scatter, Grad-CAM examples, splits, features; `reports/` is
 git-ignored). Head circumference is never a model input. `metadata.json` stores the HC mean/std and the error range
 shown in the app. The head-view check files in `artifacts/head_check/` are not produced by `train.py`: they are exported from
@@ -121,6 +124,35 @@ image check is Poor, or the head-view check or the image check refuses the image
 short reason, no age headline, no age-derived tiles and no cryptic label. Several uploads give
 a per-image result, an overall average, a CSV and a PDF report.
 
+### No fetus seen (scan of someone who is not pregnant)
+
+The age model always returns a number, and the input check only measures how unusual an image is, so an
+ultrasound without a fetus could still get a gestational age. `hcml/presence.py` adds one more question: is a
+fetal head in the image at all? It is a logistic regression on the 2048-d ResNet50 embedding the app already
+computes. Positives are the HC18 training embeddings (`artifacts/ood_reference.npz`); negatives are ultrasound
+images with no head. If the probability is below the threshold in `artifacts/presence.npz`, the app shows
+**No fetus seen**, no age, no heatmap and no cryptic-pregnancy result.
+
+The result never says "not pregnant" outright, because the tool cannot rule a pregnancy out (a very early
+pregnancy or another view may show no head), and a first-trimester CRL view also has no head. Such scans stay
+"Rejected" / "Cannot assess" and keep the CRL box.
+
+```bash
+python scripts/train_presence.py                          # proxies: heads erased from scans in tests/fixtures
+python scripts/train_presence.py --erase-from data/hc18/training_set --max-erase 200
+python scripts/train_presence.py --negatives path/to/non_pregnant_scans    # real scans: best
+```
+
+**Evidence and limits.** No real scans of non-pregnant people were available when this was built, so the
+shipped `presence.npz` was trained on head-free proxies made from eight fixture scans (head erased by speckle
+fill or inpainting). Leave-one-source-out, a head-free scan whose source image was not in training gets P(head)
+of 0.02 to 0.24 against a threshold of 0.5, while all of the cross-validated HC18 training embeddings pass.
+The head-view check alone still gave ages to 4 of the 10 head-free test images at its default 95 setting and
+6 of 10 at 98. Fetal abdomen, femur and thorax views and the first-trimester CRL view score as fetal here
+(P >= 0.7), so they keep the head-view check's "not a head view" result rather than "No fetus seen". Real
+abdominal and pelvic scans of non-pregnant people have not been tested. Before relying on it, collect some
+(de-identified, with permission), run them through the app and retrain with `--negatives`.
+
 ### Cryptic pregnancy screening result
 
 The scan is the main evidence; it cannot show whether the person knew about the pregnancy, so the app asks one
@@ -131,6 +163,7 @@ into one result, using the usual definition (cryptic = not recognised until abou
 
 | Situation | Result |
 |---|---|
+| No fetal head found (presence check) | **No fetus seen** ("This image does not show a fetal head ... cannot rule a pregnancy out"); no age, no cryptic result |
 | Image check Poor, estimate withheld, or refused by the head-view check or the image check | Cannot assess ("the scan is not a reliable head view ... If you are worried, please see a clinician regardless."), with **No estimate** shown instead of an age |
 | Found out at about 20 weeks or later (answer Yes with a week of 20 or more) | **Cryptic**, whatever the scan estimate; if the scan suggests under 20 weeks a note says the two disagree |
 | Estimate under 20 weeks | Not cryptic by the usual definition |

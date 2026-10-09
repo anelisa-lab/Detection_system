@@ -1,7 +1,7 @@
 """Unit tests for the cryptic pregnancy screening verdict (no model needed)."""
 import pytest
 
-from hcml.screening import (CANNOT, CRYPTIC, NO, NOT_CRYPTIC, NOT_SURE, POSSIBLY, YES, screen)
+from hcml.screening import (CANNOT, CRYPTIC, NO, NO_FETUS, NOT_CRYPTIC, NOT_SURE, POSSIBLY, YES, screen)
 
 HALF = 14.0   # +/- 14 days = +/- 2 weeks
 
@@ -131,3 +131,11 @@ def test_pdf_report_contains_verdict_answer_and_reason():
                          "screen_badge": s.badge, "screen_label": s.label,
                          "screen_lines": [s.sentence, s.why, "Your answer: No"], "summary": ["x"]}])
     assert pdf[:4] == b"%PDF" and len(pdf) > 2000
+
+
+@pytest.mark.parametrize("answer", [YES, NO, NOT_SURE])
+def test_no_fetal_head_gives_no_fetus_seen_whatever_the_answer(answer):
+    s = screen(None, HALF, "No fetus", answer, 22.0 if answer == YES else None)
+    assert s.badge == NO_FETUS and s.label == "No fetal head seen in this scan"
+    assert "cannot rule a pregnancy out" in s.sentence and "pregnancy test" in s.sentence
+    assert not s.borderline and not s.readings and s.kind == "grey"

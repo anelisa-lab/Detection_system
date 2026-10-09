@@ -67,6 +67,10 @@ FOOTER = ("Research prototype, not a diagnostic device and not validated on cryp
 UNRELIABLE_SENTENCE = ("This estimate is unreliable for this image. Please retake the scan or use a "
                        "standard head circumference view.")
 
+NO_FETUS_SENTENCE = ("No fetal head was found in this image, so this tool has nothing to date. If the person is not "
+                     "pregnant, that is expected. If there is any doubt about a pregnancy, a pregnancy test and a "
+                     "clinician can confirm.")
+
 CRYPTIC_NOTE = (
     "A cryptic pregnancy cannot be identified from a scan alone, because it depends on the person not "
     "knowing they are pregnant. The scan can only show the stage of development, which a clinician then "

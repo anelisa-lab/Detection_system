@@ -14,7 +14,8 @@ YES, NO, NOT_SURE = "Yes", "No", "Not sure"
 ANSWERS = [YES, NO, NOT_SURE]
 
 CRYPTIC, POSSIBLY, NOT_CRYPTIC, CANNOT = "Cryptic", "Possibly cryptic", "Not cryptic", "Cannot assess"
-KIND = {CRYPTIC: "amber", POSSIBLY: "amber", NOT_CRYPTIC: "blue", CANNOT: "grey"}
+NO_FETUS = "No fetus seen"
+KIND = {CRYPTIC: "amber", POSSIBLY: "amber", NOT_CRYPTIC: "blue", CANNOT: "grey", NO_FETUS: "grey"}
 
 _LABEL = {
     "early": "Not cryptic by the usual definition",
@@ -65,9 +66,16 @@ def _side(late: bool, answer: str) -> str:
 
 def screen(ga_weeks: float | None, half_days: float, image_badge: str, answer: str = NOT_SURE,
            weeks_found: float | None = None, image_reason: str = "") -> Screening:
-    """image_badge is the image check: Good, Limited, Poor or Rejected. ga_weeks is None when withheld."""
+    """image_badge is the image check: Good, Limited, Poor, Rejected or No fetus. ga_weeks is None when withheld."""
     if answer not in ANSWERS:
         answer = NOT_SURE
+    if image_badge == "No fetus":
+        return Screening(NO_FETUS, "No fetal head seen in this scan",
+                         "This image does not show a fetal head, so there is no gestational age and no cryptic "
+                         "pregnancy result. This is what to expect from a scan of someone who is not pregnant. The "
+                         "tool cannot rule a pregnancy out: a very early pregnancy or a different view may not show a "
+                         "head. If there is any doubt, a pregnancy test and a clinician can confirm.",
+                         "Why: no fetal head was found in the image.", KIND[NO_FETUS])
     if ga_weeks is None or image_badge in ("Poor", "Rejected"):
         return Screening(CANNOT, "Cannot assess",
                          "The scan is not a reliable head view, so no screening result is given. Please retake "
