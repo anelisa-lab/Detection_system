@@ -129,7 +129,7 @@ def test_scan_with_no_fetus_says_so_and_gives_no_age():
         at = run(NO_FETUS_SCAN, answer)
         assert verdict_text(at) == ("No fetus seen", "No fetal head seen in this scan")
         h = html_of(at)
-        assert "No fetal head was found" in h and "No estimate" in h
+        assert "No fetal head was found" in h and "Not pregnant" in h
         assert "cannot rule a pregnancy out" in h
         assert "Cryptic by the usual definition" not in h and "Consistent with a cryptic" not in h
         assert "promptly for confirmation, dating and antenatal care" not in h

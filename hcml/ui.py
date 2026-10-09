@@ -140,7 +140,10 @@ def primary_card(ga, lo, hi, tri, due, badge, note="", src="model") -> str:
                 + (f'<div class="note">{note}</div>' if note else ""), "primary")
 
 
-def no_estimate_card(message: str) -> str:
+def no_estimate_card(message: str, not_pregnant: bool = False) -> str:
+    if not_pregnant:
+        return card(eyebrow("Pregnancy") + '<div class="hero">Not pregnant</div>'
+                    + f'<div class="range">{html.escape(message)}</div>', "primary")
     return card(eyebrow("Estimated gestational age") + '<div class="hero muted">No estimate</div>'
                 + f'<div class="range">{html.escape(message)}</div>', "primary")
 
@@ -192,7 +195,7 @@ def tiles(res, half_days: float, ref, heat_min: float, rejected: bool, base_half
             score_tile = tile("Image-check score", f"{res.distance:.3f}", f"refused above {ref.reject:.3f} (lower is better)",
                               gauge(res.distance / (ref.reject * 1.4), [(1 / 1.4, "refusal limit")], "image check score"))
         dash = [tile("Head circumference", "—", "not measured"), tile("Heatmap on skull", "—", "no heatmap"),
-                score_tile, tile("Range width", "—", "no estimate")]
+                score_tile, tile("Range width", "—", "not applicable" if getattr(res, "no_fetus", False) else "no estimate")]
         return f'<div class="tiles">{"".join(dash)}</div>'
     hc_lo, hc_hi = 44.0, 346.0
     ov = res.overlap or 0.0
