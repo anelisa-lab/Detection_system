@@ -20,7 +20,7 @@ def open_app(p, width=1500, height=2300):
     browser = p.chromium.launch(channel="chrome", headless=True)
     page = browser.new_page(viewport={"width": width, "height": height})
     page.goto(URL)
-    page.wait_for_selector("text=Early detection of cryptic pregnancy", timeout=60000)
+    page.wait_for_selector("text=Discovery screening aid for cryptic pregnancy", timeout=60000)
     return browser, page
 
 

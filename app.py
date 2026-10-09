@@ -126,7 +126,7 @@ with st.sidebar:
 
 # --- top bar, question and upload ---------------------------------------------------------------------
 
-st.markdown('<div class="topbar"><h1>Early detection of cryptic pregnancy</h1>'
+st.markdown('<div class="topbar"><h1>Discovery screening aid for cryptic pregnancy</h1>'
             '<span class="sub">Ultrasound prototype · gestational age from the fetal head</span></div>',
             unsafe_allow_html=True)
 
